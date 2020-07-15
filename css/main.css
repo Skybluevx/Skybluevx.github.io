@@ -1936,9 +1936,6 @@ pre code {
 .back-to-top {
   font-size: 12px;
 }
-.back-to-top span {
-  display: none;
-}
 .back-to-top {
   margin: 8px -10px -20px;
   opacity: 0;
@@ -1963,15 +1960,6 @@ pre code {
   top: 0;
   width: 100%;
   z-index: 1500;
-}
-.reading-progress-bar {
-  background: #37c6c0;
-  height: 3px;
-  left: 0;
-  position: fixed;
-  width: 0;
-  z-index: 1500;
-  top: 0;
 }
 .post-body {
   font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
