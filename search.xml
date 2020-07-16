@@ -245,9 +245,94 @@
 <h1 id="样式一：注意（引导程序标注）"><a href="#样式一：注意（引导程序标注）" class="headerlink" title="样式一：注意（引导程序标注）"></a>样式一：注意（引导程序标注）</h1><h2 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h2><p>首先我们要在<code>next/_config.yml</code>文件中进行设置，设置如下：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">note:</span><br><span class="line">  # Note tag style values:</span><br><span class="line">  #  - simple    bs-callout old alert style. Default.</span><br><span class="line">  #  - modern    bs-callout new (v2-v3) alert style.</span><br><span class="line">  #  - flat      flat callout style with background, like on Mozilla or StackOverflow.</span><br><span class="line">  #  - disabled  disable all CSS styles import of note tag.</span><br><span class="line">  style: simple</span><br><span class="line">  icons: false</span><br><span class="line">  # Offset lighter of background in % for modern and flat styles (modern: -12 | 12; flat: -18 | 6).</span><br><span class="line">  # Offset also applied to label tag variables. This option can work with disabled note tag.</span><br><span class="line">  light_bg_offset: 0</span><br></pre></td></tr></table></figure>
 
-<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;% note %&#125;</span><br><span class="line">#### Header</span><br><span class="line">(没有定义任何样式)</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><h3 id="没有定义任何样式"><a href="#没有定义任何样式" class="headerlink" title="没有定义任何样式"></a>没有定义任何样式</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;% note %&#125;</span><br><span class="line">#### Header</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
 
-<div class="note "><h4 id="Header"><a href="#Header" class="headerlink" title="Header"></a>Header</h4><p>(没有定义任何样式)</p>
+<div class="note "><h4 id="Header"><a href="#Header" class="headerlink" title="Header"></a>Header</h4></div>
+
+<h3 id="默认样式"><a href="#默认样式" class="headerlink" title="默认样式"></a>默认样式</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;% note default %&#125;</span><br><span class="line">#### Default Header</span><br><span class="line">Welcome to [Hexo!](https:&#x2F;&#x2F;hexo.io)</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
+
+<div class="note default"><h4 id="Default-Header"><a href="#Default-Header" class="headerlink" title="Default Header"></a>Default Header</h4><p>Welcome to <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo!<i class="fa fa-external-link-alt"></i></span></p>
+</div>
+
+<h3 id="基本样式"><a href="#基本样式" class="headerlink" title="基本样式"></a>基本样式</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;% note primary %&#125;</span><br><span class="line">#### Primary Header</span><br><span class="line">**Welcome** to [Hexo!](https:&#x2F;&#x2F;hexo.io)</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
+
+<div class="note primary"><h4 id="Primary-Header"><a href="#Primary-Header" class="headerlink" title="Primary Header"></a>Primary Header</h4><p><strong>Welcome</strong> to <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo!<i class="fa fa-external-link-alt"></i></span></p>
+</div>
+
+<h3 id="信息样式"><a href="#信息样式" class="headerlink" title="信息样式"></a>信息样式</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;% note info %&#125;</span><br><span class="line">### Info Header</span><br><span class="line">**Welcome** to [Hexo!](https:&#x2F;&#x2F;hexo.io)</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
+
+<div class="note info"><h3 id="Info-Header"><a href="#Info-Header" class="headerlink" title="Info Header"></a>Info Header</h3><p><strong>Welcome</strong> to <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo!<i class="fa fa-external-link-alt"></i></span></p>
+</div>
+
+<h3 id="成功样式"><a href="#成功样式" class="headerlink" title="成功样式"></a>成功样式</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;% note warning %&#125;</span><br><span class="line">#### Warning Header</span><br><span class="line">**Welcome** to [Hexo!](https:&#x2F;&#x2F;hexo.io)</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
+
+<div class="note warning"><h4 id="Warning-Header"><a href="#Warning-Header" class="headerlink" title="Warning Header"></a>Warning Header</h4><p><strong>Welcome</strong> to <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo!<i class="fa fa-external-link-alt"></i></span></p>
+</div>
+
+<h3 id="警告样式"><a href="#警告样式" class="headerlink" title="警告样式"></a>警告样式</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;% note warning %&#125;</span><br><span class="line">#### Warning Header</span><br><span class="line">**Welcome** to [Hexo!](https:&#x2F;&#x2F;hexo.io)</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
+
+<div class="note warning"><h4 id="Warning-Header"><a href="#Warning-Header" class="headerlink" title="Warning Header"></a>Warning Header</h4><p><strong>Welcome</strong> to <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo!<i class="fa fa-external-link-alt"></i></span></p>
+</div>
+
+<h3 id="危险样式"><a href="#危险样式" class="headerlink" title="危险样式"></a>危险样式</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;% note danger %&#125;</span><br><span class="line">#### Danger Header</span><br><span class="line">**Welcome** to [Hexo!](https:&#x2F;&#x2F;hexo.io)</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
+
+<div class="note danger"><h4 id="Danger-Header"><a href="#Danger-Header" class="headerlink" title="Danger Header"></a>Danger Header</h4><p><strong>Welcome</strong> to <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo!<i class="fa fa-external-link-alt"></i></span></p>
+</div>
+
+<h3 id="没有图标的注意样式"><a href="#没有图标的注意样式" class="headerlink" title="没有图标的注意样式"></a>没有图标的注意样式</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;% note info no-icon %&#125;</span><br><span class="line">#### No icon note</span><br><span class="line">Note **without** icon: &#96;note info no-icon&#96;</span><br><span class="line"></span><br><span class="line">note info, note info, note info</span><br><span class="line">note info, note info, note info</span><br><span class="line">note info, note info, note info</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
+
+<div class="note info no-icon"><h4 id="No-icon-note"><a href="#No-icon-note" class="headerlink" title="No icon note"></a>No icon note</h4><p>Note <strong>without</strong> icon: <code>note info no-icon</code></p>
+<p>note info, note info, note info<br>note info, note info, note info<br>note info, note info, note info</p>
+</div>
+
+<h3 id="嵌套样式（代码块）"><a href="#嵌套样式（代码块）" class="headerlink" title="嵌套样式（代码块）"></a>嵌套样式（代码块）</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;% note success %&#125;</span><br><span class="line">#### Codeblock in note</span><br><span class="line">&#123;% code %&#125;</span><br><span class="line">code block in note tag</span><br><span class="line">code block in note tag</span><br><span class="line">code block in note tag</span><br><span class="line">&#123;% endcode %&#125;</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
+
+<div class="note success"><h4 id="Codeblock-in-note"><a href="#Codeblock-in-note" class="headerlink" title="Codeblock in note"></a>Codeblock in note</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">code block in note tag</span><br><span class="line">code block in note tag</span><br><span class="line">code block in note tag</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="嵌套样式（列表）"><a href="#嵌套样式（列表）" class="headerlink" title="嵌套样式（列表）"></a>嵌套样式（列表）</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;% note default %&#125;</span><br><span class="line">#### Lists in note</span><br><span class="line">* ul</span><br><span class="line">* ul</span><br><span class="line">  * ul</span><br><span class="line">  * ul</span><br><span class="line">* ul</span><br><span class="line"></span><br><span class="line">1. ol</span><br><span class="line">2. ol</span><br><span class="line">  1. ol</span><br><span class="line">  2. ol</span><br><span class="line">3. ol</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
+
+<div class="note default"><h4 id="Lists-in-note"><a href="#Lists-in-note" class="headerlink" title="Lists in note"></a>Lists in note</h4><ul>
+<li>ul</li>
+<li>ul<ul>
+<li>ul</li>
+<li>ul</li>
+</ul>
+</li>
+<li>ul</li>
+</ul>
+<ol>
+<li>ol</li>
+<li>ol<ol>
+<li>ol</li>
+<li>ol</li>
+</ol>
+</li>
+<li>ol</li>
+</ol>
+</div>
+
+<h3 id="嵌套样式（表格）"><a href="#嵌套样式（表格）" class="headerlink" title="嵌套样式（表格）"></a>嵌套样式（表格）</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#### Table in Note</span><br><span class="line">&#123;% note default %&#125;</span><br><span class="line">| 1 | 2 |</span><br><span class="line">| - | - |</span><br><span class="line">| 3 | 4 |</span><br><span class="line">| 5 | 6 |</span><br><span class="line">| 7 | 8 |</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Table-in-Note"><a href="#Table-in-Note" class="headerlink" title="Table in Note"></a>Table in Note</h4><div class="note default"><table>
+<thead>
+<tr>
+<th>1</th>
+<th>2</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>3</td>
+<td>4</td>
+</tr>
+<tr>
+<td>5</td>
+<td>6</td>
+</tr>
+<tr>
+<td>7</td>
+<td>8</td>
+</tr>
+</tbody></table>
 </div>
 
 ]]></content>
