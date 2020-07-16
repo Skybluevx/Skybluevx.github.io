@@ -418,7 +418,87 @@
 </div>
 </div></div></div></div></div></div></div></div></div></div>
 
-]]></content>
+<h1 id="技巧三：PDF"><a href="#技巧三：PDF" class="headerlink" title="技巧三：PDF"></a>技巧三：PDF</h1><h2 id="设置-2"><a href="#设置-2" class="headerlink" title="设置"></a>设置</h2><p><code>next/_config.yml</code></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pdf:</span><br><span class="line">  enable: true</span><br><span class="line">  # Default height</span><br><span class="line">  height: 500px</span><br></pre></td></tr></table></figure>
+
+<h2 id="例子-2"><a href="#例子-2" class="headerlink" title="例子"></a>例子</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;% pdf https:&#x2F;&#x2F;example.com&#x2F;sample.pdf %&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;% pdf &#x2F;path&#x2F;to&#x2F;your&#x2F;file.pdf 600px %&#125;</span><br></pre></td></tr></table></figure>
+
+<p>后面的<code>600px</code>为设置<code>pdf</code>的高度，单位为像素。</p>
+<h1 id="技巧四：标记"><a href="#技巧四：标记" class="headerlink" title="技巧四：标记"></a>技巧四：标记</h1><h2 id="例子-3"><a href="#例子-3" class="headerlink" title="例子"></a>例子</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Lorem &#123;% label @ipsum %&#125; &#123;% label primary@dolor sit %&#125; amet, consectetur &#123;% label success@adipiscing elit, %&#125; sed &#123;% label info@do eiusmod %&#125; tempor incididunt ut labore et dolore magna aliqua.</span><br><span class="line"></span><br><span class="line">Ut enim *&#123;% label warning @ad %&#125;* minim veniam, quis **&#123;% label danger@nostrud %&#125;** exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span><br><span class="line"></span><br><span class="line">Duis aute irure dolor in reprehenderit in voluptate ~~&#123;% label default @velit %&#125;~~ &lt;mark&gt;esse&lt;&#x2F;mark&gt; cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span><br></pre></td></tr></table></figure>
+
+<p>Lorem <mark class="label default">ipsum</mark> <mark class="label primary">dolor sit</mark> amet, consectetur <mark class="label success">adipiscing elit,</mark> sed <mark class="label info">do eiusmod</mark> tempor incididunt ut labore et dolore magna aliqua.</p>
+<p>Ut enim *<mark class="label warning">ad</mark>* minim veniam, quis <strong><mark class="label danger">nostrud</mark></strong> exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+<p>Duis aute irure dolor in reprehenderit in voluptate <del><mark class="label default">velit</mark></del> <mark>esse</mark> cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<h1 id="技巧五：视频"><a href="#技巧五：视频" class="headerlink" title="技巧五：视频"></a>技巧五：视频</h1><h2 id="例子-4"><a href="#例子-4" class="headerlink" title="例子"></a>例子</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;% video https:&#x2F;&#x2F;example.com&#x2F;sample.mp4 %&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;% video &#x2F;path&#x2F;to&#x2F;your&#x2F;video.mp4 %&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="技巧六：按钮"><a href="#技巧六：按钮" class="headerlink" title="技巧六：按钮"></a>技巧六：按钮</h1><h2 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;% button url, text, icon [class], [title] %&#125;</span><br><span class="line">&lt;!-- Tag Alias --&gt;</span><br><span class="line">&#123;% btn url, text, icon [class], [title] %&#125;</span><br><span class="line"></span><br><span class="line">url     : Absolute or relative path to URL.</span><br><span class="line">text    : Button text. Required if no icon specified.</span><br><span class="line">icon    : FontAwesome icon name (without &#39;fa-&#39; at the begining). Required if no text specified.</span><br><span class="line">[class] : FontAwesome class(es): fa-fw | fa-lg | fa-2x | fa-3x | fa-4x | fa-5x</span><br><span class="line">          Optional parameter.</span><br><span class="line">[title] : Tooltip at mouseover.</span><br><span class="line">          Optional parameter.</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="例子-5"><a href="#例子-5" class="headerlink" title="例子"></a>例子</h2><h3 id="简单样式"><a href="#简单样式" class="headerlink" title="简单样式"></a>简单样式</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;% button #, Text %&#125;</span><br></pre></td></tr></table></figure>
+
+<a class="btn" href="#"><i class="fa fa-"></i>Text</a>
+
+<h3 id="带有文本和标题的按钮"><a href="#带有文本和标题的按钮" class="headerlink" title="带有文本和标题的按钮"></a>带有文本和标题的按钮</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;% btn #, Text %&#125;&#123;% btn #, Text &amp; Title,, Title %&#125;</span><br></pre></td></tr></table></figure>
+
+<a class="btn" href="#"><i class="fa fa-"></i>Text</a><a class="btn" href="#" title="Title"><i class="fa fa-"></i>Text & Title</a>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;% btn #, Text %&#125; &#123;% btn #, Text &amp; Title,, Title %&#125;</span><br></pre></td></tr></table></figure>
+
+<a class="btn" href="#"><i class="fa fa-"></i>Text</a> <a class="btn" href="#" title="Title"><i class="fa fa-"></i>Text & Title</a>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;% btn #, Text %&#125;</span><br><span class="line">&#123;% btn #, Text &amp; Title,, Title %&#125;</span><br></pre></td></tr></table></figure>
+
+<a class="btn" href="#"><i class="fa fa-"></i>Text</a>
+<a class="btn" href="#" title="Title"><i class="fa fa-"></i>Text & Title</a>
+
+<h3 id="带有图标的按钮"><a href="#带有图标的按钮" class="headerlink" title="带有图标的按钮"></a>带有图标的按钮</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;% btn #,, home fa-5x %&#125;&#123;% btn #,, home fa-5x %&#125;&#123;% btn #,, home fa-5x %&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;% btn #,, home fa-4x %&#125;&#123;% btn #,, home fa-4x %&#125;&#123;% btn #,, home fa-4x %&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;% btn #,, home fa-3x %&#125;&#123;% btn #,, home fa-3x %&#125;&#123;% btn #,, home fa-3x %&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;% btn #,, home fa-2x %&#125;&#123;% btn #,, home fa-2x %&#125;&#123;% btn #,, home fa-2x %&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;% btn #,, home fa-lg %&#125;&#123;% btn #,, home fa-lg %&#125;&#123;% btn #,, home fa-lg %&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;% btn #,, home %&#125;&#123;% btn #,, home %&#125;&#123;% btn #,, home %&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<div><a class="btn" href="#"><i class="fa fa-home fa-5x"></i></a><a class="btn" href="#"><i class="fa fa-home fa-5x"></i></a><a class="btn" href="#"><i class="fa fa-home fa-5x"></i></a></div>
+<div><a class="btn" href="#"><i class="fa fa-home fa-4x"></i></a><a class="btn" href="#"><i class="fa fa-home fa-4x"></i></a><a class="btn" href="#"><i class="fa fa-home fa-4x"></i></a></div>
+<div><a class="btn" href="#"><i class="fa fa-home fa-3x"></i></a><a class="btn" href="#"><i class="fa fa-home fa-3x"></i></a><a class="btn" href="#"><i class="fa fa-home fa-3x"></i></a></div>
+<div><a class="btn" href="#"><i class="fa fa-home fa-2x"></i></a><a class="btn" href="#"><i class="fa fa-home fa-2x"></i></a><a class="btn" href="#"><i class="fa fa-home fa-2x"></i></a></div>
+<div><a class="btn" href="#"><i class="fa fa-home fa-lg"></i></a><a class="btn" href="#"><i class="fa fa-home fa-lg"></i></a><a class="btn" href="#"><i class="fa fa-home fa-lg"></i></a></div>
+<div><a class="btn" href="#"><i class="fa fa-home"></i></a><a class="btn" href="#"><i class="fa fa-home"></i></a><a class="btn" href="#"><i class="fa fa-home"></i></a></div>
+
+<h3 id="带有文本和图标的按钮"><a href="#带有文本和图标的按钮" class="headerlink" title="带有文本和图标的按钮"></a>带有文本和图标的按钮</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;p&gt;&#123;% btn #, Text &amp; Icon (buggy), home %&#125;</span><br><span class="line">&#123;% btn #, Text &amp; Icon (fixed width), home fa-fw %&#125;&lt;&#x2F;p&gt;</span><br></pre></td></tr></table></figure>
+
+<p><a class="btn" href="#"><i class="fa fa-home"></i>Text & Icon (buggy)</a>
+<a class="btn" href="#"><i class="fa fa-home fa-fw"></i>Text & Icon (fixed width)</a></p>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;p&gt;&#123;% btn #, Text &amp; Large Icon, home fa-fw fa-lg %&#125;</span><br><span class="line">&#123;% btn #, Text &amp; Large Icon &amp; Title, home fa-fw fa-lg, Title %&#125;&lt;&#x2F;p&gt;</span><br></pre></td></tr></table></figure>
+
+<p><a class="btn" href="#"><i class="fa fa-home fa-fw fa-lg"></i>Text & Large Icon</a>
+<a class="btn" href="#" title="Title"><i class="fa fa-home fa-fw fa-lg"></i>Text & Large Icon & Title</a></p>
+
+<h3 id="文本中的按钮"><a href="#文本中的按钮" class="headerlink" title="文本中的按钮"></a>文本中的按钮</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Lorem &#123;% btn #, Lorem, home fa-fw fa-lg %&#125; ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span><br><span class="line"></span><br><span class="line">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident &#123;% btn #, Ipsum, home fa-fw fa-lg %&#125;, sunt in culpa qui officia deserunt mollit anim id est laborum.</span><br></pre></td></tr></table></figure>
+
+<p>Lorem <a class="btn" href="#"><i class="fa fa-home fa-fw fa-lg"></i>Lorem</a> ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident <a class="btn" href="#"><i class="fa fa-home fa-fw fa-lg"></i>Ipsum</a>, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<h3 id="其他标签内的按钮"><a href="#其他标签内的按钮" class="headerlink" title="其他标签内的按钮"></a>其他标签内的按钮</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;% note info %&#125;</span><br><span class="line">&#123;% btn #, Text &amp; Icon, home fa-fw %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% btn #,, home, Title %&#125;&#123;% btn #, Text %&#125;</span><br><span class="line"></span><br><span class="line">[Link](#)</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
+
+<div class="note info"><p><a class="btn" href="#"><i class="fa fa-home fa-fw"></i>Text &amp; Icon</a></p>
+<p><a class="btn" href="#" title="Title"><i class="fa fa-home"></i></a><a class="btn" href="#"><i class="fa fa-"></i>Text</a></p>
+<p><a href="#">Link</a></p>
+</div>
+
+<h3 id="按钮边距"><a href="#按钮边距" class="headerlink" title="按钮边距"></a>按钮边距</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class&#x3D;&quot;text-center&quot;&gt;&lt;div&gt;&#123;% btn #,, heading %&#125;&#123;% btn #,, fab fa-edge %&#125;&#123;% btn #,, times %&#125;&#123;% btn #,, far fa-circle %&#125;&lt;&#x2F;div&gt;</span><br><span class="line">&lt;div&gt;&#123;% btn #,, italic %&#125;&#123;% btn #,, fab fa-scribd %&#125;&lt;&#x2F;div&gt;</span><br><span class="line">&lt;div&gt;&#123;% btn #,, fab fa-google %&#125;&#123;% btn #,, fab fa-chrome %&#125;&#123;% btn #,, fab fa-opera %&#125;&#123;% btn #,, gem fa-rotate-270 %&#125;&lt;&#x2F;div&gt;&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+
+<div class="text-center"><div><a class="btn" href="#"><i class="fa fa-heading"></i></a><a class="btn" href="#"><i class="fab fa-edge"></i></a><a class="btn" href="#"><i class="fa fa-times"></i></a><a class="btn" href="#"><i class="far fa-circle"></i></a></div>
+<div><a class="btn" href="#"><i class="fa fa-italic"></i></a><a class="btn" href="#"><i class="fab fa-scribd"></i></a></div>
+<div><a class="btn" href="#"><i class="fab fa-google"></i></a><a class="btn" href="#"><i class="fab fa-chrome"></i></a><a class="btn" href="#"><i class="fab fa-opera"></i></a><a class="btn" href="#"><i class="fa fa-gem fa-rotate-270"></i></a></div></div>
+
+<h3 id="带有相对-URL-的按钮"><a href="#带有相对-URL-的按钮" class="headerlink" title="带有相对 URL 的按钮"></a>带有相对 URL 的按钮</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class&#x3D;&quot;text-center&quot;&gt;&#123;% btn #, Previous Chapter, arrow-left fa-fw fa-lg, Previous Chapter (Full Image) %&#125; &#123;% btn #, Next Chapter, arrow-right fa-fw fa-lg, Next Chapter (Label) %&#125;&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+
+<div class="text-center"><a class="btn" href="#" title="Previous Chapter (Full Image)"><i class="fa fa-arrow-left fa-fw fa-lg"></i>Previous Chapter</a> <a class="btn" href="#" title="Next Chapter (Label)"><i class="fa fa-arrow-right fa-fw fa-lg"></i>Next Chapter</a></div>
+
+<h3 id="带有绝对-URL-的按钮"><a href="#带有绝对-URL-的按钮" class="headerlink" title="带有绝对 URL 的按钮"></a>带有绝对 URL 的按钮</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class&#x3D;&quot;text-center&quot;&gt;&#123;% btn https:&#x2F;&#x2F;github.com&#x2F;next-theme&#x2F;hexo-theme-next, NexT, fab fa-github fa-fw fa-lg, NexT source code %&#125;&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+
+<div class="text-center"><a class="btn" href="https://github.com/next-theme/hexo-theme-next" target="_blank" rel="noopener" title="NexT source code"><i class="fab fa-github fa-fw fa-lg"></i>NexT</a></div>]]></content>
       <tags>
         <tag>next</tag>
       </tags>
