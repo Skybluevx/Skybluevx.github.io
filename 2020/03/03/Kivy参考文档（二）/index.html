@@ -596,7 +596,7 @@
 <p>当然，您可以使用canvas.before和canvas.after。</p>
 <h3 id="引用小部件"><a href="#引用小部件" class="headerlink" title="引用小部件"></a>引用小部件</h3><p>在小部件树中，通常需要访问/引用其他小部件。 Kv语言提供了一种使用ID的方法。 将它们视为只能在Kv语言中使用的类级别变量。 考虑以下：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;MyFirstWidget&gt;:</span><br><span class="line">    Button:</span><br><span class="line">        id: f_but</span><br><span class="line">    TextInput:</span><br><span class="line">        text: f_but.state</span><br><span class="line">&lt;MySecondWidget&gt;:</span><br><span class="line">    Button:</span><br><span class="line">        id: s_but</span><br><span class="line">    TextInput:</span><br><span class="line">        text: s_but.state</span><br></pre></td></tr></table></figure>
-<p>id的范围仅限于声明它的规则，因此在s_上面的代码中，但不能在<MySecondWidget>规则之外进行访问。</p>
+<p>id的范围仅限于声明它的规则，因此在s_上面的代码中，但不能在<MySecondWidget>规则之外进行访问。</MySecondWidget></p>
 <hr>
 <p>警告：为ID分配值时，请记住该值不是字符串。 没有引号：好-&gt; id：值，差-&gt; id：“值”</p>
 <hr>

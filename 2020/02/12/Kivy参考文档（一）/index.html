@@ -722,9 +722,9 @@
 <p>覆盖<code>__init__</code>时，请始终接受<code>**kwargs</code>并使用<code>super()</code>调用父级的<code>__init__</code>方法，传递您的类实例：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, **kwargs)</span>:</span></span><br><span class="line">    super(MyWidget, self).__init__(**kwargs)</span><br></pre></td></tr></table></figure>
 
-<h3 id="调度属性事件"><a href="#调度属性事件" class="headerlink" title="调度属性事件"></a>调度属性事件</h3><p>默认情况下，Kivy属性提供on_<property_name>事件。当值属性的更改。</p>
+<h3 id="调度属性事件"><a href="#调度属性事件" class="headerlink" title="调度属性事件"></a>调度属性事件</h3><p>默认情况下，Kivy属性提供on_<property_name>事件。当值属性的更改。</property_name></p>
 <hr>
-<p><strong>注意：如果属性的新值等于当前值，则on_ <property_name>事件不会被调用。</strong></p>
+<p><strong>注意：如果属性的新值等于当前值，则on_ <property_name>事件不会被调用。</property_name></strong></p>
 <hr>
 <p>例如，考虑以下代码：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CustomBtn</span><span class="params">(Widget)</span>:</span></span><br><span class="line"></span><br><span class="line">    pressed = ListProperty([<span class="number">0</span>, <span class="number">0</span>])</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">on_touch_down</span><span class="params">(self, touch)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self.collide_point(*touch.pos):</span><br><span class="line">            self.pressed = touch.pos</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">return</span> super(CustomBtn, self).on_touch_down(touch)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">on_pressed</span><span class="params">(self, instance, pos)</span>:</span></span><br><span class="line">        <span class="keyword">print</span> (<span class="string">'pressed at &#123;pos&#125;'</span>.format(pos=pos))</span><br></pre></td></tr></table></figure>
@@ -740,7 +740,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">on_pressed</span><span class="params">(self, instance, pos)</span>:</span></span><br><span class="line">    <span class="keyword">print</span> (<span class="string">'pressed at &#123;pos&#125;'</span>.format(pos=pos))</span><br></pre></td></tr></table></figure>
 <p>我们定义了一个<em>on_pressed</em>函数，只要更改属性值，属性就会调用该函数。</p>
 <hr>
-<p><strong>注意：此on_ <prop_name>事件在定义属性的类中调用。 要监视/观察对定义类之外的属性的任何更改，您应按如下所示绑定到该属性。</strong></p>
+<p><strong>注意：此on_ <prop_name>事件在定义属性的类中调用。 要监视/观察对定义类之外的属性的任何更改，您应按如下所示绑定到该属性。</prop_name></strong></p>
 <hr>
 <p><strong>绑定到属性</strong></p>
 <p>当您仅拥有窗口小部件实例时，如何监视对属性的更改？ 您绑定到属性：</p>
@@ -749,7 +749,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RootWidget</span><span class="params">(BoxLayout)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, **kwargs)</span>:</span></span><br><span class="line">        super(RootWidget, self).__init__(**kwargs)</span><br><span class="line">        self.add_widget(Button(text=<span class="string">'btn 1'</span>))</span><br><span class="line">        cb = CustomBtn()</span><br><span class="line">        cb.bind(pressed=self.btn_pressed)</span><br><span class="line">        self.add_widget(cb)</span><br><span class="line">        self.add_widget(Button(text=<span class="string">'btn 2'</span>))</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">btn_pressed</span><span class="params">(self, instance, pos)</span>:</span></span><br><span class="line">        <span class="keyword">print</span> (<span class="string">'pos: printed from root widget: &#123;pos&#125;'</span>.format(pos=.pos))</span><br></pre></td></tr></table></figure>
 <p>如果按原样运行代码，则会在控制台中看到两个打印语句。一个来自在CustomBtn类内部调用的on_pressed事件，另一个来自我们绑定到属性更改的btn_pressed函数。</p>
 <p>调用两个函数的原因很简单。绑定并不意味着覆盖。 同时拥有这两个功能是多余的，通常应仅使用侦听/响应属性更改的方法之一。</p>
-<p>您还应该注意传递给on_ <property_name>事件的参数或绑定到该属性的函数。</p>
+<p>您还应该注意传递给on_ <property_name>事件的参数或绑定到该属性的函数。</property_name></p>
 <p><code>def btn_pressed(self, instance, pos):</code></p>
 <p>第一个参数是self，它是定义此函数的类的实例。 您可以如下使用嵌入式函数：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cb = CustomBtn()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_local_func</span><span class="params">(instance, pos)</span>:</span></span><br><span class="line">    <span class="keyword">print</span> (<span class="string">'pos: printed from root widget: &#123;pos&#125;'</span>.format(pos=pos))</span><br><span class="line"></span><br><span class="line">cb.bind(pressed=_local_func)</span><br><span class="line">self.add_widget(cb)</span><br></pre></td></tr></table></figure>
@@ -879,10 +879,10 @@
   <div class="popular-posts-header">相关文章</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/2020/03/03/Kivy参考文档（二）/" rel="bookmark">Kivy参考文档（二）</a></div>
+      <div class="popular-posts-title"><a href="/2020/03/03/Kivy参考文档（三）/" rel="bookmark">Kivy参考文档（三）</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/2020/03/03/Kivy参考文档（三）/" rel="bookmark">Kivy参考文档（三）</a></div>
+      <div class="popular-posts-title"><a href="/2020/03/03/Kivy参考文档（二）/" rel="bookmark">Kivy参考文档（二）</a></div>
     </li>
   </ul>
 

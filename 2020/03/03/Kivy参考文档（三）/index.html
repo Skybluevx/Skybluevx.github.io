@@ -443,7 +443,7 @@
 <p>如果您无法通过手机/平板电脑访问Google Play商店，则可以从<span class="exturl" data-url="aHR0cDovL2tpdnkub3JnLyNkb3dubG9hZOaJi+WKqOS4i+i9veW5tuWuieijhUFQS+OAgg==">http://kivy.org/#download手动下载并安装APK。<i class="fa fa-external-link-alt"></i></span></p>
 <p>一旦安装了Kivy启动器，您就可以将Kivy应用程序放在外部存储目录的Kivy目录中（即使在内部存储器中的设备中，通常也可以在/ sdcard上找到）。</p>
 <p><code>/sdcard/kivy/&lt;yourapplication&gt;</code></p>
-<p><yourapplication>应该是包含以下内容的目录：</p>
+<p><yourapplication>应该是包含以下内容的目录：</yourapplication></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Your main application file:</span></span><br><span class="line">main.py</span><br><span class="line"><span class="comment"># Some info Kivy requires about your app on android:</span></span><br><span class="line">android.txt</span><br></pre></td></tr></table></figure>
 <p>android.txt文件必须包含：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">title=&lt;Application Title&gt;</span><br><span class="line">author=&lt;Your Name&gt;</span><br><span class="line">orientation=&lt;portrait|landscape&gt;</span><br></pre></td></tr></table></figure>
@@ -578,7 +578,7 @@
 <p>Kivy.app附带提供的SDL2和Gstreamer框架。 要包括除提供的框架以外的框架，请执行以下操作：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git clone http://github.com/tito/osxrelocator</span><br><span class="line">export PYTHONPATH=~/path/to/osxrelocator</span><br><span class="line">cd Kivy.app</span><br><span class="line">python -m osxrelocator -r . /Library/Frameworks/&lt;Framework_name&gt;.framework/ \</span><br><span class="line"><span class="meta">@executable_path/../Frameworks/&lt;Framework_name&gt;.framework/</span></span><br></pre></td></tr></table></figure>
 
-<p>不要忘记用您的框架替换<Framework_name>。 该工具osxrelocator实质上更改了框架中lib的路径，以使它们相对于.app中的可执行文件，从而使Framework可随.app移植。</p>
+<p>不要忘记用您的框架替换<Framework_name>。 该工具osxrelocator实质上更改了框架中lib的路径，以使它们相对于.app中的可执行文件，从而使Framework可随.app移植。</Framework_name></p>
 <p>缩小应用程序大小</p>
 <p>该应用目前具有相当大的尺寸，但是不需要的部分可以从包装中取出。</p>
 <p>例如，如果您不使用GStreamer，则只需将其从<code>YourApp.app/Contents/Frameworks</code>中删除。 同样，您可以从<code>/ Applications / Kivy.app/Contents/Resources/kivy/examples/</code>或<code>kivy/tools，kivy/docs</code>等中删除examples文件夹。</p>
@@ -601,7 +601,7 @@
 <hr>
 <p><strong>注意：您必须使用到应用程序目录的标准路径。</strong></p>
 <hr>
-<p>将创建一个名为<title> -ios的目录，其中包含一个Xcode项目。 您可以打开Xcode项目：</p>
+<p>将创建一个名为<title> -ios的目录，其中包含一个Xcode项目。 您可以打开Xcode项目：</title></p>
 <figure class="highlight plain"><figcaption><span>open touchtracer-ios/touchtracer.xcodeproj```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">然后单击“播放”，然后欣赏。</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">**注意：每按一次Play，您的应用程序目录将被同步到&lt;title&gt; -ios &#x2F; YourApp目录。 不要直接在-ios目录中进行更改。**</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">#### 更新Xcode项目</span><br><span class="line"></span><br><span class="line">假设您要向项目添加numpy，但在创建XCode项目之前并未对其进行编译。 首先，确保它是构建的：</span><br><span class="line"></span><br><span class="line">&#96;&#96;&#96;$ .&#x2F;toolchain.py build numpy</span><br></pre></td></tr></table></figure>
 
 <p>然后，更新您的Xcode项目：</p>
