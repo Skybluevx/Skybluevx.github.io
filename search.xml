@@ -237,12 +237,30 @@
       </tags>
   </entry>
   <entry>
-    <title>测试</title>
-    <url>/2020/07/16/%E6%B5%8B%E8%AF%95/</url>
-    <content><![CDATA[<p><img src="/2020/07/16/%E6%B5%8B%E8%AF%95/wechat.jpg" alt></p>
+    <title>Next博客写作技巧</title>
+    <url>/2020/07/16/Next%E5%8D%9A%E5%AE%A2%E5%86%99%E4%BD%9C%E6%8A%80%E5%B7%A7/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>前面我们说了如何用<code>Hexo</code>搭建自己的博客，后面我们选择的主题是<code>NexT</code>主题，通过阅读<code>NexT</code>主题的官方介绍文档我们对自己的博客进行了一些优化和设置。在<span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy8=">官方文档<i class="fa fa-external-link-alt"></i></span>中有许多<code>NexT</code>主题支持的写作方式，在此我们记录一下下，以便后续写作的时候得以借鉴。</p>
+<a id="more"></a>
+
+<h1 id="样式一：注意（引导程序标注）"><a href="#样式一：注意（引导程序标注）" class="headerlink" title="样式一：注意（引导程序标注）"></a>样式一：注意（引导程序标注）</h1><h2 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h2><p>首先我们要在<code>next/_config.yml</code>文件中进行设置，设置如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">note:</span><br><span class="line">  # Note tag style values:</span><br><span class="line">  #  - simple    bs-callout old alert style. Default.</span><br><span class="line">  #  - modern    bs-callout new (v2-v3) alert style.</span><br><span class="line">  #  - flat      flat callout style with background, like on Mozilla or StackOverflow.</span><br><span class="line">  #  - disabled  disable all CSS styles import of note tag.</span><br><span class="line">  style: simple</span><br><span class="line">  icons: false</span><br><span class="line">  # Offset lighter of background in % for modern and flat styles (modern: -12 | 12; flat: -18 | 6).</span><br><span class="line">  # Offset also applied to label tag variables. This option can work with disabled note tag.</span><br><span class="line">  light_bg_offset: 0</span><br></pre></td></tr></table></figure>
+
+<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;% note %&#125;</span><br><span class="line">#### Header</span><br><span class="line">(没有定义任何样式)</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
+
+<div class="note "><h4 id="Header"><a href="#Header" class="headerlink" title="Header"></a>Header</h4><p>(没有定义任何样式)</p>
+</div>
+
 ]]></content>
       <tags>
-        <tag>测试</tag>
+        <tag>next</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>搭建云Jupyter笔记本</title>
+    <url>/2020/07/16/%E6%90%AD%E5%BB%BA%E4%BA%91Jupyter%E7%AC%94%E8%AE%B0%E6%9C%AC/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1>]]></content>
+      <tags>
+        <tag>jupyter</tag>
       </tags>
   </entry>
   <entry>
