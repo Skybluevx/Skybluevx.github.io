@@ -237,6 +237,12 @@
       </tags>
   </entry>
   <entry>
+    <title>测试</title>
+    <url>/2020/07/16/%E6%B5%8B%E8%AF%95/</url>
+    <content><![CDATA[<p><img src="/2020/07/16/%E6%B5%8B%E8%AF%95/123.jpg" alt></p>
+]]></content>
+  </entry>
+  <entry>
     <title>Next博客写作技巧</title>
     <url>/2020/07/16/Next%E5%8D%9A%E5%AE%A2%E5%86%99%E4%BD%9C%E6%8A%80%E5%B7%A7/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>前面我们说了如何用<code>Hexo</code>搭建自己的博客，后面我们选择的主题是<code>NexT</code>主题，通过阅读<code>NexT</code>主题的官方介绍文档我们对自己的博客进行了一些优化和设置。在<span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy8=">官方文档<i class="fa fa-external-link-alt"></i></span>中有许多<code>NexT</code>主题支持的写作方式，在此我们记录一下下，以便后续写作的时候得以借鉴。</p>
