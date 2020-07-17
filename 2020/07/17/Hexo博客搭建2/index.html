@@ -24,18 +24,24 @@
     var CONFIG = {"hostname":"blog.shuoshuoyun.cn","root":"/","scheme":"Gemini","version":"8.0.0-rc.4","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="测试">
+  <meta name="description" content="前言搭建这个网站的最开始的理由就是想找一个清净点的地方记录自己想记录的一些东西，并且不用有任何的担心文章会不会被删除之类的；所以不惜花费一点时间来搭建一个属于自己的主页，这样就可以为所欲为好好写博客了~">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo博客搭建2">
+<meta property="og:title" content="Hexo博客搭建">
 <meta property="og:url" content="https://blog.shuoshuoyun.cn/2020/07/17/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA2/index.html">
 <meta property="og:site_name" content="木今心">
-<meta property="og:description" content="测试">
+<meta property="og:description" content="前言搭建这个网站的最开始的理由就是想找一个清净点的地方记录自己想记录的一些东西，并且不用有任何的担心文章会不会被删除之类的；所以不惜花费一点时间来搭建一个属于自己的主页，这样就可以为所欲为好好写博客了~">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.ax1x.com/2020/01/28/1M3ZOP.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/01/28/1M8Xb6.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/01/28/1MGeIS.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/01/29/1MJwtS.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/01/30/1l0isU.png">
 <meta property="article:published_time" content="2020-07-17T08:49:51.000Z">
 <meta property="article:modified_time" content="2020-07-17T08:49:51.000Z">
 <meta property="article:author" content="十丿叶">
 <meta property="article:tag" content="Hexo">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.ax1x.com/2020/01/28/1M3ZOP.png">
 
 <link rel="canonical" href="https://blog.shuoshuoyun.cn/2020/07/17/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA2/">
 
@@ -50,7 +56,7 @@
   };
 </script>
 
-  <title>Hexo博客搭建2 | 木今心</title>
+  <title>Hexo博客搭建 | 木今心</title>
   
 
 
@@ -212,7 +218,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#测试"><span class="nav-text">测试</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo搭建本地博客"><span class="nav-text">Hexo搭建本地博客</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装git"><span class="nav-text">安装git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装nodeJs-LTS为长期维护版本，Current为最新版"><span class="nav-text">安装nodeJs(LTS为长期维护版本，Current为最新版)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Heox"><span class="nav-text">安装Heox</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建博客"><span class="nav-text">创建博客</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#桥接到github"><span class="nav-text">桥接到github</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建仓库"><span class="nav-text">创建仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置github的-SSH-key"><span class="nav-text">配置github的 SSH key</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改站点配置"><span class="nav-text">修改站点配置</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#后续"><span class="nav-text">后续</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -305,7 +311,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Hexo博客搭建2
+          Hexo博客搭建
         </h1>
 
         <div class="post-meta">
@@ -351,7 +357,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2</span>
+              <span>2k</span>
             </span>
 
         </div>
@@ -363,13 +369,78 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>搭建这个网站的最开始的理由就是想找一个清净点的地方记录自己想记录的一些东西，并且不用有任何的担心文章会不会被删除之类的；所以不惜花费一点时间来搭建一个属于自己的主页，这样就可以<del>为所欲为</del>好好写博客了~</p>
+<a id="more"></a>
+
+<hr>
+<h1 id="Hexo搭建本地博客"><a href="#Hexo搭建本地博客" class="headerlink" title="Hexo搭建本地博客"></a>Hexo搭建本地博客</h1><p>Hexo是一个快速、简洁且高效的博客框架。Hexo使用Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL3poLWNuL2RvY3Mv">hexo官方文档<i class="fa fa-external-link-alt"></i></span></p>
+<h2 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装<span class="exturl" data-url="aHR0cHM6Ly9naXQtZm9yLXdpbmRvd3MuZ2l0aHViLmlvLw==">git<i class="fa fa-external-link-alt"></i></span></h2><ul>
+<li>安装时一直下一步即可，若出现加入系统环境变量的选项，则需要勾选上，否则需要自己手动加入；</li>
+<li>检验是否成功添加到环境变量：打开cmd，输入<code>git version</code>，若出现<code>git</code>的版本，则说明成功添加。</li>
+</ul>
+<h2 id="安装nodeJs-LTS为长期维护版本，Current为最新版"><a href="#安装nodeJs-LTS为长期维护版本，Current为最新版" class="headerlink" title="安装nodeJs(LTS为长期维护版本，Current为最新版)"></a>安装<span class="exturl" data-url="aHR0cHM6Ly9ub2RlanMub3JnL2VuLw==">nodeJs<i class="fa fa-external-link-alt"></i></span>(LTS为长期维护版本，Current为最新版)</h2><ul>
+<li>安装时一直下一步，不过在 Custom Setup 这一步记得选<code>Add to PATH</code>，否则就需要自己手动添加到系统环境变量；</li>
+<li>检验：打开cmd，输入<code>node</code>，若出现<code>node</code>的简介，则表示安装成功且成功添加到系统环境变量。</li>
+</ul>
+<h2 id="安装Heox"><a href="#安装Heox" class="headerlink" title="安装Heox"></a>安装Heox</h2><ul>
+<li>打开cmd；</li>
+<li>输入<code>npm install -g hexo-cli</code>（通过<code>npm</code>安装<code>hexo</code>，<code>-g</code>为全局安装）；</li>
+<li>等待安装成功即可。</li>
+</ul>
+<h2 id="创建博客"><a href="#创建博客" class="headerlink" title="创建博客"></a>创建博客</h2><ul>
+<li>博客的初始化：<code>hexo init Blog</code> (这里的Blog为用于存放博客文件的地方，名字随意)；<br><img src="https://s2.ax1x.com/2020/01/28/1M3ZOP.png" alt="1M3ZOP.png"></li>
+<li><code>cd Blog</code>；</li>
+<li>安装npm相关组件：<code>npm inistall</code>；<br><img src="https://s2.ax1x.com/2020/01/28/1M8Xb6.png" alt="1M8Xb6.png"></li>
+<li>生成静态页面：<code>hexo generate</code>或<code>hexo g</code>；</li>
+<li>启动服务：<code>hexo server</code>或<code>hexo s</code>；<br>此时就可以打开浏览器，输入<code>http://localhost:4000</code>查看效果，本地博客搭建成功。<br><img src="https://s2.ax1x.com/2020/01/28/1MGeIS.png" alt="1MGeIS.png"></li>
+</ul>
+<hr>
+<h1 id="桥接到github"><a href="#桥接到github" class="headerlink" title="桥接到github"></a>桥接到github</h1><h2 id="创建仓库"><a href="#创建仓库" class="headerlink" title="创建仓库"></a>创建仓库</h2><p>新建一个名为&lt;你的用户名&gt;.github.io的仓库，比如说，如果你的github用户名是test，那么你就新建test.github.io的仓库（必须是你的用户名，其它名称无效），将来你的网站访问地址就是 <span class="exturl" data-url="aHR0cDovL3Rlc3QuZ2l0aHViLmlv">http://test.github.io<i class="fa fa-external-link-alt"></i></span> 了，是不是很方便？</p>
+<p>由此可见，每一个github账户最多只能创建一个这样可以直接使用域名访问的仓库。<br><img src="https://s2.ax1x.com/2020/01/29/1MJwtS.png" alt="1MJwtS.png"></p>
+<p><strong>几个注意的地方</strong>：</p>
+<ul>
+<li>注册的邮箱一定要验证，否则不会成功；</li>
+<li>仓库名字必须是：username.github.io，其中username是你的用户名；</li>
+<li>仓库创建成功不会立即生效，需要过一段时间，大概10-30分钟，或者更久。</li>
+</ul>
+<p>创建成功后，默认会在你这个仓库里生成一些示例页面，以后你的网站所有代码都是放在这个仓库里啦。</p>
+<h2 id="配置github的-SSH-key"><a href="#配置github的-SSH-key" class="headerlink" title="配置github的 SSH key"></a>配置github的 SSH key</h2><p>为什么要配置这个呢？因为你提交代码肯定要拥有你的github权限才可以，但是直接使用用户名和密码太不安全了，所以我们使用ssh key来解决本地和服务器的连接问题。</p>
+<p><strong>注意：本文是用 git bash 输入所有命令，用 cmd 可能会出错</strong></p>
+<ul>
+<li>检查本机已存在的ssh密钥：<code>$ cd ~/. ssh</code> 如果提示：No such file or directory 说明你是第一次使用git。</li>
+<li>创建SSH：<code>ssh-keygen -t rsa -C &quot;邮件地址&quot;</code> <strong>注意：这里的邮件地址指的是你注册 github 的邮箱</strong>;</li>
+<li>然后连续3次回车，最终会生成一个文件在用户目录下，打开用户目录即<code>c:\Users\你的电脑用户名</code>，找到.ssh文件夹下的id_rsa.pub文件，记事本打开并复制里面的内容;</li>
+<li>打开你的github主页，进入<code>个人设置 -&gt; SSH and GPG keys -&gt; New SSH key</code></li>
+</ul>
+<p><img src="https://s2.ax1x.com/2020/01/30/1l0isU.png" alt="1l0isU.png"></p>
+<ul>
+<li>将刚复制的内容粘贴到key那里，title随便填，保存。</li>
+<li>打开cmd，输入<code>ssh -T git@github.com</code># 测试是否成功；</li>
+</ul>
+<p>如果提示<code>Are you sure you want to continue connecting (yes/no)?</code>，输入<code>yes</code>，然后会看到：<code>Hi h0ryit! You&#39;ve successfully authenticated, but GitHub does not provide shell access.</code>看到这个信息说明SSH已配置成功！</p>
+<p>此时你还需要配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;liuxianan&quot;&#x2F;&#x2F; 你的github用户名</span><br><span class="line">git config --global user.email  &quot;xxx@qq.com&quot;&#x2F;&#x2F; 填写你的github注册邮箱</span><br></pre></td></tr></table></figure>
+
+<h2 id="修改站点配置"><a href="#修改站点配置" class="headerlink" title="修改站点配置"></a>修改站点配置</h2><p>打开你的blog文件，找到_config.yml文件。修改：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy: </span><br><span class="line">    type: git  </span><br><span class="line">    repository:https:&#x2F;&#x2F;github.com&#x2F;YourgithubName&#x2F;YourgithubName.github.io.git </span><br><span class="line">    branch: master</span><br></pre></td></tr></table></figure>
+
+<p>然后在站点文件夹目录下执行命令<code>npm install hexo-deployer-git --save</code></p>
+<p>这样，你的本地博客就可以通过<code>hexo d</code>命令部署到<code>github</code>上了。</p>
+<hr>
+<h1 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h1>
     </div>
 
     
     
     
       
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/2020/07/17/Hexo博客搭建/" rel="bookmark">Hexo博客搭建</a></div>
+    </li>
+  </ul>
 
         
 
@@ -380,7 +451,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://blog.shuoshuoyun.cn/2020/07/17/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA2/" title="Hexo博客搭建2">https://blog.shuoshuoyun.cn/2020/07/17/Hexo博客搭建2/</a>
+    <a href="https://blog.shuoshuoyun.cn/2020/07/17/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA2/" title="Hexo博客搭建">https://blog.shuoshuoyun.cn/2020/07/17/Hexo博客搭建2/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> 许可协议。转载请注明出处！
@@ -423,8 +494,8 @@
       <i class="fa fa-chevron-left"></i> 搭建云Jupyter笔记本
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/07/17/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA2-1/" rel="next" title="Hexo博客搭建2">
-      Hexo博客搭建2 <i class="fa fa-chevron-right"></i>
+    <a href="/2020/07/17/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" rel="next" title="Hexo博客搭建">
+      Hexo博客搭建 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -487,7 +558,7 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">100k</span>
+    <span title="站点总字数">104k</span>
 </div>
   <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZw==">NexT.Gemini</span> 强力驱动
   </div>
