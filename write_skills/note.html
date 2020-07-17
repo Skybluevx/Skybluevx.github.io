@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  
+  <link rel="stylesheet" href="/lib/animate-css/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.shuoshuoyun.cn","root":"/","scheme":"Gemini","version":"8.0.0-rc.4","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="设置首先我们要在next&#x2F;_config.yml文件中进行设置，设置如下： 1234567891011note:  # Note tag style values:  #  - simple    bs-callout old alert style. Default.  #  - modern    bs-callout new (v2-v3) alert style.  #  - flat">
+<meta property="og:type" content="website">
+<meta property="og:title" content="注意文本框">
+<meta property="og:url" content="https://blog.shuoshuoyun.cn/write_skills/note.html">
+<meta property="og:site_name" content="木今心">
+<meta property="og:description" content="设置首先我们要在next&#x2F;_config.yml文件中进行设置，设置如下： 1234567891011note:  # Note tag style values:  #  - simple    bs-callout old alert style. Default.  #  - modern    bs-callout new (v2-v3) alert style.  #  - flat">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-07-17T07:21:52.500Z">
+<meta property="article:modified_time" content="2020-07-17T07:21:52.500Z">
+<meta property="article:author" content="十丿叶">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://blog.shuoshuoyun.cn/write_skills/note">
+
+
+<script data-pjax class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>注意文本框 | 木今心
+</title>
+  
+
+
+  <script data-pjax>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?07fdd26aa39a30ab9c8d553e566c50ee";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <main class="main">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+        <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line toggle-line-first"></span>
+        <span class="toggle-line toggle-line-middle"></span>
+        <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">木今心</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">10</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">11</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">14</span></a>
+
+  </li>
+        
+            
+  <li class="menu-item menu-item-config">
+
+    <a href="/config/" rel="section"><i class="fa fa-user-cog fa-fw"></i>配置</a>
+
+  </li>
+
+
+      
+        
+            
+  <li class="menu-item menu-item-write_skills">
+
+    <a href="/write_skills/" rel="section"><i class="fa fa-rocket fa-fw"></i>编辑技巧</a>
+
+  </li>
+
+
+      
+  </ul>
+</nav>
+
+
+
+
+</div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#设置"><span class="nav-text">设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#例子"><span class="nav-text">例子</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#没有定义任何样式"><span class="nav-text">没有定义任何样式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Header"><span class="nav-text">Header</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#默认样式"><span class="nav-text">默认样式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Default-Header"><span class="nav-text">Default Header</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本样式"><span class="nav-text">基本样式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Primary-Header"><span class="nav-text">Primary Header</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#信息样式"><span class="nav-text">信息样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Info-Header"><span class="nav-text">Info Header</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#成功样式"><span class="nav-text">成功样式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Success-Header"><span class="nav-text">Success Header</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#警告样式"><span class="nav-text">警告样式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Warning-Header"><span class="nav-text">Warning Header</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#危险样式"><span class="nav-text">危险样式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Danger-Header"><span class="nav-text">Danger Header</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#没有图标的注意样式"><span class="nav-text">没有图标的注意样式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#No-icon-note"><span class="nav-text">No icon note</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#嵌套样式（代码块）"><span class="nav-text">嵌套样式（代码块）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Codeblock-in-note"><span class="nav-text">Codeblock in note</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#嵌套样式（列表）"><span class="nav-text">嵌套样式（列表）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Lists-in-note"><span class="nav-text">Lists in note</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#嵌套样式（表格）"><span class="nav-text">嵌套样式（表格）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Table-in-Note"><span class="nav-text">Table in Note</span></a></li></ol></li></ol></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="十丿叶"
+      src="/images/touxiang.jpg">
+  <p class="site-author-name" itemprop="name">十丿叶</p>
+  <div class="site-description" itemprop="description">站在巨人的肩上</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1NreWJsdWV2eA==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Skybluevx"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOjEzNzI3NTU0NzJAcXEuY29t" title="E-Mail → mailto:1372755472@qq.com"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></span>
+  </div>
+
+
+
+      </section>
+        <div class="back-to-top animated">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </header>
+
+      
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL1NreWJsdWV2eA==" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
+
+<noscript>
+  <div id="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+      <div class="main-inner">
+        
+  
+
+      
+      
+
+      
+
+        
+        <ul id="sub-menu" class="sub-menu menu">
+          
+            
+          
+          
+              
+  <li class="menu-item menu-item-note">
+
+    <a href="/write_skills/note.html" rel="section"><i class="fa fa-adjust fa-fw"></i>注意</a>
+
+  </li>
+
+
+          
+          
+              
+  <li class="menu-item menu-item-tabs">
+
+    <a href="/write_skills/tabs.html" rel="section"><i class="fa fa-columns fa-fw"></i>选项卡</a>
+
+  </li>
+
+
+          
+          
+              
+  <li class="menu-item menu-item-pdf">
+
+    <a href="/write_skills/pdf.html" rel="section"><i class="fa fa-file-pdf fa-fw"></i>PDF</a>
+
+  </li>
+
+
+          
+          
+              
+  <li class="menu-item menu-item-label">
+
+    <a href="/write_skills/label.html" rel="section"><i class="fa fa-hat-wizard fa-fw"></i>标签</a>
+
+  </li>
+
+
+          
+          
+              
+  <li class="menu-item menu-item-video">
+
+    <a href="/write_skills/video.html" rel="section"><i class="fa fa-play-circle fa-fw"></i>视频</a>
+
+  </li>
+
+
+          
+          
+              
+  <li class="menu-item menu-item-button">
+
+    <a href="/write_skills/button.html" rel="section"><i class="fa fa-cube fa-fw"></i>按钮</a>
+
+  </li>
+
+
+          
+          
+              
+  <li class="menu-item menu-item-group-pictures">
+
+    <a href="/write_skills/group-pictures.html" rel="section"><i class="far fa-images fa-fw"></i>图集</a>
+
+  </li>
+
+
+          
+        </ul>
+        
+
+        
+
+                
+                
+        
+      
+  
+
+        <div class="content page posts-expand">
+          
+
+    
+    
+    
+    <div class="post-block" lang="zh-CN">
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">注意文本框
+</h1>
+
+<div class="post-meta">
+  
+
+</div>
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+          <h2 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h2><p>首先我们要在<code>next/_config.yml</code>文件中进行设置，设置如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">note:</span><br><span class="line">  # Note tag style values:</span><br><span class="line">  #  - simple    bs-callout old alert style. Default.</span><br><span class="line">  #  - modern    bs-callout new (v2-v3) alert style.</span><br><span class="line">  #  - flat      flat callout style with background, like on Mozilla or StackOverflow.</span><br><span class="line">  #  - disabled  disable all CSS styles import of note tag.</span><br><span class="line">  style: simple</span><br><span class="line">  icons: false</span><br><span class="line">  # Offset lighter of background in % for modern and flat styles (modern: -12 | 12; flat: -18 | 6).</span><br><span class="line">  # Offset also applied to label tag variables. This option can work with disabled note tag.</span><br><span class="line">  light_bg_offset: 0</span><br></pre></td></tr></table></figure>
+
+<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><h3 id="没有定义任何样式"><a href="#没有定义任何样式" class="headerlink" title="没有定义任何样式"></a>没有定义任何样式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% note %&#125;</span><br><span class="line">#### Header</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
+
+<div class="note "><h4 id="Header"><a href="#Header" class="headerlink" title="Header"></a>Header</h4></div>
+
+<h3 id="默认样式"><a href="#默认样式" class="headerlink" title="默认样式"></a>默认样式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;% note default %&#125;</span><br><span class="line">#### Default Header</span><br><span class="line">Welcome to [Hexo!](https:&#x2F;&#x2F;hexo.io)</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
+
+<div class="note default"><h4 id="Default-Header"><a href="#Default-Header" class="headerlink" title="Default Header"></a>Default Header</h4><p>Welcome to <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo!<i class="fa fa-external-link-alt"></i></span></p>
+</div>
+
+<h3 id="基本样式"><a href="#基本样式" class="headerlink" title="基本样式"></a>基本样式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;% note primary %&#125;</span><br><span class="line">#### Primary Header</span><br><span class="line">**Welcome** to [Hexo!](https:&#x2F;&#x2F;hexo.io)</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
+
+<div class="note primary"><h4 id="Primary-Header"><a href="#Primary-Header" class="headerlink" title="Primary Header"></a>Primary Header</h4><p><strong>Welcome</strong> to <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo!<i class="fa fa-external-link-alt"></i></span></p>
+</div>
+
+<h3 id="信息样式"><a href="#信息样式" class="headerlink" title="信息样式"></a>信息样式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;% note info %&#125;</span><br><span class="line">### Info Header</span><br><span class="line">**Welcome** to [Hexo!](https:&#x2F;&#x2F;hexo.io)</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
+
+<div class="note info"><h3 id="Info-Header"><a href="#Info-Header" class="headerlink" title="Info Header"></a>Info Header</h3><p><strong>Welcome</strong> to <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo!<i class="fa fa-external-link-alt"></i></span></p>
+</div>
+
+<h3 id="成功样式"><a href="#成功样式" class="headerlink" title="成功样式"></a>成功样式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;% note success %&#125;</span><br><span class="line">#### Success Header</span><br><span class="line">**Welcome** to [Hexo!](https:&#x2F;&#x2F;hexo.io)</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
+
+<div class="note success"><h4 id="Success-Header"><a href="#Success-Header" class="headerlink" title="Success Header"></a>Success Header</h4><p><strong>Welcome</strong> to <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo!<i class="fa fa-external-link-alt"></i></span></p>
+</div>
+
+<h3 id="警告样式"><a href="#警告样式" class="headerlink" title="警告样式"></a>警告样式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;% note warning %&#125;</span><br><span class="line">#### Warning Header</span><br><span class="line">**Welcome** to [Hexo!](https:&#x2F;&#x2F;hexo.io)</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
+
+<div class="note warning"><h4 id="Warning-Header"><a href="#Warning-Header" class="headerlink" title="Warning Header"></a>Warning Header</h4><p><strong>Welcome</strong> to <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo!<i class="fa fa-external-link-alt"></i></span></p>
+</div>
+
+<h3 id="危险样式"><a href="#危险样式" class="headerlink" title="危险样式"></a>危险样式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;% note danger %&#125;</span><br><span class="line">#### Danger Header</span><br><span class="line">**Welcome** to [Hexo!](https:&#x2F;&#x2F;hexo.io)</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
+
+<div class="note danger"><h4 id="Danger-Header"><a href="#Danger-Header" class="headerlink" title="Danger Header"></a>Danger Header</h4><p><strong>Welcome</strong> to <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo!<i class="fa fa-external-link-alt"></i></span></p>
+</div>
+
+<h3 id="没有图标的注意样式"><a href="#没有图标的注意样式" class="headerlink" title="没有图标的注意样式"></a>没有图标的注意样式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;% note info no-icon %&#125;</span><br><span class="line">#### No icon note</span><br><span class="line">Note **without** icon: &#96;note info no-icon&#96;</span><br><span class="line"></span><br><span class="line">note info, note info, note info</span><br><span class="line">note info, note info, note info</span><br><span class="line">note info, note info, note info</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
+
+<div class="note info no-icon"><h4 id="No-icon-note"><a href="#No-icon-note" class="headerlink" title="No icon note"></a>No icon note</h4><p>Note <strong>without</strong> icon: <code>note info no-icon</code></p>
+<p>note info, note info, note info<br>note info, note info, note info<br>note info, note info, note info</p>
+</div>
+
+<h3 id="嵌套样式（代码块）"><a href="#嵌套样式（代码块）" class="headerlink" title="嵌套样式（代码块）"></a>嵌套样式（代码块）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;% note success %&#125;</span><br><span class="line">#### Codeblock in note</span><br><span class="line">&#123;% code %&#125;</span><br><span class="line">code block in note tag</span><br><span class="line">code block in note tag</span><br><span class="line">code block in note tag</span><br><span class="line">&#123;% endcode %&#125;</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
+
+<div class="note success"><h4 id="Codeblock-in-note"><a href="#Codeblock-in-note" class="headerlink" title="Codeblock in note"></a>Codeblock in note</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">code block in note tag</span><br><span class="line">code block in note tag</span><br><span class="line">code block in note tag</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="嵌套样式（列表）"><a href="#嵌套样式（列表）" class="headerlink" title="嵌套样式（列表）"></a>嵌套样式（列表）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;% note default %&#125;</span><br><span class="line">#### Lists in note</span><br><span class="line">* ul</span><br><span class="line">* ul</span><br><span class="line">  * ul</span><br><span class="line">  * ul</span><br><span class="line">* ul</span><br><span class="line"></span><br><span class="line">1. ol</span><br><span class="line">2. ol</span><br><span class="line">  1. ol</span><br><span class="line">  2. ol</span><br><span class="line">3. ol</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
+
+<div class="note default"><h4 id="Lists-in-note"><a href="#Lists-in-note" class="headerlink" title="Lists in note"></a>Lists in note</h4><ul>
+<li>ul</li>
+<li>ul<ul>
+<li>ul</li>
+<li>ul</li>
+</ul>
+</li>
+<li>ul</li>
+</ul>
+<ol>
+<li>ol</li>
+<li>ol<ol>
+<li>ol</li>
+<li>ol</li>
+</ol>
+</li>
+<li>ol</li>
+</ol>
+</div>
+
+<h3 id="嵌套样式（表格）"><a href="#嵌套样式（表格）" class="headerlink" title="嵌套样式（表格）"></a>嵌套样式（表格）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#### Table in Note</span><br><span class="line">&#123;% note default %&#125;</span><br><span class="line">| 1 | 2 |</span><br><span class="line">| - | - |</span><br><span class="line">| 3 | 4 |</span><br><span class="line">| 5 | 6 |</span><br><span class="line">| 7 | 8 |</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Table-in-Note"><a href="#Table-in-Note" class="headerlink" title="Table in Note"></a>Table in Note</h4><div class="note default"><table>
+<thead>
+<tr>
+<th>1</th>
+<th>2</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>3</td>
+<td>4</td>
+</tr>
+<tr>
+<td>5</td>
+<td>6</td>
+</tr>
+<tr>
+<td>7</td>
+<td>8</td>
+</tr>
+</tbody></table>
+</div>
+      </div>
+      
+      
+      
+    </div>
+    
+
+    
+    
+    
+
+
+        </div>
+        
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><span class="exturl" data-url="aHR0cDovL3d3dy5iZWlhbi5taWl0Lmdvdi5jbg==">湘ICP备20008495号-1 </span>
+      <img src="/images/beian.png" style="display: inline-block;"><span class="exturl" data-url="aHR0cDovL3d3dy5iZWlhbi5nb3YuY24vcG9ydGFsL3JlZ2lzdGVyU3lzdGVtSW5mbz9yZWNvcmRjb2RlPTQzMDUyMzAyMDAwMTIz">湘公网安备 43052302000123号 </span>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 2019 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heartbeat"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">十丿叶</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">102k</span>
+</div>
+  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZw==">NexT.Gemini</span> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//unpkg.com/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/next-theme/pjax@0/pjax.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '.page-configurations',
+    '.main-inner',
+    '.post-toc-wrap',
+    '.languages',
+    '.pjax'
+  ],
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+document.addEventListener('pjax:success', () => {
+  pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  const hasTOC = document.querySelector('.post-toc');
+  document.querySelector('.sidebar-inner').classList.toggle('sidebar-nav-active', hasTOC);
+  document.querySelector(hasTOC ? '.sidebar-nav-toc' : '.sidebar-nav-overview').click();
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+<script data-pjax>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
+
+
+
+
+    <div class="pjax">
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
+    new Valine(Object.assign({
+      el  : '#valine-comments',
+      path: location.pathname,
+    }, {"enable":true,"appId":"SRvHJbrJB86zbizktl0F4Wz3-gzGzoHsz","appKey":"m3kGoyrm4o4V0uNWsxXkrUDF","placeholder":"说点什么吧~","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"language":"zh-cn","visitor":false,"comment_count":true,"recordIP":true,"serverURLs":null}
+    ));
+  }, window.Valine);
+});
+</script>
+
+    </div>
+</body>
+</html>
