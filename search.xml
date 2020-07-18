@@ -65,7 +65,8 @@
 <h1 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h1><p>之前的博客搭建之初，对各个方面都不是很懂，因此对于博客的搭建以及美化优化做的并不是特别好；在经过一番思考过后，决定将博客的文件储存到服务器里，将博客的撰写以及上传工作都放到服务器里面，这样就不用担心文件的突然丢失了。同时也对博客的部署以及<code>NexT</code>模板的版本进行了更改，让我们有更好的体验~</p>
 <h1 id="桥接到Coding"><a href="#桥接到Coding" class="headerlink" title="桥接到Coding"></a>桥接到Coding</h1><p>由于<code>github</code>是国外网站，我们将博客部署到那里时，对其进行访问会很慢，所以我们将博客的托管平台进行了更改，国内小编知道的比较大的代码托管平台就只知道<code>Gitee</code>和<code>Coding</code>了，目前<code>Gitee</code>平台的企业版本才可以免费支持<code>Pages</code>服务中的自动部署以及自定义域名服务，而<code>Coding</code>平台中这些都免费支持（虽然他的缺点也有一些，但是这个符合我们的要求，所以就选择了它~）。</p>
 <p>将博客托管到<code>Coding</code>平台其实和<code>Github</code>差不多，大概也就下面三步：</p>
-<div class="tabs" id="fourth-unique-name"><ul class="nav-tabs"><li class="tab active"><a href="#fourth-unique-name-1">**创建仓库**</a></li><li class="tab"><a href="#fourth-unique-name-2">**配置 SSH key**</a></li><li class="tab"><a href="#fourth-unique-name-3">**开启静态网站服务**</a></li><li class="tab"><a href="#fourth-unique-name-4">修改站点</a></li></ul><div class="tab-content"><div class="tab-pane active" id="fourth-unique-name-1"><p>这个应该不用多说了，很简单的，不过<code>Coding</code>里面有一点不一样的就是，首先是创建项目，项目里面可以创建个仓库，所以小伙伴们可以先创建一个项目，然后再创建相应的仓库，这里还有一点和<code>Github</code>不一样的就是，这里的仓库名字可以随意起~</p></div><div class="tab-pane" id="fourth-unique-name-2"><p>如图</p>
+<div class="tabs" id="fourth-unique-name"><ul class="nav-tabs"><li class="tab active"><a href="#fourth-unique-name-1">创建仓库</a></li><li class="tab"><a href="#fourth-unique-name-2">配置 SSH key</a></li><li class="tab"><a href="#fourth-unique-name-3">开启静态网站服务</a></li><li class="tab"><a href="#fourth-unique-name-4">修改站点配置</a></li></ul><div class="tab-content"><div class="tab-pane active" id="fourth-unique-name-1"><p>这个应该不用多说了，很简单的，不过<code>Coding</code>里面有一点不一样的就是，首先是创建项目，项目里面可以创建个仓库，所以小伙伴们可以先创建一个项目，然后再创建相应的仓库，这里还有一点和<code>Github</code>不一样的就是，这里的仓库名字可以随意起~</p></div><div class="tab-pane" id="fourth-unique-name-2"><p>如图，</p>
+<p><strong>代码仓库</strong> –&gt; <strong>设置</strong> –&gt; <strong>部署公钥</strong></p>
 <p><img src="/2020/07/17/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/ssh_key.png" alt></p>
 <p>在这里面配置好自己的公钥即可，公钥的生成方法以及查看方法前面有介绍到。</p></div><div class="tab-pane" id="fourth-unique-name-3"><p>如图，</p>
 <p><strong>持续部署</strong> –&gt; <strong>静态网站</strong></p>
@@ -77,10 +78,13 @@
 <p><strong>网站名称</strong>：随意</p>
 <p><strong>部署来源</strong>：本项目仓库</p>
 <ul>
-<li><p><img src="https://s1.ax1x.com/2020/07/17/U6v9nU.png" alt="U6v9nU.png"></p>
-</li>
+<li><strong>选择项目</strong>：刚才创建的项目</li>
+<li><strong>选择仓库</strong>：刚才创建的项目中的仓库</li>
 </ul>
-<p>创建好网站后就可以点击</p></div><div class="tab-pane" id="fourth-unique-name-4"><p><strong>This is Tab 3.</strong></p></div></div></div>]]></content>
+<p>其他的选项都选择默认</p>
+<p><img src="https://s1.ax1x.com/2020/07/17/U6v9nU.png" alt="U6v9nU.png"></p>
+<p>创建好网站后就可以点击</p></div><div class="tab-pane" id="fourth-unique-name-4"><p>打开文件<code>blog/_config.yml</code>，修改：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">deploy: </span><br><span class="line">    type: git  </span><br><span class="line">    repository: git@e.coding.net:YourTeamName&#x2F;YourProjectName&#x2F;YourRepositoryName.git </span><br><span class="line">    branch: master</span><br></pre></td></tr></table></figure></div></div></div>]]></content>
       <categories>
         <category>学习笔记</category>
         <category>Hexo</category>
