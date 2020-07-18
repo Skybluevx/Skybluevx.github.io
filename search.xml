@@ -83,8 +83,12 @@
 </ul>
 <p>其他的选项都选择默认</p>
 <p><img src="https://s1.ax1x.com/2020/07/17/U6v9nU.png" alt="U6v9nU.png"></p>
-<p>创建好网站后就可以点击</p></div><div class="tab-pane" id="fourth-unique-name-4"><p>打开文件<code>blog/_config.yml</code>，修改：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">deploy: </span><br><span class="line">    type: git  </span><br><span class="line">    repository: git@e.coding.net:YourTeamName&#x2F;YourProjectName&#x2F;YourRepositoryName.git </span><br><span class="line">    branch: master</span><br></pre></td></tr></table></figure></div></div></div>]]></content>
+<p>确定后就你的博客就搭建完成啦，赶紧去它给你的网址去看看吧~</p>
+<p><img src="https://s1.ax1x.com/2020/07/18/UclmFJ.png" alt="UclmFJ.png"></p></div><div class="tab-pane" id="fourth-unique-name-4"><p>打开文件<code>blog/_config.yml</code>，修改：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">deploy: </span><br><span class="line">    type: git  </span><br><span class="line">    repository: git@e.coding.net:YourTeamName&#x2F;YourProjectName&#x2F;YourRepositoryName.git </span><br><span class="line">    branch: master</span><br></pre></td></tr></table></figure>
+
+<p>最后，在<code>blog/</code>目录下执行命令<code>npm install hexo-deployer-git --save</code></p>
+<p>这样，你的本地博客就可以通过<code>hexo d</code>命令部署到<code>Coding</code>上了，从此再也不用担心国内访问速度了。</p></div></div></div>]]></content>
       <categories>
         <category>学习笔记</category>
         <category>Hexo</category>
