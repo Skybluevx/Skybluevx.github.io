@@ -86,7 +86,7 @@
 <p>确定后就你的博客就搭建完成啦，赶紧去它给你的网址去看看吧~</p>
 <p><img src="https://s1.ax1x.com/2020/07/18/UclmFJ.png" alt="UclmFJ.png"></p>
 <p>这里小编的访问地址有两个，是因为小编自己绑定了域名~</p>
-<div class="note info"><h2 id="个性域名"><a href="#个性域名" class="headerlink" title="个性域名"></a>个性域名</h2><p>大家可以自己去购买一个个性域名，这样会显得很不一样，而且也不用多少q~</p>
+<div class="note info icon"><h2 id="个性域名"><a href="#个性域名" class="headerlink" title="个性域名"></a>个性域名</h2><p>大家可以自己去购买一个个性域名，这样会显得很不一样，而且也不用多少q~</p>
 </div></div><div class="tab-pane" id="fourth-unique-name-4"><p>打开文件<code>blog/_config.yml</code>，修改：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">deploy: </span><br><span class="line">    type: git  </span><br><span class="line">    repository: git@e.coding.net:YourTeamName&#x2F;YourProjectName&#x2F;YourRepositoryName.git </span><br><span class="line">    branch: master</span><br></pre></td></tr></table></figure>
 
@@ -103,9 +103,10 @@
 
 
 
-<h2 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h2><p>默认的主题感觉还是不喜欢，所以这里小编选用的是<code>NexT</code>主题；安装方式如下：</p>
+<h2 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h2><p>默认的主题感觉还是不喜欢，所以这里小编选用的是<code>NexT</code>主题；最新版的安装方式如下：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ cd hexo</span><br><span class="line">$ git clone https:&#x2F;&#x2F;github.com&#x2F;next-theme&#x2F;hexo-theme-next themes&#x2F;next</span><br></pre></td></tr></table></figure>
 
+<p>若有需要其他版本的同学可以前往<code>NexT</code>主题的版本发布页面前往选择下载：<a class="btn" href="https://github.com/next-theme/hexo-theme-next/releases" target="_blank" rel="noopener" title="Hexo&NexT"><i class="fa fa-home fa-fw fa-lg"></i>NexT-Releases</a></p>
 ]]></content>
       <categories>
         <category>学习笔记</category>
