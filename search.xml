@@ -133,12 +133,23 @@
 <h2 id="深色模式"><a href="#深色模式" class="headerlink" title="深色模式"></a>深色模式</h2><p><code>next/_config.yml</code></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Dark Mode</span><br><span class="line">darkmode: true</span><br></pre></td></tr></table></figure>
 
-<div class="note warning"><h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>请确保您的浏览器支持暗模式。</p>
+<div class="note warning"><h4 id="Warning"><a href="#Warning" class="headerlink" title="Warning"></a>Warning</h4><p>请确保您的浏览器支持暗模式。</p>
 </div>
 
+<h2 id="菜单栏设置"><a href="#菜单栏设置" class="headerlink" title="菜单栏设置"></a>菜单栏设置</h2><h3 id="启用默认菜单栏"><a href="#启用默认菜单栏" class="headerlink" title="启用默认菜单栏"></a>启用默认菜单栏</h3><p>在<code>next/_config.yml</code>启用：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: &#x2F; || fa fa-home</span><br><span class="line">  #about: &#x2F;about&#x2F; || fa fa-user</span><br><span class="line">  #tags: &#x2F;tags&#x2F; || fa fa-tags</span><br><span class="line">  #categories: &#x2F;categories&#x2F; || fa fa-th</span><br><span class="line">  #archives: &#x2F;archives&#x2F; || fa fa-archive</span><br><span class="line">  #schedule: &#x2F;schedule&#x2F; || fa fa-calendar</span><br><span class="line">  #sitemap: &#x2F;sitemap.xml || fa fa-sitemap</span><br><span class="line">  #commonweal: &#x2F;404&#x2F; || fa fa-heartbeat</span><br></pre></td></tr></table></figure>
 
+<div class="note warning"><h4 id="Warning"><a href="#Warning" class="headerlink" title="Warning"></a>Warning</h4><p>除了<code>home</code>和<code>archives</code>，其他的菜单启用时，都要手动添加其页面；如：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">hexo new page about</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</div>
 
+<h3 id="添加自定义菜单"><a href="#添加自定义菜单" class="headerlink" title="添加自定义菜单"></a>添加自定义菜单</h3><div class="tabs" id="fourth-unique-name"><ul class="nav-tabs"><li class="tab active"><a href="#fourth-unique-name-1">第一步</a></li><li class="tab"><a href="#fourth-unique-name-2">第二步</a></li><li class="tab"><a href="#fourth-unique-name-3">第三步</a></li></ul><div class="tab-content"><div class="tab-pane active" id="fourth-unique-name-1"><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">cd hexo-site</span><br><span class="line"></span><br><span class="line">hexo new page custom-name</span><br><span class="line"></span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="fourth-unique-name-2"><p>将自定义菜单添加进<code>hexo/_config.yml</code>的<code>menu</code>中：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">menu:</span><br><span class="line">  home: &#x2F; || fa fa-home</span><br><span class="line">  archives: &#x2F;archives&#x2F; || fa fa-archive</span><br><span class="line">  custom-name: &#x2F;custom-name&#x2F; || fa fa-user</span><br><span class="line"></span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="fourth-unique-name-3"><p>为你的<code>custom-name</code>添加翻译：</p>
+<p>在<code>next/languages/zh-CN.yml</code>文件中的<code>menu</code>中添加：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">menu:</span><br><span class="line"></span><br><span class="line">​    custom-name: 自定义名字</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
+<div class="note info"><p>因为我们启用的语言为<code>zh-CN</code>，因此需要在这里面添加<code>custome-name</code>相应的翻译，这样在博客中才会正确的显示我们自定义菜单的中文；否则就只会显示英文。</p>
+</div></div></div></div>
 
 ]]></content>
       <categories>
