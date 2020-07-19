@@ -175,7 +175,7 @@
 <li><code>sub-sub-menu-1.md</code>：二级一号子菜单的博客文件</li>
 <li><code>sub-sub-sub-menu.md</code>：三级子菜单的博客文件</li>
 </ul>
-<div class="note primary"><h4 id="温馨提示"><a href="#温馨提示" class="headerlink" title="温馨提示"></a>温馨提示</h4><p>这些文件小编暂时没有找到使用<code>hexo</code>命令来生成二级及其以下子菜单级文件目录及文件的方法，所以同学们可以自己手动创建。</p>
+<div class="note primary"><h4 id="温馨提示"><a href="#温馨提示" class="headerlink" title="温馨提示"></a>温馨提示</h4><p>这些文件小编暂时没有找到使用<code>hexo</code>命令来生成二级及其以下子菜单级文件目录及文件的方法，所以同学们可以自己手动创建~</p>
 </div></div></div></div>
 
 <h3 id="链接持久化"><a href="#链接持久化" class="headerlink" title="链接持久化"></a>链接持久化</h3><p>在<code>Hexo</code>中当我们创建的博客名包含中文的名的时候，<code>url</code>链接地址经常会变成一串很长字符串，不利于博客的链接分享，以及搜索引擎搜索，我们可以通过安装其他的插件来解决这个问题。</p>
