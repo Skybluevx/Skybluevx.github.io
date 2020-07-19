@@ -155,7 +155,7 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: &#x2F; || fa fa-home</span><br><span class="line">  archives: &#x2F;archives&#x2F; || fa fa-archive</span><br><span class="line">  custom-name: &#x2F;custom-name&#x2F; || fa fa-user</span><br></pre></td></tr></table></figure>
 
 <div class="note success"><h4 id="温馨提示"><a href="#温馨提示" class="headerlink" title="温馨提示"></a>温馨提示</h4><p>自定义菜单相应显示的小图标，如<code>home</code>的<code>fa fa-home</code>，同学们可以前往<a class="btn" href="https://fontawesome.com/" target="_blank" rel="noopener" title="Font Awesome 官网"><i class="fa fa-flag fas-fa fa-lg"></i>Font Awesome</a>寻找自己喜欢的小图标换上。</p>
-</div></div><div class="tab-pane" id="tianjiazdycd-3"><p>为你的<code>custom-name</code>添加翻译：</p>
+</div></div><div class="tab-pane" id="tianjiazdycd-3"><p>为你的<code>custom-name</code>添加译文：</p>
 <p>在<code>next/languages/zh-CN.yml</code>文件中的<code>menu</code>中添加：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">menu:</span><br><span class="line">    custom-name: 自定义名字</span><br></pre></td></tr></table></figure>
 
@@ -164,9 +164,9 @@
 
 <h3 id="添加二级子菜单"><a href="#添加二级子菜单" class="headerlink" title="添加二级子菜单"></a>添加二级子菜单</h3><p>添加子菜单方式如下：</p>
 <p><code>next/_config.yml</code></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: &#x2F; || fa fa-home</span><br><span class="line">  archives: &#x2F;archives&#x2F; || fa fa-archive</span><br><span class="line">  sub-menu:                                       # 一级子菜单</span><br><span class="line">    default: &#x2F;sub-menu&#x2F; || fa fa-book             # 一级子菜单的配置</span><br><span class="line">    sub-sub-menu-1: &#x2F;sub-sub-menu&#x2F; || fa fa-plug  # 二级一号子菜单的配置</span><br><span class="line">    sub-sub-menu-2:                               # 二级二号子菜单</span><br><span class="line">      default: &#x2F;sub-suub-menu-2&#x2F; || fa fa-plug    # 二级二号子菜单配置</span><br><span class="line">      sub-sub-sub-menu: &#x2F;sub-sub-sub-menu&#x2F; || fa fa-search-plus</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: &#x2F; || fa fa-home</span><br><span class="line">  archives: &#x2F;archives&#x2F; || fa fa-archive</span><br><span class="line">  sub-menu:                                       # 一级子菜单</span><br><span class="line">    default: &#x2F;sub-menu&#x2F; || fa fa-book             # 一级子菜单的配置</span><br><span class="line">    sub-sub-menu-1: &#x2F;sub-sub-menu || fa fa-plug   # 二级一号子菜单的配置</span><br><span class="line">    sub-sub-menu-2:                               # 二级二号子菜单</span><br><span class="line">      default: &#x2F;sub-suub-menu-2&#x2F; || fa fa-plug    # 二级二号子菜单配置</span><br><span class="line">      sub-sub-sub-menu: &#x2F;sub-sub-sub-menu || fa fa-search-plus</span><br></pre></td></tr></table></figure>
 
-
+<div class="tabs" id="tianjiaejzcd"><ul class="nav-tabs"><li class="tab active"><a href="#tianjiaejzcd-1">添加中文译文</a></li><li class="tab"><a href="#tianjiaejzcd-2">添加子菜单文件</a></li></ul><div class="tab-content"><div class="tab-pane active" id="tianjiaejzcd-1"><p>这里和添加自定义菜单时一样的，传送按钮<a class="btn" href="https://www.shuoshuoyun.cn/2020/07/17/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/#tianjiazdycd-3" target="_blank" rel="noopener"><i class="fa fa-"></i>添加译文</a></p></div><div class="tab-pane" id="tianjiaejzcd-2"><p><strong>This is Tab 2.</strong></p></div></div></div>
 
 ]]></content>
       <categories>
