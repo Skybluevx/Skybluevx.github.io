@@ -144,14 +144,17 @@
 </div>
 
 <h3 id="添加自定义菜单"><a href="#添加自定义菜单" class="headerlink" title="添加自定义菜单"></a>添加自定义菜单</h3><div class="tabs" id="fourth-unique-name"><ul class="nav-tabs"><li class="tab active"><a href="#fourth-unique-name-1">第一步</a></li><li class="tab"><a href="#fourth-unique-name-2">第二步</a></li><li class="tab"><a href="#fourth-unique-name-3">第三步</a></li></ul><div class="tab-content"><div class="tab-pane active" id="fourth-unique-name-1"><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">cd hexo-site</span><br><span class="line"></span><br><span class="line">hexo new page custom-name</span><br><span class="line"></span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="fourth-unique-name-2"><p>将自定义菜单添加进<code>hexo/_config.yml</code>的<code>menu</code>中：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">menu:</span><br><span class="line">  home: &#x2F; || fa fa-home</span><br><span class="line">  archives: &#x2F;archives&#x2F; || fa fa-archive</span><br><span class="line">  custom-name: &#x2F;custom-name&#x2F; || fa fa-user</span><br><span class="line"></span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="fourth-unique-name-3"><p>为你的<code>custom-name</code>添加翻译：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">menu:</span><br><span class="line">  home: &#x2F; || fa fa-home</span><br><span class="line">  archives: &#x2F;archives&#x2F; || fa fa-archive</span><br><span class="line">  custom-name: &#x2F;custom-name&#x2F; || fa fa-user</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<div class="note success"><h4 id="温馨提示"><a href="#温馨提示" class="headerlink" title="温馨提示"></a>温馨提示</h4><p>自定义菜单相应显示的小图标，如<code>home</code>的<code>fa fa-home</code>，同学们可以前往<a class="btn" href="https://fontawesome.com/" target="_blank" rel="noopener" title="Font Awesome 官网"><i class="fas fa-falg fa-lg"></i>Font Awesome</a></p>
+</div></div><div class="tab-pane" id="fourth-unique-name-3"><p>为你的<code>custom-name</code>添加翻译：</p>
 <p>在<code>next/languages/zh-CN.yml</code>文件中的<code>menu</code>中添加：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">menu:</span><br><span class="line"></span><br><span class="line">​    custom-name: 自定义名字</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <div class="note info"><p>因为我们启用的语言为<code>zh-CN</code>，因此需要在这里面添加<code>custome-name</code>相应的翻译，这样在博客中才会正确的显示我们自定义菜单的中文；否则就只会显示英文。</p>
 </div></div></div></div>
 
-]]></content>
+<h3 id="添加二级子菜单"><a href="#添加二级子菜单" class="headerlink" title="添加二级子菜单"></a>添加二级子菜单</h3>]]></content>
       <categories>
         <category>学习笔记</category>
         <category>Hexo</category>
