@@ -244,7 +244,18 @@
 <a id="more"></a>
 
 <h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p><code>jupyter notebook</code>的安装方式有两个选择，一个是安装<code>Anaconda</code>，里面会自带有<code>jupyter</code>工具；或者直接使用<code>python</code>中的<code>pip</code>安装。</p>
-<div class="tabs" id="anzhuang"><ul class="nav-tabs"><li class="tab active"><a href="#anzhuang-1">Anaconda</a></li><li class="tab"><a href="#anzhuang-2">Python</a></li></ul><div class="tab-content"><div class="tab-pane active" id="anzhuang-1"><div class="tabs" id="anacondaanzhuang"><ul class="nav-tabs"><li class="tab active"><a href="#anacondaanzhuang-1">下载</a></li></ul><div class="tab-content"><div class="tab-pane active" id="anacondaanzhuang-1"></div></div></div></div><div class="tab-pane" id="anzhuang-2"><p><strong>This is Tab 2.</strong></p></div></div></div>
+<div class="tabs" id="anzhuang"><ul class="nav-tabs"><li class="tab active"><a href="#anzhuang-1">Python</a></li><li class="tab"><a href="#anzhuang-2">Anaconda</a></li></ul><div class="tab-content"><div class="tab-pane active" id="anzhuang-1"><p>python下载方法</p></div><div class="tab-pane" id="anzhuang-2"><div class="tabs" id="anacondaanzhuang"><ul class="nav-tabs"><li class="tab active"><a href="#anacondaanzhuang-1">下载</a></li><li class="tab"><a href="#anacondaanzhuang-2">安装</a></li><li class="tab"><a href="#anacondaanzhuang-3">检验</a></li></ul><div class="tab-content"><div class="tab-pane active" id="anacondaanzhuang-1"><p>在<a class="btn" href="https://www.anaconda.com/products/individual%" target="_blank" rel="noopener"><i class="fa fa-"></i>Anaconda 官网</a>中下载安装脚本，然后上传到服务器内，或者直接在服务器终端中使用命令下载：</p>
+<p><code>wget https://repo.anaconda.com/archive/Anaconda3-2020.02-Linux-x86_64.sh</code></p></div><div class="tab-pane" id="anacondaanzhuang-2"><p>切换到刚才下载了<code>anaconda</code>脚本的目录下，运行脚本：</p>
+<p><code>bash Anaconda3-2020.02-Linux-x86_64.sh</code></p>
+<p>后面就是有<code>Enter</code>的按<code>Enter</code>，有需要输入<code>yes</code>的输入<code>yes</code>；当看到</p>
+<p><code>Thank you for installing Anaconda3!</code></p>
+<p>就表示你已经安装成功了！</p></div><div class="tab-pane" id="anacondaanzhuang-3"><p>在终端中输入：</p>
+<p><code>conda --version</code></p>
+<p>若显示了<code>conda</code>的版本信息，则表示安装成功了，但如果系统提示：</p>
+<p><code>conda: command not found</code></p>
+<p>那就执行一下以下命令：</p>
+<p><code>source /root/.bashrc</code></p>
+<p>就可以了，然后再进行版本信息验证。</p></div></div></div></div></div></div>
 
 ]]></content>
       <tags>
