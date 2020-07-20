@@ -18,7 +18,7 @@
 <p>安装的系统小编选择的是<code>Ubuntu</code>，因为刚开始学的时候就是学的这个系统，用起来比较顺手一点；当然，其他的系统都可以，看个人。</p>
 <p>其他的白嫖项呢，就是一个新用户可以免费使用指定范围内的服务器一个月还是三个月，不记得了，同学们可以自己去体验一下。</p>
 <div class="note info"><p>领取这些试用的服务器都是要实名认证的哦。</p>
-</div></div><div class="tab-pane" id="fuwuqi-2"><p>同样，新用户注册可以免费领取一个月的免费服务器一台，不过值得一提的是，腾讯云的服务器学生价是真的低，就几块钱一个月~</p></div><div class="tab-pane" id="fuwuqi-3"></div></div></div>
+</div></div><div class="tab-pane" id="fuwuqi-2"><p>同样，新用户注册可以免费领取一个月的免费服务器一台，不过值得一提的是，腾讯云的服务器学生价是真的低，就几块钱一个月~</p></div><div class="tab-pane" id="fuwuqi-3"><p>这个小编注意的少，不过也是注册并实名认证就可以免费领取一个月的服务器了~</p></div></div></div>
 
 <h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><div class="note info"><h2 id="温馨提示"><a href="#温馨提示" class="headerlink" title="温馨提示"></a>温馨提示</h2><p>本次我们要搭建的是云笔记本，所以大家需要有一台云服务器哦；关于云服务器的购买以及配置</p>
 </div>
@@ -35,7 +35,11 @@
 <p><code>conda: command not found</code></p>
 <p>那就执行一下以下命令：</p>
 <p><code>source /root/.bashrc</code></p>
-<p>就可以了，然后再进行版本信息验证。</p></div></div></div></div></div></div>
+<p>就可以了，然后再进行版本信息验证。</p></div></div></div>
+
+<!-- tab Python -->
+
+<p>最新版的<code>Ubuntu</code>系统已经预装了<code>Python2.7</code>和<code>Python3.5</code>版本了，若是小伙伴们还需要其他的版本，可以自行问问度娘，这里我们就不多加赘述了。</p></div></div></div>
 
 ]]></content>
       <tags>
