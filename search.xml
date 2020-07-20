@@ -240,7 +240,13 @@
   <entry>
     <title>搭建云Jupyter笔记本</title>
     <url>/2020/07/16/57078/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1>]]></content>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近学习<code>python</code>用到了<code>jupyter notebook</code>编辑器；但由于环境原因，并不能一直在自己的笔记本上完成学习，很多时候需要在<strong>别的、没有<code>python</code>环境的、但是有网络的</strong>地方，这时候我们想学习<code>python</code>的时候就比较犯难，没有工作环境，怎么办？当然是问度娘咯，于是小编这就找到了这个搭建云<code>jupyter</code>笔记本的方法，搭建完成以后，嗯~相当舒服，有浏览器有网络的地方就可以开始码代码了，，</p>
+<a id="more"></a>
+
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p><code>jupyter notebook</code>的安装方式有两个选择，一个是安装<code>Anaconda</code>，里面会自带有<code>jupyter</code>工具；或者直接使用<code>python</code>中的<code>pip</code>安装。</p>
+<div class="tabs" id="fourth-unique-name"><ul class="nav-tabs"><li class="tab active"><a href="#fourth-unique-name-1">Solution 1</a></li><li class="tab"><a href="#fourth-unique-name-2">Solution 2</a></li></ul><div class="tab-content"><div class="tab-pane active" id="fourth-unique-name-1"><p><strong>This is Tab 1.</strong></p></div><div class="tab-pane" id="fourth-unique-name-2"><p><strong>This is Tab 2.</strong></p></div></div></div>
+
+]]></content>
       <tags>
         <tag>jupyter</tag>
       </tags>
