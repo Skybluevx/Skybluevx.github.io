@@ -53,7 +53,7 @@
 <p><code>sudo vim /etc/profile</code></p>
 <p>添加如下信息：</p>
 <p><code>export PATH=$PATH:~/.local/bin</code></p>
-<p>推出编辑：</p>
+<p>退出编辑：</p>
 <p><code>Esc</code>+<code>:wq</code>+<code>Enter</code></p>
 <p>执行配置：</p>
 <p><code>source  /etc/profile</code></p>
