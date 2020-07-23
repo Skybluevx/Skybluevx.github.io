@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>搭建云Jupyter笔记本</title>
-    <url>/2020/07/18/57078/</url>
+    <url>/2020/07/23/57078/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近学习<code>python</code>用到了<code>jupyter notebook</code>编辑器；但由于环境原因，并不能一直在自己的笔记本上完成学习，很多时候需要在<strong>别的、没有<code>python</code>环境的、但是有网络的</strong>地方，这时候我们想学习<code>python</code>的时候就比较犯难，没有工作环境，怎么办？当然是问度娘咯，于是小编这就找到了这个搭建云<code>jupyter</code>笔记本的方法，搭建完成以后，嗯~相当舒服，有浏览器有网络的地方就可以开始码代码了，，</p>
 <a id="more"></a>
 
@@ -60,7 +60,22 @@
 <p>这个时候再在终端中输入<code>jupyter</code>即可返回一大段的命令提示符，这时候输入<code>jupyter notebook</code>即可打开。</p>
 </div></div></div></div>
 
-<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><div class="tabs" id="jupyterpeizhi"><ul class="nav-tabs"></ul><div class="tab-content"></div></div>
+<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><div class="tabs" id="jupyterpeizhi"><ul class="nav-tabs"><li class="tab active"><a href="#jupyterpeizhi-1">生成配置文件</a></li><li class="tab"><a href="#jupyterpeizhi-2">修改配置文件</a></li></ul><div class="tab-content"><div class="tab-pane active" id="jupyterpeizhi-1"><p>在终端中执行以下命令：</p>
+<p><code>jupyter notebook --generate-config</code></p>
+<p>即可生成<code>jupyter notebook</code>的配置文件，并且会返回这个文件所在的路径，小编的路径如下：</p>
+<p><code>/home/deepin/.jupyter/jupyter_notebook_config.py</code></p></div><div class="tab-pane" id="jupyterpeizhi-2"><p>执行命令：</p>
+<p><code>vi /home/deepin/.jupyter/jupyter_notebook_config.py</code></p>
+<p>在文件最上面添加如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">c.NotebookApp.ip &#x3D; &#39;*&#39;  # 允许访问此服务器的 IP，星号表示任意 IP</span><br><span class="line">c.NotebookApp.open_browser &#x3D; False # 运行时不打开本机浏览器</span><br><span class="line">c.NotebookApp.port &#x3D; 8888 # 使用的端口</span><br><span class="line">c.NotebookApp.enable_mathjax &#x3D; True # 启用 MathJax</span><br><span class="line">c.NotebookApp.notebook_dir &#x3D; &#39;&#x2F;root&#x2F;jupyter&#39;      # 存放文件的目录</span><br><span class="line">c.NotebookApp.allow_remote_access &#x3D; True     # 允许远程访问</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>修改完成后保存推出即可；</p>
+<p>小伙伴们可以参考如上代码进行修改，若有其他需求则可以自行阅读配置文件进行修改。</p>
+<!-- tab 设置密码并启动服务 -->
+
+<p>密码设置命令：</p>
+<p><code>jupyter notebook password</code></p>
+<p>然后输入密码回车再次确认即可，</p>
+<p>最后输入<code>jupyter notebook</code>启动服务。</p></div></div></div>
 
 <p>至此我们搭建云<code>Jupyter</code>笔记本的教程就大概结束了，没有别的需求的小伙伴们就可以通过访问<code>http://服务器IP地址:8888</code>来访问你的<code>jupyter</code>啦（记得去服务器控制台将8888端口打开~），而且是随时随地的访问，是不是很方便呢，又可以开心的继续写代码了呢：）</p>
 ]]></content>
