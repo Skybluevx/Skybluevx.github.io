@@ -1,6 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>搭建云Jupyter笔记本</title>
+    <url>/2020/07/18/57078/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近学习<code>python</code>用到了<code>jupyter notebook</code>编辑器；但由于环境原因，并不能一直在自己的笔记本上完成学习，很多时候需要在<strong>别的、没有<code>python</code>环境的、但是有网络的</strong>地方，这时候我们想学习<code>python</code>的时候就比较犯难，没有工作环境，怎么办？当然是问度娘咯，于是小编这就找到了这个搭建云<code>jupyter</code>笔记本的方法，搭建完成以后，嗯~相当舒服，有浏览器有网络的地方就可以开始码代码了，，</p>
+<a id="more"></a>
+
+<h1 id="前期准备工作"><a href="#前期准备工作" class="headerlink" title="前期准备工作"></a>前期准备工作</h1><div class="note success"><p>这里的前期准备工作是用于介绍服务器相关的，如果已经有一台服务器的同学可以忽略不计直接跳到<a class="btn" href="#安装"><i class="fa fa-"></i>下一节</a>去看。</p>
+</div>
+
+<p>首先，我们搭建一个云<code>jupyter</code>笔记本，就需要一台云服务器；目前比较大的厂商有阿里云、腾讯云和百度云，这里小编只是介绍一下小编是如何白嫖这些厂商的服务器的~</p>
+<div class="tabs" id="fuwuqi"><ul class="nav-tabs"><li class="tab active"><a href="#fuwuqi-1">阿里云</a></li><li class="tab"><a href="#fuwuqi-2">腾讯云</a></li><li class="tab"><a href="#fuwuqi-3">百度云</a></li></ul><div class="tab-content"><div class="tab-pane active" id="fuwuqi-1"><p>为什么小编会把阿里云放在第一个呢，因为阿里云目前有一个<a class="btn" href="https://developer.aliyun.com/adc/student/?utm_content=g_1000107876&from=groupmessage&share_source=wechat" target="_blank" rel="noopener"><i class="fas fa-cloud-upload-alt fa-fw"></i>阿里云高校学生计划</a>，这个计划可以让在校大学生白嫖一台六个月的服务器，你说香不香呢~重点是，如果你在这六个月内没有毕业，通过他们相关的考核即可免费再嫖六个月！！！一共就是一年！这可是一大好机会呀。</p>
+<div class="note info"><p>这里需要注意一点的就是，想领取这个服务器的必须目前该账号没有其他的服务器；如果有，那就是领取不了的。</p>
+</div>
+
+<p>领取后的服务器是固定配置，自选选项比较少，大家可以根据自己的需要选择；不过这个配置对于我们仅仅只是自己搞学习的学生党来说，还是不错的（毕竟我们自己买的话一般运行内存就买1G的，这个有2G）。</p>
+<p>安装的系统小编选择的是<code>Ubuntu</code>，因为刚开始学的时候就是学的这个系统，用起来比较顺手一点；当然，其他的系统都可以，看个人。</p>
+<p>其他的白嫖项呢，就是一个新用户可以免费使用指定范围内的服务器一个月还是三个月，不记得了，同学们可以自己去体验一下。</p>
+<div class="note info"><p>领取这些试用的服务器都是要实名认证的哦。</p>
+</div></div><div class="tab-pane" id="fuwuqi-2"><p>同样，新用户注册可以免费领取一个月的免费服务器一台，不过值得一提的是，腾讯云的服务器学生价是真的低，就几块钱一个月~</p></div><div class="tab-pane" id="fuwuqi-3"><p>这个小编注意的少，不过也是注册并实名认证就可以免费领取一个月的服务器了~</p></div></div></div>
+
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><div class="note info"><h2 id="温馨提示"><a href="#温馨提示" class="headerlink" title="温馨提示"></a>温馨提示</h2><p>本次我们要搭建的是云笔记本，所以大家需要有一台云服务器哦；关于云服务器的购买以及配置</p>
+</div>
+
+<p><code>jupyter notebook</code>的安装方式有两个选择，一个是安装<code>Anaconda</code>，里面会自带有<code>jupyter</code>工具；或者直接使用<code>python</code>中的<code>pip</code>安装。</p>
+<div class="tabs" id="anzhuang"><ul class="nav-tabs"><li class="tab active"><a href="#anzhuang-1">Anaconda</a></li><li class="tab"><a href="#anzhuang-2">Python</a></li></ul><div class="tab-content"><div class="tab-pane active" id="anzhuang-1"><div class="tabs" id="anacondaanzhuang"><ul class="nav-tabs"><li class="tab active"><a href="#anacondaanzhuang-1">下载</a></li><li class="tab"><a href="#anacondaanzhuang-2">安装</a></li><li class="tab"><a href="#anacondaanzhuang-3">检验</a></li></ul><div class="tab-content"><div class="tab-pane active" id="anacondaanzhuang-1"><p>在<a class="btn" href="https://www.anaconda.com/products/individual%" target="_blank" rel="noopener"><i class="fa fa-"></i>Anaconda 官网</a>中下载安装脚本，然后上传到服务器内，或者直接在服务器终端中使用命令下载：</p>
+<p><code>wget https://repo.anaconda.com/archive/Anaconda3-2020.02-Linux-x86_64.sh</code></p></div><div class="tab-pane" id="anacondaanzhuang-2"><p>切换到刚才下载了<code>anaconda</code>脚本的目录下，运行脚本：</p>
+<p><code>bash Anaconda3-2020.02-Linux-x86_64.sh</code></p>
+<p>后面就是有<code>Enter</code>的按<code>Enter</code>，有需要输入<code>yes</code>的输入<code>yes</code>；当看到</p>
+<p><code>Thank you for installing Anaconda3!</code></p>
+<p>就表示你已经安装成功了！</p></div><div class="tab-pane" id="anacondaanzhuang-3"><p>在终端中输入：</p>
+<p><code>conda --version</code></p>
+<p>若显示了<code>conda</code>的版本信息，则表示安装成功了，但如果系统提示：</p>
+<p><code>conda: command not found</code></p>
+<p>那就执行一下以下命令：</p>
+<p><code>source /root/.bashrc</code></p>
+<p>就可以了，然后再进行版本信息验证。</p></div></div></div></div><div class="tab-pane" id="anzhuang-2"><p>最新版的<code>Ubuntu</code>系统已经预装了<code>Python2.7</code>和<code>Python3.5</code>版本了，若是小伙伴们还需要其他的版本，可以自行问问度娘，这里我们就不多加赘述了。</p>
+<p>有了<code>python</code>，安装<code>jupyter</code>便是非常简单的事情了，执行以下命令：</p>
+<p><code>pip install jupyter</code></p>
+<p>等待一小会儿，就可以安装好了。</p>
+<div class="note warning"><h2 id="jupyter-command-not-found"><a href="#jupyter-command-not-found" class="headerlink" title="jupyter command not found"></a>jupyter command not found</h2><p>可能有些小伙伴在安装完成后回出现这个问题，这里我们就一并解决了吧~当然，没有出现这个问题更好。</p>
+<p>首先我们寻找<code>juputer</code>是否存在，使用命令：</p>
+<p><code>find -name jupyter</code></p>
+<p>小编这里的返回结果如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">.&#x2F;.local&#x2F;share&#x2F;jupyter</span><br><span class="line">.&#x2F;.local&#x2F;bin&#x2F;jupyter</span><br><span class="line">.&#x2F;.local&#x2F;etc&#x2F;jupyter</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>这里的<code>bin</code>目录即是存放命令的目录，所以我们只要把这个加入环境变量即可；</p>
+<p>这就表示我们已经安装好了<code>jupyter</code>了的，因此就需要把它加入到环境变量中，</p>
+<p>打开配置文件：</p>
+<p><code>sudo vim /etc/profile</code></p>
+<p>添加如下信息：</p>
+<p><code>export PATH=$PATH:~/.local/bin</code></p>
+<p>推出编辑：</p>
+<p><code>Esc</code>+<code>:wq</code>+<code>Enter</code></p>
+<p>执行配置：</p>
+<p><code>source  /etc/profile</code></p>
+<p>这个时候再在终端中输入<code>jupyter</code>即可返回一大段的命令提示符，这时候输入<code>jupyter notebook</code>即可打开。</p>
+</div></div></div></div>
+
+<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><div class="tabs" id="jupyterpeizhi"><ul class="nav-tabs"></ul><div class="tab-content"></div></div>
+
+<p>至此我们搭建云<code>Jupyter</code>笔记本的教程就大概结束了，没有别的需求的小伙伴们就可以通过访问<code>http://服务器IP地址:8888</code>来访问你的<code>jupyter</code>啦（记得去服务器控制台将8888端口打开~），而且是随时随地的访问，是不是很方便呢，又可以开心的继续写代码了呢：）</p>
+]]></content>
+      <tags>
+        <tag>jupyter</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo博客搭建</title>
     <url>/2020/07/17/41646/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>搭建这个网站的最开始的理由就是想找一个清净点的地方记录自己想记录的一些东西，并且不用有任何的担心文章会不会被删除之类的；所以不惜花费一点时间来搭建一个属于自己的主页，这样就可以<del>为所欲为</del>好好写博客了~</p>
