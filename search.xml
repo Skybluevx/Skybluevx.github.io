@@ -45,7 +45,9 @@
 <p>小编这里的返回结果如下：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">.&#x2F;.local&#x2F;share&#x2F;jupyter</span><br><span class="line">.&#x2F;.local&#x2F;bin&#x2F;jupyter</span><br><span class="line">.&#x2F;.local&#x2F;etc&#x2F;jupyter</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p>这里的<code>bin</code>目录即是存放命令的目录，所以我们只要把这个加入环境变量即可；</p>
+<div class="note info"><p>这里的<code>bin</code>目录即是存放命令的目录，所以我们只要把这个加入环境变量即可.</p>
+</div>
+
 <p>这就表示我们已经安装好了<code>jupyter</code>了的，因此就需要把它加入到环境变量中，</p>
 <p>打开配置文件：</p>
 <p><code>sudo vim /etc/profile</code></p>
