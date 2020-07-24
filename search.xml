@@ -142,7 +142,24 @@
 
 <p>这样，我们就可以愉快的用自定义的域名地址：<code>https://notebook.域名</code></p>
 <p>来访问我们的<code>jupyter notebook</code>了</p>
-]]></content>
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><blockquote class="blockquote-center">
+<p>感谢这些作者的无私奉献！</p>
+
+</blockquote>
+
+<div class="link-grid"><div class="link-grid-container">
+<div class="link-grid-image" style="background-image: url(/images/apple-touch-icon-next.png);"></div>
+<p>CSDN</p><p>linux服务器安装Anaconda及配置Jupyter</p>
+<a href="https://blog.csdn.net/ImAustin/article/details/103179826" target="_blank" rel="noopener"></a>
+</div><div class="link-grid-container">
+<div class="link-grid-image" style="background-image: url(/images/apple-touch-icon-next.png);"></div>
+<p>CSDN</p><p>在Google Cloud上部署深度学习环境，并为jupyter notebook配置域名https访问</p>
+<a href="https://blog.csdn.net/u012956394/article/details/88410416" target="_blank" rel="noopener"></a>
+</div><div class="link-grid-container">
+<div class="link-grid-image" style="background-image: url(/images/apple-touch-icon-next.png);"></div>
+<p>CSDN</p><p>Ubuntu修改终端下的语言（中文或英文）</p>
+<a href="https://blog.csdn.net/BobYuan888/article/details/88662779" target="_blank" rel="noopener"></a>
+</div></div>]]></content>
       <categories>
         <category>学习笔记</category>
         <category>jupyter</category>
@@ -339,7 +356,7 @@
 </li>
 </ol>
 <h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><blockquote class="blockquote-center">
-<p>感谢这些作者的无私奉献</p>
+<p>感谢这些作者的无私奉献！</p>
 
 </blockquote>
 
