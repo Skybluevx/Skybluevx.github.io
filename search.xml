@@ -140,7 +140,13 @@
 <p><strong>记录值</strong>：你的服务器的IP地址</p>
 <p><strong>TTL</strong>：10分钟</p></div></div></div>
 
+<p>这样，我们就可以愉快的用自定义的域名地址：<code>https://notebook.域名</code></p>
+<p>来访问我们的<code>jupyter notebook</code>了</p>
 ]]></content>
+      <categories>
+        <category>学习笔记</category>
+        <category>jupyter</category>
+      </categories>
       <tags>
         <tag>jupyter</tag>
       </tags>
