@@ -98,15 +98,15 @@
 <p>保存退出。</p></div><div class="tab-pane" id="xiugaiyuyan-3"><p>重启服务器：</p>
 <p><code>reboot</code></p></div></div></div>
 
-<h1 id="配置个性域名"><a href="#配置个性域名" class="headerlink" title="配置个性域名"></a>配置个性域名</h1><div class="tabs" id="gexingyuming"><ul class="nav-tabs"><li class="tab active"><a href="#gexingyuming-1">购买域名</a></li><li class="tab"><a href="#gexingyuming-2">申请SSL证书（可选）</a></li></ul><div class="tab-content"><div class="tab-pane active" id="gexingyuming-1"><p>小伙伴们可以前往各大厂商（阿里云，百度云，腾讯云等）进行购买，很多域名的首年只需要个位数的价格，买来玩还是可以的~</p>
+<h1 id="配置个性域名"><a href="#配置个性域名" class="headerlink" title="配置个性域名"></a>配置个性域名</h1><div class="tabs" id="gexingyuming"><ul class="nav-tabs"><li class="tab active"><a href="#gexingyuming-1">购买域名</a></li><li class="tab"><a href="#gexingyuming-2">申请SSL证书（可选）</a></li><li class="tab"><a href="#gexingyuming-3">配置</a></li></ul><div class="tab-content"><div class="tab-pane active" id="gexingyuming-1"><p>小伙伴们可以前往各大厂商（阿里云，百度云，腾讯云等）进行购买，很多域名的首年只需要个位数的价格，买来玩还是可以的~</p>
 <p><img src="/2020/07/23/57078/yuming1.png" alt></p>
-<p>有自己的域名感觉备儿有格调~</p></div><div class="tab-pane" id="gexingyuming-2"><div class="note info"><p>可能有些小伙伴不知道<code>SSL</code>证书是什么东西，用来干啥的，这里小编简单的解释一下，就是在访问你的域名的时候让你的域名前面有一个（绿色的）小锁头：</p>
+<p>有自己的域名感觉倍儿有格调~</p></div><div class="tab-pane" id="gexingyuming-2"><div class="note info"><p>可能有些小伙伴不知道<code>SSL</code>证书是什么东西，用来干啥的，这里小编简单的解释一下，就是在访问你的域名的时候让你的域名前面有一个（绿色的）小锁头：</p>
 <p><img src="/2020/07/23/57078/xiaosuo.png" alt></p>
 <p>表示访问你这个网站是安全的。</p>
 </div>
 
 <p><code>SSL</code>证书的种类：</p>
-<div class="tabs" id="zhengshuzhonglei"><ul class="nav-tabs"><li class="tab active"><a href="#zhengshuzhonglei-1">单域名</a></li><li class="tab"><a href="#zhengshuzhonglei-2">通配符域名</a></li></ul><div class="tab-content"><div class="tab-pane active" id="zhengshuzhonglei-1"><p><strong>保护一个</strong>单页面网站，例如 <code>domain.com、ssl.domain.com、ssl.ssl.domain.com</code></p>
+<div class="tabs" id="zhengshuzhonglei"><ul class="nav-tabs"><li class="tab active"><a href="#zhengshuzhonglei-1">单域名</a></li><li class="tab"><a href="#zhengshuzhonglei-2">通配符域名</a></li><li class="tab"><a href="#zhengshuzhonglei-3">多域名</a></li></ul><div class="tab-content"><div class="tab-pane active" id="zhengshuzhonglei-1"><p><strong>保护一个</strong>单页面网站，例如 <code>domain.com、ssl.domain.com、ssl.ssl.domain.com</code></p>
 <p>若是小伙伴们只是想弄个小锁头耍耍就只要申请一个这个即可。</p>
 <div class="note success"><h2 id="白嫖方法"><a href="#白嫖方法" class="headerlink" title="白嫖方法"></a>白嫖方法</h2><p>以阿里云为例（腾讯云操作更为简单，百度云目前没发现白嫖方法）：</p>
 <p><strong>登陆阿里云控制台</strong> –&gt;  <strong>SSL证书</strong> –&gt; <strong>购买证书</strong> </p>
@@ -114,7 +114,13 @@
 <p>以上即可购买一份免费的单域名证书了。</p>
 </div></div><div class="tab-pane" id="zhengshuzhonglei-2"><p><strong>大量子域名的超值</strong>选择！一张证书可以同时保障多个子域名的安全加固！</p>
 <p>例如：<code>*.aliyun.com</code>的通配符证书只能对<code>a.aliyun.com、b.aliyun.com</code>域名进行保护。如果存在<code>a.b.aliyun.com</code>的域名需要购买<code>*.b.aliyun.com</code>的通配符证书。</p>
-<p>这个就是属于有需求且有能力的小伙伴选择购买了，毕竟也不便宜，，，</p></div></div></div></div></div></div>
+<p>通配符域名证书基本上都需要购买，这个就是属于有需求且有能力的小伙伴选择购买了，毕竟也不便宜，，，</p>
+<p>但是！！！</p>
+<div class="note warning"><h2 id="依旧能白嫖"><a href="#依旧能白嫖" class="headerlink" title="依旧能白嫖"></a>依旧能白嫖</h2><p>有兴趣并且喜欢折腾的小伙伴们，给你们一个传送门：<a class="btn" href="https://www.hi-linux.com/posts/6968.html" target="_blank" rel="noopener"><i class="fa fa-"></i>Let’s Encrypt 免费通配符 SSL 证书申请教程</a></p>
+<p>同时，感谢这位作者，撒花~</p>
+</div></div><div class="tab-pane" id="zhengshuzhonglei-3"><p><strong>一张证书可以为多个独立域名提供安全保障。</strong></p>
+<p>例如：一个多域名证书可以同时保障 aliyun.com、aliyunShop.com 和 taobao.com 的网站安全。</p>
+<p>这个就是属于，，，反正不是属于小编这样子的人能购买的，，，而且，，，没有白嫖！</p></div></div></div></div><div class="tab-pane" id="gexingyuming-3"></div></div></div>
 
 ]]></content>
       <tags>
