@@ -20,6 +20,8 @@
 
 <a id="more"></a>
 
+
+
 <center>什么？你是选择困难症？每次都挑很久？</center>
 
 <center>又什么？你懒得手动切换？</center>
@@ -40,12 +42,15 @@
 
 <center>接下来就一起来看看我们是怎样做到的吧</center>
 
-<h1 id="开发工具"><a href="#开发工具" class="headerlink" title="开发工具"></a>开发工具</h1><p>python3.7.6</p>
-<p>相关第三方库：</p>
-<p>​    time</p>
-<p>​    requests</p>
-<p>​    lxml</p>
-<p>​    urllib</p>
+<h1 id="开发工具"><a href="#开发工具" class="headerlink" title="开发工具"></a>开发工具</h1><p>python3.7.6<br>相关第三方库：</p>
+<ul>
+<li>time</li>
+<li>requests</li>
+<li>lxml</li>
+<li>urllib</li>
+</ul>
+<h1 id="基本原理"><a href="#基本原理" class="headerlink" title="基本原理"></a>基本原理</h1><p>之前已经有了许多的爬虫推文了。相信大家对于爬虫的原理已经不再陌生了，无非就是获取网页源代码，提取目标信息，本地保存。我们今天这个也是如此，只不过一些细节部分需要稍加注意~</p>
+<p>目标网址：<code>http://www.netbian.com/</code></p>
 ]]></content>
       <categories>
         <category>公众号</category>
