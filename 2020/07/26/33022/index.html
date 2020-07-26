@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"blog.shuoshuoyun.cn","root":"/","scheme":"Gemini","version":"8.0.0-rc.4","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="导语    尽管每次都只是匆匆一眼  但它仍然能影响一天的心情  它就是我们的桌面壁纸  时常更换壁纸能带来一种新鲜感  在繁复的工作学习中带来一丝亮点    什么？你是选择困难症？每次都挑很久？  又什么？你懒得手动切换？  别担心，今天笔者就带你用python  获取好看壁纸并实现桌面自动换壁纸    温馨提示  尽管每次都只是匆匆一眼  尽管每次都只是匆匆一眼">
+  <meta name="description" content="导语    尽管每次都只是匆匆一眼  但它仍然能影响一天的心情  它就是我们的桌面壁纸  时常更换壁纸能带来一种新鲜感  在繁复的工作学习中带来一丝亮点">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python“批发”好看壁纸">
 <meta property="og:url" content="https://blog.shuoshuoyun.cn/2020/07/26/33022/index.html">
 <meta property="og:site_name" content="木今心">
-<meta property="og:description" content="导语    尽管每次都只是匆匆一眼  但它仍然能影响一天的心情  它就是我们的桌面壁纸  时常更换壁纸能带来一种新鲜感  在繁复的工作学习中带来一丝亮点    什么？你是选择困难症？每次都挑很久？  又什么？你懒得手动切换？  别担心，今天笔者就带你用python  获取好看壁纸并实现桌面自动换壁纸    温馨提示  尽管每次都只是匆匆一眼  尽管每次都只是匆匆一眼">
+<meta property="og:description" content="导语    尽管每次都只是匆匆一眼  但它仍然能影响一天的心情  它就是我们的桌面壁纸  时常更换壁纸能带来一种新鲜感  在繁复的工作学习中带来一丝亮点">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-07-26T01:53:55.000Z">
 <meta property="article:modified_time" content="2020-07-26T01:53:55.000Z">
@@ -211,7 +211,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -223,6 +223,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#代码及相关资源获取"><span class="nav-text">代码及相关资源获取</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#效果演示"><span class="nav-text">效果演示</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开发工具"><span class="nav-text">开发工具</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -348,7 +349,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>154</span>
+              <span>327</span>
             </span>
 
         </div>
@@ -375,7 +376,7 @@
 
 <center>在繁复的工作学习中带来一丝亮点</center>
 
-
+<a id="more"></a>
 
 <center>什么？你是选择困难症？每次都挑很久？</center>
 
@@ -385,14 +386,24 @@
 
 <center>获取好看壁纸并实现桌面自动换壁纸</center>
 
+<h1 id="代码及相关资源获取"><a href="#代码及相关资源获取" class="headerlink" title="代码及相关资源获取"></a>代码及相关资源获取</h1><ol>
+<li>关注“python趣味爱好者”公众号，<strong>回复“s1”获取源代码</strong>。</li>
+<li>加入群聊：996113038。在<strong>群文件</strong>中下载源代码以及相关资料。</li>
+</ol>
+<h1 id="效果演示"><a href="#效果演示" class="headerlink" title="效果演示"></a>效果演示</h1><video src="https://www.bilibili.com/video/BV1Bh411o7Fp/" preload="metadata" controls playsinline poster>Sorry, your browser does not support the video tag.</video>
 
+<iframe src="//player.bilibili.com/player.html?bvid=BV1Bh411o7Fp&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
-<center>温馨提示</center>
+<center>怎么样，看起来是不是很炫酷？</center>
 
-<center>尽管每次都只是匆匆一眼</center>
+<center>接下来就一起来看看我们是怎样做到的吧</center>
 
-<center>尽管每次都只是匆匆一眼</center>
-
+<h1 id="开发工具"><a href="#开发工具" class="headerlink" title="开发工具"></a>开发工具</h1><p>python3.7.6</p>
+<p>相关第三方库：</p>
+<p>​    time</p>
+<p>​    requests</p>
+<p>​    lxml</p>
+<p>​    urllib</p>
 
     </div>
 
@@ -514,7 +525,7 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">113k</span>
+    <span title="站点总字数">114k</span>
 </div>
   <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZw==">NexT.Gemini</span> 强力驱动
   </div>

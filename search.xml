@@ -18,7 +18,7 @@
 
 <center>在繁复的工作学习中带来一丝亮点</center>
 
-
+<a id="more"></a>
 
 <center>什么？你是选择困难症？每次都挑很久？</center>
 
@@ -28,14 +28,24 @@
 
 <center>获取好看壁纸并实现桌面自动换壁纸</center>
 
+<h1 id="代码及相关资源获取"><a href="#代码及相关资源获取" class="headerlink" title="代码及相关资源获取"></a>代码及相关资源获取</h1><ol>
+<li>关注“python趣味爱好者”公众号，<strong>回复“s1”获取源代码</strong>。</li>
+<li>加入群聊：996113038。在<strong>群文件</strong>中下载源代码以及相关资料。</li>
+</ol>
+<h1 id="效果演示"><a href="#效果演示" class="headerlink" title="效果演示"></a>效果演示</h1><video src="https://www.bilibili.com/video/BV1Bh411o7Fp/" preload="metadata" controls playsinline poster>Sorry, your browser does not support the video tag.</video>
 
+<iframe src="//player.bilibili.com/player.html?bvid=BV1Bh411o7Fp&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
-<center>温馨提示</center>
+<center>怎么样，看起来是不是很炫酷？</center>
 
-<center>尽管每次都只是匆匆一眼</center>
+<center>接下来就一起来看看我们是怎样做到的吧</center>
 
-<center>尽管每次都只是匆匆一眼</center>
-
+<h1 id="开发工具"><a href="#开发工具" class="headerlink" title="开发工具"></a>开发工具</h1><p>python3.7.6</p>
+<p>相关第三方库：</p>
+<p>​    time</p>
+<p>​    requests</p>
+<p>​    lxml</p>
+<p>​    urllib</p>
 ]]></content>
       <tags>
         <tag>公众号</tag>
