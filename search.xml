@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>可视化系列（一）：Plotly简介及示例（下）</title>
+    <title>python批发好看壁纸（下）</title>
     <url>/2020/07/27/7819/</url>
     <content><![CDATA[<h2 id="获取下一页网页的-url-地址"><a href="#获取下一页网页的-url-地址" class="headerlink" title="获取下一页网页的 url 地址"></a>获取下一页网页的 url 地址</h2><p>我们把网页往下拉，会发现最下面有一连串的页码以及上一页和下一页，因此，我们获取下一页的方式有两种：</p>
 <a id="more"></a>
