@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"blog.shuoshuoyun.cn","root":"/","scheme":"Gemini","version":"8.0.0-rc.4","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="获取下一页网页的 url 地址我们把网页往下拉，会发现最下面有一连串的页码以及上一页和下一页，因此，我们获取下一页的方式有两种：">
+  <meta name="description" content="讲解部分获取下一页网页的 url 地址我们把网页往下拉，会发现最下面有一连串的页码以及上一页和下一页，因此，我们获取下一页的方式有两种：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python批发好看壁纸（下）">
 <meta property="og:url" content="https://blog.shuoshuoyun.cn/2020/07/27/7819/index.html">
 <meta property="og:site_name" content="木今心">
-<meta property="og:description" content="获取下一页网页的 url 地址我们把网页往下拉，会发现最下面有一连串的页码以及上一页和下一页，因此，我们获取下一页的方式有两种：">
+<meta property="og:description" content="讲解部分获取下一页网页的 url 地址我们把网页往下拉，会发现最下面有一连串的页码以及上一页和下一页，因此，我们获取下一页的方式有两种：">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://blog.shuoshuoyun.cn/2020/07/27/7819/buzhou3.png">
 <meta property="og:image" content="https://blog.shuoshuoyun.cn/2020/07/27/7819/buzhou4.png">
@@ -229,7 +229,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#获取下一页网页的-url-地址"><span class="nav-text">获取下一页网页的 url 地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码重构并增加容错率"><span class="nav-text">代码重构并增加容错率</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实时改变-Referer。"><span class="nav-text">实时改变 Referer。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#判断状态码"><span class="nav-text">判断状态码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#防止最后一页无法请求到下一页的-url-地址而报错"><span class="nav-text">防止最后一页无法请求到下一页的 url 地址而报错</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#设置"><span class="nav-text">设置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#原文链接"><span class="nav-text">原文链接</span></a></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#讲解部分"><span class="nav-text">讲解部分</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#获取下一页网页的-url-地址"><span class="nav-text">获取下一页网页的 url 地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码重构并增加容错率"><span class="nav-text">代码重构并增加容错率</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实时改变-Referer。"><span class="nav-text">实时改变 Referer。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#判断状态码"><span class="nav-text">判断状态码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#防止最后一页无法请求到下一页的-url-地址而报错"><span class="nav-text">防止最后一页无法请求到下一页的 url 地址而报错</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#设置"><span class="nav-text">设置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#原文链接"><span class="nav-text">原文链接</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -376,7 +376,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="获取下一页网页的-url-地址"><a href="#获取下一页网页的-url-地址" class="headerlink" title="获取下一页网页的 url 地址"></a>获取下一页网页的 url 地址</h2><p>我们把网页往下拉，会发现最下面有一连串的页码以及上一页和下一页，因此，我们获取下一页的方式有两种：</p>
+        <h1 id="讲解部分"><a href="#讲解部分" class="headerlink" title="讲解部分"></a>讲解部分</h1><h2 id="获取下一页网页的-url-地址"><a href="#获取下一页网页的-url-地址" class="headerlink" title="获取下一页网页的 url 地址"></a>获取下一页网页的 url 地址</h2><p>我们把网页往下拉，会发现最下面有一连串的页码以及上一页和下一页，因此，我们获取下一页的方式有两种：</p>
 <a id="more"></a>
 
 <p>第一种就是知道网页一共的页数，然后设置一个变量来记录下一页该下载的页数，这一种比较简单，就是每获取完一页的图片 url 地址后，就把变量加个 1 ，这样就可以一直获取下去了。但是这样会有个问题，当你获取到最后一页的时候怎么办？那时候这个网址就没有了下一页，如果你还去请求，那么程序就会报错，作为一个完美主义者，怎么可以允许这种情况出现呢！因此我们就有了第二种方法。</p>
