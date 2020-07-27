@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"blog.shuoshuoyun.cn","root":"/","scheme":"Gemini","version":"8.0.0-rc.4","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="导语还在为拿着数据不知道怎样表达而烦恼吗？  还在为python画图而抓狂吗？  本系列教程教你如何使用plotly进行数据的可视化  plotly简单易上手  绘图炫酷且实用  你  值得拥有！">
+  <meta name="description" content="导语    还在为拿着数据不知道怎样表达而烦恼吗？  还在为python画图而抓狂吗？  本系列教程教你如何使用plotly进行数据的可视化  plotly简单易上手  绘图炫酷且实用  你  值得拥有！">
 <meta property="og:type" content="article">
 <meta property="og:title" content="可视化系列（一）：Plotly简介及示例">
 <meta property="og:url" content="https://blog.shuoshuoyun.cn/2020/07/26/38704/index.html">
 <meta property="og:site_name" content="木今心">
-<meta property="og:description" content="导语还在为拿着数据不知道怎样表达而烦恼吗？  还在为python画图而抓狂吗？  本系列教程教你如何使用plotly进行数据的可视化  plotly简单易上手  绘图炫酷且实用  你  值得拥有！">
+<meta property="og:description" content="导语    还在为拿着数据不知道怎样表达而烦恼吗？  还在为python画图而抓狂吗？  本系列教程教你如何使用plotly进行数据的可视化  plotly简单易上手  绘图炫酷且实用  你  值得拥有！">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://blog.shuoshuoyun.cn/2020/07/26/38704/1.png">
 <meta property="og:image" content="https://blog.shuoshuoyun.cn/2020/07/26/38704/2.png">
@@ -230,7 +230,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#导语"><span class="nav-text">导语</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码及相关资源获取"><span class="nav-text">代码及相关资源获取</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#效果演示"><span class="nav-text">效果演示</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开发工具"><span class="nav-text">开发工具</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#讲解部分"><span class="nav-text">讲解部分</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工具"><span class="nav-text">工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#示例"><span class="nav-text">示例</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#原文链接"><span class="nav-text">原文链接</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#代码及相关资源获取"><span class="nav-text">代码及相关资源获取</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#效果演示"><span class="nav-text">效果演示</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开发工具"><span class="nav-text">开发工具</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#讲解部分"><span class="nav-text">讲解部分</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工具"><span class="nav-text">工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#示例"><span class="nav-text">示例</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#原文链接"><span class="nav-text">原文链接</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -377,7 +377,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="导语"><a href="#导语" class="headerlink" title="导语"></a>导语</h1><center>还在为拿着数据不知道怎样表达而烦恼吗？</center>
+        <blockquote class="blockquote-center">
+<p>导语</p>
+
+</blockquote>
+
+<center>还在为拿着数据不知道怎样表达而烦恼吗？</center>
 
 <center>还在为python画图而抓狂吗？</center>
 

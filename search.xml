@@ -70,7 +70,12 @@
   <entry>
     <title>可视化系列（一）：Plotly简介及示例</title>
     <url>/2020/07/26/38704/</url>
-    <content><![CDATA[<h1 id="导语"><a href="#导语" class="headerlink" title="导语"></a>导语</h1><center>还在为拿着数据不知道怎样表达而烦恼吗？</center>
+    <content><![CDATA[<blockquote class="blockquote-center">
+<p>导语</p>
+
+</blockquote>
+
+<center>还在为拿着数据不知道怎样表达而烦恼吗？</center>
 
 <center>还在为python画图而抓狂吗？</center>
 
