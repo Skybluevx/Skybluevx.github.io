@@ -94,7 +94,9 @@
 <li><p>加入群聊：<strong>729683466</strong>，在<strong>群文件</strong>中下载源代码及相关资料。</p>
 </li>
 </ol>
-<h1 id="效果演示"><a href="#效果演示" class="headerlink" title="效果演示"></a>效果演示</h1><h1 id="开发工具"><a href="#开发工具" class="headerlink" title="开发工具"></a>开发工具</h1><p><strong>Jupyter Notebook</strong></p>
+<h1 id="效果演示"><a href="#效果演示" class="headerlink" title="效果演示"></a>效果演示</h1><iframe src="//player.bilibili.com/player.html?bvid=BV1Eh411Z7iu&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+<h1 id="开发工具"><a href="#开发工具" class="headerlink" title="开发工具"></a>开发工具</h1><p><strong>Jupyter Notebook</strong></p>
 <h1 id="讲解部分"><a href="#讲解部分" class="headerlink" title="讲解部分"></a>讲解部分</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>相信大家应该都看过一些关于<code>python</code>做的超级炫酷的动态图，想必大家也非常想自己能做出这么炫酷的动态图出来！因此，公众号特地开设了可视化系列的教程用于……从最基础的一些图表做起（手动滑稽）~</p>
 <p>虽然小编知道大家都喜欢那些炫酷的东西；但是呢，再好的东西都需要大家从最基础的学起，不然你永远也就只能仿照别人，不能做出正真属于自己的东西来。</p>
 <p>那么本系列文章将对python的可视化的一些比较常用的库做一些稍微详细的介绍，主要包括<code>plotly</code>库、<code>seaborn</code>库和最为经典的<code>matplotlib</code>库。</p>
