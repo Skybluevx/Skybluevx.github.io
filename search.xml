@@ -462,15 +462,15 @@
 <li>等待安装成功即可。</li>
 </ul>
 <h2 id="创建博客"><a href="#创建博客" class="headerlink" title="创建博客"></a>创建博客</h2><ul>
-<li>博客的初始化：<code>hexo init Blog</code> (这里的Blog为用于存放博客文件的地方，名字随意)；<br><img src="https://s2.ax1x.com/2020/01/28/1M3ZOP.png" alt="1M3ZOP.png"></li>
+<li>博客的初始化：<code>hexo init Blog</code> (这里的Blog为用于存放博客文件的地方，名字随意)；<br><img src="https://gitee.com/shuoshuoyun/picbed/raw/master/img//20200730102522.png" alt="1M3ZOP"></li>
 <li><code>cd Blog</code>；</li>
-<li>安装npm相关组件：<code>npm inistall</code>；<br><img src="https://s2.ax1x.com/2020/01/28/1M8Xb6.png" alt="1M8Xb6.png"></li>
+<li>安装npm相关组件：<code>npm inistall</code>；<br><img src="https://gitee.com/shuoshuoyun/picbed/raw/master/img//20200730102550.png" alt="1M8Xb6"></li>
 <li>生成静态页面：<code>hexo generate</code>或<code>hexo g</code>；</li>
-<li>启动服务：<code>hexo server</code>或<code>hexo s</code>；<br>此时就可以打开浏览器，输入<code>http://localhost:4000</code>查看效果，本地博客搭建成功。<br><img src="https://s2.ax1x.com/2020/01/28/1MGeIS.png" alt="1MGeIS.png"></li>
+<li>启动服务：<code>hexo server</code>或<code>hexo s</code>；<br>此时就可以打开浏览器，输入<code>http://localhost:4000</code>查看效果，本地博客搭建成功。<br><img src="https://gitee.com/shuoshuoyun/picbed/raw/master/img//20200730102628.png" alt="1MGeIS"></li>
 </ul>
 <hr>
 <h1 id="桥接到github"><a href="#桥接到github" class="headerlink" title="桥接到github"></a>桥接到github</h1><h2 id="创建仓库"><a href="#创建仓库" class="headerlink" title="创建仓库"></a>创建仓库</h2><p>新建一个名为&lt;你的用户名&gt;.github.io的仓库，比如说，如果你的github用户名是test，那么你就新建test.github.io的仓库（必须是你的用户名，其它名称无效），将来你的网站访问地址就是 <span class="exturl" data-url="aHR0cDovL3Rlc3QuZ2l0aHViLmlv">http://test.github.io<i class="fa fa-external-link-alt"></i></span> 了，是不是很方便？</p>
-<p>由此可见，每一个github账户最多只能创建一个这样可以直接使用域名访问的仓库。<br><img src="https://s2.ax1x.com/2020/01/29/1MJwtS.png" alt="1MJwtS.png"></p>
+<p>由此可见，每一个github账户最多只能创建一个这样可以直接使用域名访问的仓库。<br><img src="https://gitee.com/shuoshuoyun/picbed/raw/master/img//20200730102712.png" alt="1MJwtS"></p>
 <p><strong>几个注意的地方</strong>：</p>
 <ul>
 <li>注册的邮箱一定要验证，否则不会成功；</li>
@@ -486,7 +486,7 @@
 <li>然后连续3次回车，最终会生成一个文件在用户目录下，打开用户目录即<code>c:\Users\你的电脑用户名</code>，找到.ssh文件夹下的id_rsa.pub文件，记事本打开并复制里面的内容;</li>
 <li>打开你的github主页，进入<code>个人设置 -&gt; SSH and GPG keys -&gt; New SSH key</code></li>
 </ul>
-<p><img src="https://s2.ax1x.com/2020/01/30/1l0isU.png" alt="1l0isU.png"></p>
+<p><img src="https://gitee.com/shuoshuoyun/picbed/raw/master/img//20200730102734.png" alt="1l0isU"></p>
 <ul>
 <li>将刚复制的内容粘贴到key那里，title随便填，保存。</li>
 <li>打开cmd，输入<code>ssh -T git@github.com</code># 测试是否成功；</li>
@@ -500,19 +500,24 @@
 
 <p>然后在站点文件夹目录下执行命令<code>npm install hexo-deployer-git --save</code></p>
 <p>这样，你的本地博客就可以通过<code>hexo d</code>命令部署到<code>github</code>上了。</p>
+<h1 id="第一篇博客"><a href="#第一篇博客" class="headerlink" title="第一篇博客"></a>第一篇博客</h1><p>执行命令：</p>
+<p><code>hexo new Hexo博客搭建</code></p>
+<p>即会在目录<code>hexo\source\_posts</code>目录下看见文件<code>Hexo博客搭建.md</code>文件，编辑这个文件，写下你想写的内容，完成后再执行命令：</p>
+<p><code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</code></p>
+<p>稍后即可在你的博客中看到自己写的文章啦。</p>
 <hr>
 <h1 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h1><p>之前的博客搭建之初，对各个方面都不是很懂，因此对于博客的搭建以及美化优化做的并不是特别好；在经过一番思考过后，决定将博客的文件储存到服务器里，将博客的撰写以及上传工作都放到服务器里面，这样就不用担心文件的突然丢失了。同时也对博客的部署以及<code>NexT</code>模板的版本进行了更改，让我们有更好的体验~</p>
 <h1 id="桥接到Coding"><a href="#桥接到Coding" class="headerlink" title="桥接到Coding"></a>桥接到Coding</h1><p>由于<code>github</code>是国外网站，我们将博客部署到那里时，对其进行访问会很慢，所以我们将博客的托管平台进行了更改，国内小编知道的比较大的代码托管平台就只知道<code>Gitee</code>和<code>Coding</code>了，目前<code>Gitee</code>平台的企业版本才可以免费支持<code>Pages</code>服务中的自动部署以及自定义域名服务，而<code>Coding</code>平台中这些都免费支持（虽然他的缺点也有一些，但是这个符合我们的要求，所以就选择了它~）。</p>
 <p>将博客托管到<code>Coding</code>平台其实和<code>Github</code>差不多，大概也就下面三步：</p>
 <div class="tabs" id="qiaojiedcoding"><ul class="nav-tabs"><li class="tab active"><a href="#qiaojiedcoding-1">创建仓库</a></li><li class="tab"><a href="#qiaojiedcoding-2">配置 SSH key</a></li><li class="tab"><a href="#qiaojiedcoding-3">开启静态网站服务</a></li><li class="tab"><a href="#qiaojiedcoding-4">修改站点配置</a></li></ul><div class="tab-content"><div class="tab-pane active" id="qiaojiedcoding-1"><p>这个应该不用多说了，很简单的，不过<code>Coding</code>里面有一点不一样的就是，首先是创建项目，项目里面可以创建个仓库，所以小伙伴们可以先创建一个项目，然后再创建相应的仓库，这里还有一点和<code>Github</code>不一样的就是，这里的仓库名字可以随意起~</p></div><div class="tab-pane" id="qiaojiedcoding-2"><p>如图，</p>
 <p><strong>代码仓库</strong> –&gt; <strong>设置</strong> –&gt; <strong>部署公钥</strong></p>
-<p><img src="https://s1.ax1x.com/2020/07/18/Ucl8eO.png" alt="Ucl8eO.png"></p>
+<p><img src="https://gitee.com/shuoshuoyun/picbed/raw/master/img//20200730102810.png" alt="Ucl8eO"></p>
 <p>在这里面配置好自己的公钥即可，公钥的生成方法以及查看方法前面有介绍到。</p></div><div class="tab-pane" id="qiaojiedcoding-3"><p>如图，</p>
 <p><strong>持续部署</strong> –&gt; <strong>静态网站</strong></p>
-<p><img src="https://s1.ax1x.com/2020/07/17/U6vFAJ.png" alt="U6vFAJ.png"></p>
+<p><img src="https://gitee.com/shuoshuoyun/picbed/raw/master/img//20200730102844.png" alt="U6vFAJ"></p>
 <p>若是没有这个选项的话，则需要手动开启：</p>
 <p><strong>项目设置</strong> –&gt; <strong>项目与成员</strong> –&gt; <strong>功能开关</strong> –&gt; <strong>持续集成</strong> –&gt; <strong>打开开关</strong></p>
-<p><img src="https://s1.ax1x.com/2020/07/17/U6xvLT.png" alt="U6xvLT.png"></p>
+<p><img src="https://gitee.com/shuoshuoyun/picbed/raw/master/img//20200730102912.png" alt="U6xvLT"></p>
 <p>静态网站初始设置：</p>
 <p><strong>网站名称</strong>：随意</p>
 <p><strong>部署来源</strong>：本项目仓库</p>
@@ -521,9 +526,9 @@
 <li><strong>选择仓库</strong>：刚才创建的项目中的仓库</li>
 </ul>
 <p>其他的选项都选择默认</p>
-<p><img src="https://s1.ax1x.com/2020/07/17/U6v9nU.png" alt="U6v9nU.png"></p>
+<p><img src="https://gitee.com/shuoshuoyun/picbed/raw/master/img//20200730103016.png" alt="U6v9nU"></p>
 <p>确定后就你的博客就搭建完成啦，赶紧去它给你的网址去看看吧~</p>
-<p><img src="https://s1.ax1x.com/2020/07/18/UclmFJ.png" alt="UclmFJ.png"></p>
+<p><img src="https://gitee.com/shuoshuoyun/picbed/raw/master/img//20200730103039.png" alt="UclmFJ"></p>
 <p>这里小编的访问地址有两个，是因为小编自己绑定了域名~</p>
 <div class="note info icon"><h2 id="个性域名"><a href="#个性域名" class="headerlink" title="个性域名"></a>个性域名</h2><p>大家可以自己去购买一个个性域名，这样会显得很不一样，而且也不用多少q~</p>
 </div></div><div class="tab-pane" id="qiaojiedcoding-4"><p>打开文件<code>blog/_config.yml</code>，修改：</p>
@@ -626,7 +631,7 @@
 <p><code>permalink: :year/:month/:day/:abbrlink/</code></p>
 </li>
 </ol>
-<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><blockquote class="blockquote-center">
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><blockquote class="blockquote-center">
 <p>感谢这些作者的无私奉献！</p>
 
 </blockquote>
