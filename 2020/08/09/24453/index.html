@@ -24,19 +24,21 @@
     var CONFIG = {"hostname":"blog.shuoshuoyun.cn","root":"/","scheme":"Gemini","version":"8.0.0-rc.4","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="用法123456&amp;#123;% linkgrid [image] [delimiter] [comment] %&amp;#125;&amp;#123;% endlinkgrid %&amp;#125;&amp;#123;% lg [image] [delimiter] [comment] %&amp;#125;&amp;#123;% endlg %&amp;#125;[image]     : Default image URL.[delimiter">
-<meta property="og:type" content="website">
-<meta property="og:title" content="链接网络">
-<meta property="og:url" content="https://blog.shuoshuoyun.cn/write_skills/link-grid.html">
+  <meta name="description" content="----------------------------">
+<meta property="og:type" content="article">
+<meta property="og:title" content="可视化系列（二）：Plotly散点图（上）">
+<meta property="og:url" content="https://blog.shuoshuoyun.cn/2020/08/09/24453/index.html">
 <meta property="og:site_name" content="木今心">
-<meta property="og:description" content="用法123456&amp;#123;% linkgrid [image] [delimiter] [comment] %&amp;#125;&amp;#123;% endlinkgrid %&amp;#125;&amp;#123;% lg [image] [delimiter] [comment] %&amp;#125;&amp;#123;% endlg %&amp;#125;[image]     : Default image URL.[delimiter">
+<meta property="og:description" content="----------------------------">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-08-02T08:21:57.576Z">
-<meta property="article:modified_time" content="2020-08-02T08:21:57.576Z">
+<meta property="article:published_time" content="2020-08-09T01:01:51.000Z">
+<meta property="article:modified_time" content="2020-08-09T01:01:51.000Z">
 <meta property="article:author" content="十丿叶">
+<meta property="article:tag" content="plotly">
+<meta property="article:tag" content="公众号">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://blog.shuoshuoyun.cn/write_skills/link-grid">
+<link rel="canonical" href="https://blog.shuoshuoyun.cn/2020/08/09/24453/">
 
 
 <script data-pjax class="page-configurations">
@@ -44,13 +46,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>链接网络 | 木今心
-</title>
+  <title>可视化系列（二）：Plotly散点图（上） | 木今心</title>
   
 
 
@@ -211,7 +212,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+    <div class="sidebar-inner sidebar-overview-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -223,7 +224,6 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#用法"><span class="nav-text">用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#例子"><span class="nav-text">例子</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -295,186 +295,167 @@
 
       <div class="main-inner">
         
+
+        <div class="content post posts-expand">
+          
+
+    
   
-
-      
-      
-
-      
-
-        
-        <ul id="sub-menu" class="sub-menu menu">
-          
-            
-          
-          
-              
-  <li class="menu-item menu-item-note">
-
-    <a href="/write_skills/note.html" rel="section"><i class="fa fa-adjust fa-fw"></i>注意</a>
-
-  </li>
-
-
-          
-          
-              
-  <li class="menu-item menu-item-tabs">
-
-    <a href="/write_skills/tabs.html" rel="section"><i class="fa fa-columns fa-fw"></i>选项卡</a>
-
-  </li>
-
-
-          
-          
-              
-  <li class="menu-item menu-item-pdf">
-
-    <a href="/write_skills/pdf.html" rel="section"><i class="fa fa-file-pdf fa-fw"></i>PDF</a>
-
-  </li>
-
-
-          
-          
-              
-  <li class="menu-item menu-item-label">
-
-    <a href="/write_skills/label.html" rel="section"><i class="fa fa-hat-wizard fa-fw"></i>标记</a>
-
-  </li>
-
-
-          
-          
-              
-  <li class="menu-item menu-item-video">
-
-    <a href="/write_skills/video.html" rel="section"><i class="fa fa-play-circle fa-fw"></i>视频</a>
-
-  </li>
-
-
-          
-          
-              
-  <li class="menu-item menu-item-button">
-
-    <a href="/write_skills/button.html" rel="section"><i class="fa fa-cube fa-fw"></i>按钮</a>
-
-  </li>
-
-
-          
-          
-              
-  <li class="menu-item menu-item-group-pictures">
-
-    <a href="/write_skills/group-pictures.html" rel="section"><i class="far fa-images fa-fw"></i>图集</a>
-
-  </li>
-
-
-          
-          
-              
-  <li class="menu-item menu-item-link-grid">
-
-    <a href="/write_skills/link-grid.html" rel="section"><i class="fa fa-grip-vertical fa-fw"></i>网络链接</a>
-
-  </li>
-
-
-          
-        </ul>
-        
-
-        
-
-                
-                
-        
-      
-
-      
-      
   
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.shuoshuoyun.cn/2020/08/09/24453/">
 
-        <div class="content page posts-expand">
-          
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+      <meta itemprop="name" content="十丿叶">
+      <meta itemprop="description" content="-------<椿去湫来，海棠花开>--------------<椿还鲲命，谁还湫情>-------">
+    </span>
 
-    
-    
-    
-    <div class="post-block" lang="zh-CN">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="木今心">
+    </span>
       <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          可视化系列（二）：Plotly散点图（上）
+        </h1>
 
-<h1 class="post-title" itemprop="name headline">链接网络
-</h1>
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
 
-<div class="post-meta">
+              <time title="创建时间：2020-08-09 09:01:51" itemprop="dateCreated datePublished" datetime="2020-08-09T09:01:51+08:00">2020-08-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%85%AC%E4%BC%97%E5%8F%B7/" itemprop="url" rel="index"><span itemprop="name">公众号</span></a>
+                </span>
+            </span>
+
+          
   
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/08/09/24453/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/08/09/24453/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>0</span>
+            </span>
 
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2020\07\26\38704\" rel="bookmark">可视化系列（一）：Plotly简介及示例</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2020\07\27\7819\" rel="bookmark">python批发好看壁纸（下）</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2020\07\26\28160\" rel="bookmark">python批发好看壁纸（上）</a></div>
+    </li>
+  </ul>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>十丿叶
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://blog.shuoshuoyun.cn/2020/08/09/24453/" title="可视化系列（二）：Plotly散点图（上）">https://blog.shuoshuoyun.cn/2020/08/09/24453/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
 </div>
 
-</header>
+        
 
-      
-      
-      
-      <div class="post-body">
-          <h2 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;% linkgrid [image] [delimiter] [comment] %&#125;&#123;% endlinkgrid %&#125;</span><br><span class="line">&#123;% lg [image] [delimiter] [comment] %&#125;&#123;% endlg %&#125;</span><br><span class="line"></span><br><span class="line">[image]     : Default image URL.</span><br><span class="line">[delimiter] : If the optional delimiter parameter is given, it is interpreted as the delimiter of items in each line.</span><br><span class="line">[comment]   : If the optional comment parameter is given, it is interpreted as the symbol to comment out a line.</span><br></pre></td></tr></table></figure>
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
 
-<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;% linkgrid %&#125;</span><br><span class="line">Theme NexT | https:&#x2F;&#x2F;theme-next.js.org&#x2F; | Stay Simple. Stay NexT. | &#x2F;images&#x2F;apple-touch-icon-next.png</span><br><span class="line">Theme NexT | https:&#x2F;&#x2F;theme-next.js.org&#x2F; | Stay Simple. Stay NexT. | &#x2F;images&#x2F;apple-touch-icon-next.png</span><br><span class="line">Theme NexT | https:&#x2F;&#x2F;theme-next.js.org&#x2F; | Stay Simple. Stay NexT. | &#x2F;images&#x2F;apple-touch-icon-next.png</span><br><span class="line">Theme NexT | https:&#x2F;&#x2F;theme-next.js.org&#x2F; | Stay Simple. Stay NexT. | &#x2F;images&#x2F;apple-touch-icon-next.png</span><br><span class="line">% Theme NexT | https:&#x2F;&#x2F;theme-next.js.org&#x2F; | Stay Simple. Stay NexT. | &#x2F;images&#x2F;apple-touch-icon-next.png</span><br><span class="line">&#123;% endlinkgrid %&#125;</span><br></pre></td></tr></table></figure>
+    <div class="social-list">
 
-<div class="link-grid"><div class="link-grid-container">
-<div class="link-grid-image" style="background-image: url(/images/apple-touch-icon-next.png);"></div>
-<p>Theme NexT</p><p>Stay Simple. Stay NexT.</p>
-<a href="https://theme-next.js.org/" target="_blank" rel="noopener"></a>
-</div><div class="link-grid-container">
-<div class="link-grid-image" style="background-image: url(/images/apple-touch-icon-next.png);"></div>
-<p>Theme NexT</p><p>Stay Simple. Stay NexT.</p>
-<a href="https://theme-next.js.org/" target="_blank" rel="noopener"></a>
-</div><div class="link-grid-container">
-<div class="link-grid-image" style="background-image: url(/images/apple-touch-icon-next.png);"></div>
-<p>Theme NexT</p><p>Stay Simple. Stay NexT.</p>
-<a href="https://theme-next.js.org/" target="_blank" rel="noopener"></a>
-</div><div class="link-grid-container">
-<div class="link-grid-image" style="background-image: url(/images/apple-touch-icon-next.png);"></div>
-<p>Theme NexT</p><p>Stay Simple. Stay NexT.</p>
-<a href="https://theme-next.js.org/" target="_blank" rel="noopener"></a>
-</div></div>
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;% lg &#x2F;images&#x2F;apple-touch-icon-next.png , %&#125;</span><br><span class="line">Theme NexT , https:&#x2F;&#x2F;theme-next.js.org&#x2F; , Stay Simple. Stay NexT. , &#x2F;images&#x2F;apple-touch-icon-next.png</span><br><span class="line">Theme NexT , https:&#x2F;&#x2F;theme-next.js.org&#x2F; , Stay Simple. Stay NexT. , &#x2F;images&#x2F;apple-touch-icon-next.png</span><br><span class="line">Theme NexT , https:&#x2F;&#x2F;theme-next.js.org&#x2F; , Stay Simple. Stay NexT. , &#x2F;images&#x2F;apple-touch-icon-next.png</span><br><span class="line">% Theme NexT , https:&#x2F;&#x2F;theme-next.js.org&#x2F; , Stay Simple. Stay NexT. , &#x2F;images&#x2F;apple-touch-icon-next.png</span><br><span class="line">&#123;% endlg %&#125;</span><br></pre></td></tr></table></figure>
-
-<div class="link-grid"><div class="link-grid-container">
-<div class="link-grid-image" style="background-image: url(/images/apple-touch-icon-next.png);"></div>
-<p>Theme NexT</p><p>Stay Simple. Stay NexT.</p>
-<a href="https://theme-next.js.org/" target="_blank" rel="noopener"></a>
-</div><div class="link-grid-container">
-<div class="link-grid-image" style="background-image: url(/images/apple-touch-icon-next.png);"></div>
-<p>Theme NexT</p><p>Stay Simple. Stay NexT.</p>
-<a href="https://theme-next.js.org/" target="_blank" rel="noopener"></a>
-</div><div class="link-grid-container">
-<div class="link-grid-image" style="background-image: url(/images/apple-touch-icon-next.png);"></div>
-<p>Theme NexT</p><p>Stay Simple. Stay NexT.</p>
-<a href="https://theme-next.js.org/" target="_blank" rel="noopener"></a>
-</div></div>
-      </div>
-      
-      
-      
+            <span class="label">WeChat</span>
+          </a>
+        </div>
     </div>
-    
+  </div>
 
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/plotly/" rel="tag"><i class="fa fa-tag"></i> plotly</a>
+              <a href="/tags/%E5%85%AC%E4%BC%97%E5%8F%B7/" rel="tag"><i class="fa fa-tag"></i> 公众号</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/07/27/7819/" rel="prev" title="python批发好看壁纸（下）">
+      <i class="fa fa-chevron-left"></i> python批发好看壁纸（下）
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
     
-    
-    
+  </article>
+  
+  
+  
+
 
 
         </div>
         
+    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
