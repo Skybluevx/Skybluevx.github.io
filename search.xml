@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>可视化系列（二）：Plotly散点图（上）</title>
-    <url>/2020/08/09/24453/</url>
+    <url>/24453/</url>
     <content><![CDATA[<blockquote class="blockquote-center">
 <p>导语</p>
 
@@ -28,7 +28,6 @@
 <li><strong>jupyter notebook</strong></li>
 <li><strong>plotly模块</strong></li>
 </ul>
-<h1 id="往期精选"><a href="#往期精选" class="headerlink" title="往期精选"></a>往期精选</h1><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuc2h1b3NodW95dW4uY24vMjAyMC8wNy8yNi8zODcwNC8=">可视化系列（一）：Plotly简介及示例<i class="fa fa-external-link-alt"></i></span></p>
 <h1 id="讲解部分"><a href="#讲解部分" class="headerlink" title="讲解部分"></a>讲解部分</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>上一期我们已经将plotly进行了简单的介绍，并举了一些例子；那么，从这一期开始，我们将正式进行plotly绘图的介绍。</p>
 <p>本期我们介绍的是较为简单的散点图，它的样子相信大家应该都见过，大概就是下面这个样子：</p>
 <p><img src="https://gitee.com/shuoshuoyun/picbed/raw/master/img//20200809101440.png" alt="可视化系列（二）：Plotly散点图（上）-1"></p>
@@ -118,8 +117,8 @@
 <p><strong><span class="exturl" data-url="aHR0cHM6Ly9wbG90bHkuY29tL3B5dGhvbi1hcGktcmVmZXJlbmNlL2dlbmVyYXRlZC9wbG90bHkuZXhwcmVzcy5zY2F0dGVyLmh0bWw=">https://plotly.com/python-api-reference/generated/plotly.express.scatter.html<i class="fa fa-external-link-alt"></i></span></strong></p>
 <h1 id="原文链接"><a href="#原文链接" class="headerlink" title="原文链接"></a>原文链接</h1><div class="link-grid"><div class="link-grid-container">
 <div class="link-grid-image" style="background-image: url(/images/gongzhonghaologo.png);"></div>
-<p>python趣味爱好者</p><p>python批发好看壁纸</p>
-<a href="https://mp.weixin.qq.com/s?__biz=MzI3NjU3NDg1NQ==&tempkey=MTA3MV9yNVZWdnkvMkVWMEtvWXRMN3R0X3FWRFU0QnppNFFVT01HQkYwZ19nRGFlRXRvelVZNWo2OEJNNWhRc1dkSThDbDVuUEpoSl9ham9NOTZIMWNkQWxSWXZNMkN2VTJRYmVXTlBIR3ZWTUhfUzRjZjlsTGFRdUNnWGMyc051R2hBeFhBTUVxeDZNZmlzdkJ0U0x1YVMxdnRJdlVIMmYyZzd0b1hXS2Znfn4%3D&chksm=6b7222775c05ab6163afcbffb097c74b990cfa16db25c4bb0163a26cbb585fc62862e39afb46&__mpa_temp_link_flag=1&token=1190741611#rd" target="_blank" rel="noopener"></a>
+<p>python趣味爱好者</p><p>可视化系列（二）：Plotly散点图（上）</p>
+<a href="https://mp.weixin.qq.com/s/z3I-8ykLrmAe95hH23KJFg" target="_blank" rel="noopener"></a>
 </div></div>
 
 ]]></content>
@@ -127,13 +126,13 @@
         <category>公众号</category>
       </categories>
       <tags>
-        <tag>plotly</tag>
         <tag>公众号</tag>
+        <tag>plotly</tag>
       </tags>
   </entry>
   <entry>
     <title>python批发好看壁纸（下）</title>
-    <url>/2020/07/27/7819/</url>
+    <url>/7819/</url>
     <content><![CDATA[<h1 id="讲解部分"><a href="#讲解部分" class="headerlink" title="讲解部分"></a>讲解部分</h1><h2 id="获取下一页网页的-url-地址"><a href="#获取下一页网页的-url-地址" class="headerlink" title="获取下一页网页的 url 地址"></a>获取下一页网页的 url 地址</h2><p>我们把网页往下拉，会发现最下面有一连串的页码以及上一页和下一页，因此，我们获取下一页的方式有两种：</p>
 <a id="more"></a>
 
@@ -150,12 +149,12 @@
 <p>其中 page 即为记录页数的变量。</p>
 <p>第二种：</p>
 <p>直接采用 xpath 方法获取到下一页的 url 地址。如图：</p>
-<p><img src="/2020/07/27/7819/buzhou3.png" alt></p>
+<p><img src="/7819/buzhou3.png" alt></p>
 <p>但是我们发现，下一页的 url 地址只有一截，即：/index_2.htm 所以还需要再次构造一下。上面我们说了，xpath 方法获取到的信息为列表格式，所以在后面要加一个索引来变成字符串。代码如下：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">next_url = html.xpath(<span class="string">'//div[@class="page"]/a[@class="prev"]/@href'</span>)[<span class="number">0</span>]</span><br><span class="line">next_url = start_url + next_url</span><br></pre></td></tr></table></figure>
 
 <p><strong>注意：</strong>在这个地方，笔者遇到了一个很大很大的坑，先放张图上来让大家看看，能不能找到这个坑~</p>
-<p><img src="/2020/07/27/7819/buzhou4.png" alt></p>
+<p><img src="/7819/buzhou4.png" alt></p>
 <p>是的没错！以第四页为例，上一页和下一页的标签以及 class 类型是一样的！！！也就意味着当你请求的第二页的时候你用上述方法获得的url 地址是第一页的！！！然后再到第二页，再到第一页……笔者未发现这个问题之前用这个爬虫在这个网站下载了 5 万余张图片…就很纳闷，它一共就 2 万余张，怎么会下了 5 万多次…后面发现，原来是我对第一页和第二页的图片下了 5 万余次……所以这里的代码要改成：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">next_url = html.xpath(<span class="string">'//div[@class="page"]/a[@class="prev"]/@href'</span>)[<span class="number">1</span>]  <span class="comment"># 修改的地方是最后这个 1 </span></span><br><span class="line">next_url = start_url + next_url</span><br></pre></td></tr></table></figure>
 
@@ -181,11 +180,11 @@
 <p>关于爬取壁纸的爬虫讲解就到这里结束了，接下来就是设置自动更换壁纸的时候了，毕竟爬了这么多壁纸，不能拿出来用多浪费呀。</p>
 <h1 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h1><p>以下以 <strong>Windows 10</strong> 为例：</p>
 <p>第一步：打开系统设置，点击个性化。</p>
-<p><img src="/2020/07/27/7819/buzhou5.png" alt></p>
+<p><img src="/7819/buzhou5.png" alt></p>
 <p>第二步：点击左侧背景，再右侧背景选项框中选择<strong>幻灯片放映，</strong>然后点击下面的<strong>浏览</strong>按钮，选择你<strong>下载好壁纸的文件夹。</strong></p>
-<p><img src="/2020/07/27/7819/buzhou6.png" alt></p>
+<p><img src="/7819/buzhou6.png" alt></p>
 <p>第三步：其他设置，图片切换频率，是否无序播放等等，这个就看你自己的爱好啦。</p>
-<p><img src="/2020/07/27/7819/buzhou7.png" alt></p>
+<p><img src="/7819/buzhou7.png" alt></p>
 <h1 id="原文链接"><a href="#原文链接" class="headerlink" title="原文链接"></a>原文链接</h1><div class="link-grid"><div class="link-grid-container">
 <div class="link-grid-image" style="background-image: url(/images/gongzhonghaologo.png);"></div>
 <p>python趣味爱好者</p><p>python批发好看壁纸</p>
@@ -200,7 +199,7 @@
   </entry>
   <entry>
     <title>可视化系列（一）：Plotly简介及示例</title>
-    <url>/2020/07/26/38704/</url>
+    <url>/38704/</url>
     <content><![CDATA[<blockquote class="blockquote-center">
 <p>导语</p>
 
@@ -252,34 +251,34 @@
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> plotly.express <span class="keyword">as</span> px</span><br><span class="line"><span class="keyword">from</span> vega_datasets <span class="keyword">import</span> data</span><br><span class="line">df = data.disasters()</span><br><span class="line">df = df[df.Year &gt; <span class="number">1990</span>]</span><br><span class="line">fig = px.bar(df,</span><br><span class="line">             y=<span class="string">"Entity"</span>,</span><br><span class="line">             x=<span class="string">"Deaths"</span>,</span><br><span class="line">             animation_frame=<span class="string">"Year"</span>,</span><br><span class="line">             orientation=<span class="string">'h'</span>,</span><br><span class="line">             range_x=[<span class="number">0</span>, df.Deaths.max()],</span><br><span class="line">             color=<span class="string">"Entity"</span>)</span><br><span class="line"><span class="comment"># improve aesthetics (size, grids etc.)</span></span><br><span class="line">fig.update_layout(width=<span class="number">1000</span>,</span><br><span class="line">                  height=<span class="number">800</span>,</span><br><span class="line">                  xaxis_showgrid=<span class="literal">False</span>,</span><br><span class="line">                  yaxis_showgrid=<span class="literal">False</span>,</span><br><span class="line">                  paper_bgcolor=<span class="string">'rgba(0,0,0,0)'</span>,</span><br><span class="line">                  plot_bgcolor=<span class="string">'rgba(0,0,0,0)'</span>,</span><br><span class="line">                  title_text=<span class="string">'Evolution of Natural Disasters'</span>,</span><br><span class="line">                  showlegend=<span class="literal">False</span>)</span><br><span class="line">fig.update_xaxes(title_text=<span class="string">'Number of Deaths'</span>)</span><br><span class="line">fig.update_yaxes(title_text=<span class="string">''</span>)</span><br><span class="line">fig.show()</span><br></pre></td></tr></table></figure>
 
 <p>运行完后就会产生如下所示的直方图，上面我们也提到过，plotly库绘制的图都是交互式的，所以我们把鼠标悬停到某个直方上面，就会显示一些悬停信息，这些都是可以自己编辑的，是不是觉得特别炫~~</p>
-<p><img src="/2020/07/26/38704/1.png" alt></p>
+<p><img src="/38704/1.png" alt></p>
 <p>当然，它作为一个动图，它的下面是带有让它动起来的开关的：</p>
-<p><img src="/2020/07/26/38704/2.png" alt></p>
+<p><img src="/38704/2.png" alt></p>
 <p> 第二个例子是散点图，如下：</p>
-<p><img src="/2020/07/26/38704/3.png" alt></p>
+<p><img src="/38704/3.png" alt></p>
 <p>同样，它是带有悬停信息的动态散点图，下面也有控制它动起来的开关（没有截到），是不是也特别好看~</p>
 <p>第三个呢名字叫做太阳图，如果你想通过一个或者多个类别变量来分解一个给定的变量，那么太阳图将是一个很好的选择。这么说可能有些同学不是很明白，那么我们就直接上图吧。</p>
-<p><img src="/2020/07/26/38704/4.png" alt></p>
+<p><img src="/38704/4.png" alt></p>
 <p>这个图就可以很明白的告诉我们男生和女生在吃饭这件事情的上的不同以及各个时间在中餐和晚餐里面所占的比重。当然，作为可交互的图表，当你把鼠标放在上面的时候，就会显示相关的悬停信息。</p>
 <p>最后一个小示例呢是一个地形3D表面图；可以看到这个就很直观的展示出了一些地形的样貌，并且可以直接通过鼠标的滑动来改变你的观看视角，用鼠标滚轮还可以将其放大缩小，是不是很方便呢，大家可以自行去尝试。</p>
-<p><img src="/2020/07/26/38704/5.png" alt></p>
+<p><img src="/38704/5.png" alt></p>
 <p>好啦，本期的plotly简介到此就结束啦，同学们有没有对<code>plotly</code>有一点点的了解呢，那么我们下期将正式开始对<code>plotly</code>库的一些图表进行详细讲解，有兴趣或者有需要的同学可以点点关注，防止错过下次的文章哦~</p>
 <h1 id="原文链接"><a href="#原文链接" class="headerlink" title="原文链接"></a>原文链接</h1><div class="link-grid"><div class="link-grid-container">
 <div class="link-grid-image" style="background-image: url(/images/gongzhonghaologo.png);"></div>
-<p>python趣味爱好者</p><p>python批发好看壁纸</p>
-<a href="https://mp.weixin.qq.com/s?__biz=MzI3NjU3NDg1NQ==&tempkey=MTA3MV9yNVZWdnkvMkVWMEtvWXRMN3R0X3FWRFU0QnppNFFVT01HQkYwZ19nRGFlRXRvelVZNWo2OEJNNWhRc1dkSThDbDVuUEpoSl9ham9NOTZIMWNkQWxSWXZNMkN2VTJRYmVXTlBIR3ZWTUhfUzRjZjlsTGFRdUNnWGMyc051R2hBeFhBTUVxeDZNZmlzdkJ0U0x1YVMxdnRJdlVIMmYyZzd0b1hXS2Znfn4%3D&chksm=6b7222775c05ab6163afcbffb097c74b990cfa16db25c4bb0163a26cbb585fc62862e39afb46&__mpa_temp_link_flag=1&token=1190741611#rd" target="_blank" rel="noopener"></a>
+<p>python趣味爱好者</p><p>可视化系列（一）：Plotly简介及示例</p>
+<a href="https://mp.weixin.qq.com/s/tnnvUUYJ8uL-Y93Ot-fKEA" target="_blank" rel="noopener"></a>
 </div></div>]]></content>
       <categories>
         <category>公众号</category>
       </categories>
       <tags>
-        <tag>plotly</tag>
         <tag>公众号</tag>
+        <tag>plotly</tag>
       </tags>
   </entry>
   <entry>
     <title>python批发好看壁纸（上）</title>
-    <url>/2020/07/26/28160/</url>
+    <url>/28160/</url>
     <content><![CDATA[<blockquote class="blockquote-center">
 <p>导语</p>
 
@@ -328,10 +327,10 @@
 </ul>
 <h1 id="基本原理"><a href="#基本原理" class="headerlink" title="基本原理"></a>基本原理</h1><p>之前已经有了许多的爬虫推文了。相信大家对于爬虫的原理已经不再陌生了，无非就是获取网页源代码，提取目标信息，本地保存。我们今天这个也是如此，只不过一些细节部分需要稍加注意~</p>
 <p>目标网址：<code>http://www.netbian.com/</code></p>
-<p><img src="/2020/07/26/28160/bian.png" alt></p>
+<p><img src="/28160/bian.png" alt></p>
 <h1 id="讲解部分"><a href="#讲解部分" class="headerlink" title="讲解部分"></a>讲解部分</h1><h2 id="获取网页源代码"><a href="#获取网页源代码" class="headerlink" title="获取网页源代码"></a>获取网页源代码</h2><p>因为本次目标网页的壁纸数量有点大，约有两万多张，所以如果我们要全部爬下来的话，返爬措施要做好，所以我们先来获取用于伪装的Headers。这里以Chorm浏览器作示范，其他浏览大同小异。</p>
 <p>首先，在网页随意位置右键，选择最下面的<strong>检查</strong></p>
-<p><img src="/2020/07/26/28160/buzhou1.png" alt></p>
+<p><img src="/28160/buzhou1.png" alt></p>
 <ul>
 <li>第一步：点击Network。点击后你就会左下角看到如图许多网页加载的东西。</li>
 <li>第二步：选择框内的任意一条（不局限于红框之内），右边就会显示很多信息。</li>
@@ -364,7 +363,7 @@
 <p>到这里我们就已经把网页的源代码储存到了 content 里面。如果你不放心的话还可以打印一下本次请求的状态码：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(html.status_code)</span><br></pre></td></tr></table></figure>
 
-<h2 id="获取壁纸的下载地址"><a href="#获取壁纸的下载地址" class="headerlink" title="获取壁纸的下载地址"></a>获取壁纸的下载地址</h2><p><img src="/2020/07/26/28160/buzhou2.png" alt></p>
+<h2 id="获取壁纸的下载地址"><a href="#获取壁纸的下载地址" class="headerlink" title="获取壁纸的下载地址"></a>获取壁纸的下载地址</h2><p><img src="/28160/buzhou2.png" alt></p>
 <ul>
 <li>第一步：点击如图所示按钮。</li>
 <li>第二步：随便点一张图片。</li>
@@ -404,7 +403,7 @@
   </entry>
   <entry>
     <title>搭建云Jupyter笔记本</title>
-    <url>/2020/07/23/57078/</url>
+    <url>/57078/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近学习<code>python</code>用到了<code>jupyter notebook</code>编辑器；但由于环境原因，并不能一直在自己的笔记本上完成学习，很多时候需要在<strong>别的、没有<code>python</code>环境的、但是有网络的</strong>地方，这时候我们想学习<code>python</code>的时候就比较犯难，没有工作环境，怎么办？当然是问度娘咯，于是小编这就找到了这个搭建云<code>jupyter</code>笔记本的方法，搭建完成以后，嗯~相当舒服，有浏览器有网络的地方就可以开始码代码了，，</p>
 <a id="more"></a>
 
@@ -502,9 +501,9 @@
 
 <h1 id="配置个性域名"><a href="#配置个性域名" class="headerlink" title="配置个性域名"></a>配置个性域名</h1><p>我们搭建好的云<code>jupyter</code>如果只是用我们服务器的IP地址来访问，显的确实有点点不大好看，因此，我们将介绍一下如何给我们的云<code>jupyter</code>配置一个个性域名。</p>
 <div class="tabs" id="gexingyuming"><ul class="nav-tabs"><li class="tab active"><a href="#gexingyuming-1">购买域名</a></li><li class="tab"><a href="#gexingyuming-2">申请SSL证书（可选）</a></li><li class="tab"><a href="#gexingyuming-3">配置nginx</a></li><li class="tab"><a href="#gexingyuming-4">域名解析</a></li></ul><div class="tab-content"><div class="tab-pane active" id="gexingyuming-1"><p>小伙伴们可以前往各大厂商（阿里云，百度云，腾讯云等）进行购买，很多域名的首年只需要个位数的价格，买来玩还是可以的~</p>
-<p><img src="/2020/07/23/57078/yuming1.png" alt></p>
+<p><img src="/57078/yuming1.png" alt></p>
 <p>有自己的域名感觉倍儿有格调~</p></div><div class="tab-pane" id="gexingyuming-2"><div class="note info"><p>可能有些小伙伴不知道<code>SSL</code>证书是什么东西，用来干啥的，这里小编简单的解释一下，就是在访问你的域名的时候让你的域名前面有一个（绿色的）小锁头：</p>
-<p><img src="/2020/07/23/57078/xiaosuo.png" alt></p>
+<p><img src="/57078/xiaosuo.png" alt></p>
 <p>表示访问你这个网站是安全的。</p>
 </div>
 
@@ -513,7 +512,7 @@
 <p>若是小伙伴们只是想弄个小锁头耍耍就只要申请一个这个即可。</p>
 <div class="note success"><h2 id="白嫖方法"><a href="#白嫖方法" class="headerlink" title="白嫖方法"></a>白嫖方法</h2><p>以阿里云为例（腾讯云操作更为简单，百度云目前没发现白嫖方法）：</p>
 <p><strong>登陆阿里云控制台</strong> –&gt;  <strong>SSL证书</strong> –&gt; <strong>购买证书</strong> </p>
-<p><img src="/2020/07/23/57078/sslzhengshu.png" alt></p>
+<p><img src="/57078/sslzhengshu.png" alt></p>
 <p>以上即可购买一份免费的单域名证书了。</p>
 </div></div><div class="tab-pane" id="zhengshuzhonglei-2"><p><strong>大量子域名的超值</strong>选择！一张证书可以同时保障多个子域名的安全加固！</p>
 <p>例如：<code>*.aliyun.com</code>的通配符证书只能对<code>a.aliyun.com、b.aliyun.com</code>域名进行保护。如果存在<code>a.b.aliyun.com</code>的域名需要购买<code>*.b.aliyun.com</code>的通配符证书。</p>
@@ -572,7 +571,7 @@
   </entry>
   <entry>
     <title>Hexo博客搭建</title>
-    <url>/2020/07/17/41646/</url>
+    <url>/41646/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>搭建这个网站的最开始的理由就是想找一个清净点的地方记录自己想记录的一些东西，并且不用有任何的担心文章会不会被删除之类的；所以不惜花费一点时间来搭建一个属于自己的主页，这样就可以<del>为所欲为</del>好好写博客了~</p>
 <a id="more"></a>
 
@@ -814,7 +813,7 @@
   </entry>
   <entry>
     <title>python项目集</title>
-    <url>/2020/04/11/18013/</url>
+    <url>/18013/</url>
     <content><![CDATA[<ol>
 <li><p><a href="https://github.com/3b1b/manim" target="_blank" rel="noopener"><strong>Manim - Mathematical Animation Engine</strong></a></p>
 <ul>
@@ -1119,7 +1118,7 @@
   </entry>
   <entry>
     <title>开发者常用工具集</title>
-    <url>/2020/04/10/63973/</url>
+    <url>/63973/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>不同岗位的程序员也有千差万别，前端、算法、架构设计、测试……不同的岗位日常使用的工具截然不同。收集一些在开发中常用的<strong>软件/网站/插件/命令行工具</strong>。</p>
 <a id="more"></a>
 
@@ -1220,7 +1219,7 @@
   </entry>
   <entry>
     <title>学爬虫，你需要学习的东西！</title>
-    <url>/2020/03/26/14790/</url>
+    <url>/14790/</url>
     <content><![CDATA[<p>当今大数据的时代，网络爬虫已经成为了获取数据的一个重要手段。</p>
 <p>但要学习好爬虫并没有那么简单。首先知识点和方向实在是太多了，它关系到了计算机网络、编程基础、前端开发、后端开发、App 开发与逆向、网络安全、数据库、运维、机器学习、数据分析等各个方向的内容，它像一张大网一样把现在一些主流的技术栈都连接在了一起。正因为涵盖的方向多，因此学习的东西也非常零散和杂乱，很多初学者搞不清楚究竟要学习哪些知识，学习过程中遇到反爬也不知道用什么方法来解决，本篇我们来做一些归纳和总结。</p>
 <a id="more"></a>
@@ -1314,7 +1313,7 @@
   </entry>
   <entry>
     <title>爬虫项目集</title>
-    <url>/2020/03/20/6480/</url>
+    <url>/6480/</url>
     <content><![CDATA[<p><strong>学习 python，多拿些项目练习练习，因此寻了些爬虫项目，归纳如下：</strong></p>
 <a id="more"></a>
 
@@ -1505,7 +1504,7 @@
   </entry>
   <entry>
     <title>Kivy参考文档（三）</title>
-    <url>/2020/03/03/20561/</url>
+    <url>/20561/</url>
     <content><![CDATA[<h1 id="第二部分-编程指南"><a href="#第二部分-编程指南" class="headerlink" title="第二部分 编程指南"></a>第二部分 编程指南</h1><h2 id="与其他框架集成"><a href="#与其他框架集成" class="headerlink" title="与其他框架集成"></a>与其他框架集成</h2><p>1.0.8版中的新功能。</p>
 <a id="more"></a>
 
@@ -1782,7 +1781,7 @@
   </entry>
   <entry>
     <title>Kivy参考文档（二）</title>
-    <url>/2020/03/03/23592/</url>
+    <url>/23592/</url>
     <content><![CDATA[<h1 id="第二部分-编程指南"><a href="#第二部分-编程指南" class="headerlink" title="第二部分 编程指南"></a>第二部分 编程指南</h1><h2 id="小部件"><a href="#小部件" class="headerlink" title="小部件"></a>小部件</h2><h3 id="小部件简介"><a href="#小部件简介" class="headerlink" title="小部件简介"></a>小部件简介</h3><p>小部件是Kivy中GUI界面的基本构建块。 它提供了可用于在屏幕上绘制的画布。 它接收事件并对它们做出反应。 有关Widget类的详细说明，请参阅模块文档。</p>
 <a id="more"></a>
 
@@ -2080,7 +2079,7 @@
 就是这样。 现在，当我们运行main.py时，将加载controller.kv，以便出现Button和Label并响应我们的触摸事件。</li>
 </ul>
 <hr>
-<p><strong>下一篇<span class="exturl" data-url="aHR0cDovL3d3dy5zaHVvc2h1b3l1bi5jbi9hcmNoaXZlcy80ODM4NS5odG1s">《Kivy参考文档（三）》<i class="fa fa-external-link-alt"></i></span></strong></p>
+<p><strong>下一篇<a href="http://www.shuoshuoyun.cn/archives/48385.html">《Kivy参考文档（三）》</a></strong></p>
 <hr>
 ]]></content>
       <categories>
@@ -2093,7 +2092,7 @@
   </entry>
   <entry>
     <title>Kivy参考文档（一）</title>
-    <url>/2020/02/12/48385/</url>
+    <url>/48385/</url>
     <content><![CDATA[<p>版本2.0.0.dev0</p>
 <p><strong>本文机器翻译，仅供个人参考，详情请看</strong><br><span class="exturl" data-url="aHR0cDovL3d3dy5raXZ5Lm9yZw==">官网地址<i class="fa fa-external-link-alt"></i></span></p>
 <p>欢迎使用Kivy的文档。 Kivy是一个用于快速开发的开源软件库配备新颖用户界面的应用程序，例如多点触控应用程序。</p>
@@ -2605,7 +2604,7 @@
 <p>Xbox 360<br><img src="https://s2.ax1x.com/2020/02/15/1xjGUU.png" alt="1xjGUU.png"></p>
 <h4 id="游戏杆调试"><a href="#游戏杆调试" class="headerlink" title="游戏杆调试"></a>游戏杆调试</h4><p>通常，您希望使用多个控制器调试应用程序，或针对_other_类型的控制器（例如，不同品牌）进行测试。 或者，您可能想使用一些可用的控制器仿真器，例如vJoy。</p>
 <hr>
-<p><strong>下一篇<span class="exturl" data-url="aHR0cDovL3d3dy5zaHVvc2h1b3l1bi5jbi9hcmNoaXZlcy80ODM4NS5odG1s">《Kivy参考文档（二）》<i class="fa fa-external-link-alt"></i></span></strong></p>
+<p><strong>下一篇<a href="http://www.shuoshuoyun.cn/archives/48385.html">《Kivy参考文档（二）》</a></strong></p>
 <hr>
 ]]></content>
       <categories>
@@ -2618,7 +2617,7 @@
   </entry>
   <entry>
     <title>Chrome浏览器推荐插件</title>
-    <url>/2020/02/07/9903/</url>
+    <url>/9903/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Chrome浏览器，算是个人比较喜欢的一款浏览器吧，支持插件算是喜欢这类浏览器的主要原因了；当然，支持插件的浏览器还有其他的，比如火狐之类的，不过个人因为先用的 Chrome，很是喜欢，体验也想当的好，所以就没打算换其他的了。今天就来介绍一下 Chrome 浏览器个人比较喜欢的一些插件吧。</p>
 <a id="more"></a>
 
@@ -2680,7 +2679,7 @@
   </entry>
   <entry>
     <title>虚拟机VMware buildozer的安装配置</title>
-    <url>/2020/02/07/46753/</url>
+    <url>/46753/</url>
     <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>这段时间，由于新型冠状病毒的肆虐，寒假被延时了不知道多久，在家闲来无事学习了一下怎么用自己写的python代码打包成一个apk文件。</p>
 <p>在网上寻找了良久，发现比较简单的方法就是直接下载一个虚拟机VirtualBox+已经配置好的系统kivydev.ova，然后就可以直接愉快的打包了。</p>
 <a id="more"></a>
@@ -2694,7 +2693,7 @@
 <h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
 <li>ubuntu中pip3下载会很慢，建议修改下载源。</li>
 <li>文中部分网址需要翻墙，须自己准备工具。<ul>
-<li>本人是使用的Chrome浏览器，因此在Chrome的官方网上应用店就可以很方便的下载VPN插件。但是还是要翻墙，所以推荐一个国内插件下载的网站：<span class="exturl" data-url="aHR0cHM6Ly93d3cuZXh0ZmFucy5jb20v">扩展迷<i class="fa fa-external-link-alt"></i></span>。手动安装插件的方法参见我的另一篇文章<span class="exturl" data-url="aHR0cDovL3d3dy5zaHVvc2h1b3l1bi5jbi9hcmNoaXZlcy85OTAzLmh0bWw=">Chrome浏览器推荐插件<i class="fa fa-external-link-alt"></i></span><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><code>pip3 install --user --upgrade buildozer</code></li>
+<li>本人是使用的Chrome浏览器，因此在Chrome的官方网上应用店就可以很方便的下载VPN插件。但是还是要翻墙，所以推荐一个国内插件下载的网站：<span class="exturl" data-url="aHR0cHM6Ly93d3cuZXh0ZmFucy5jb20v">扩展迷<i class="fa fa-external-link-alt"></i></span>。手动安装插件的方法参见我的另一篇文章<a href="http://www.shuoshuoyun.cn/archives/9903.html">Chrome浏览器推荐插件</a><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><code>pip3 install --user --upgrade buildozer</code></li>
 </ul>
 </li>
 </ul>
@@ -2735,7 +2734,7 @@
   </entry>
   <entry>
     <title>Pycharm 快捷键</title>
-    <url>/2020/02/01/13294/</url>
+    <url>/13294/</url>
     <content><![CDATA[<h3 id="Alt-Shift"><a href="#Alt-Shift" class="headerlink" title="Alt+Shift"></a>Alt+Shift</h3><p><code>Alt+Shift+c</code> 查看最近修改</p>
 <a id="more"></a>
 

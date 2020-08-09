@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  
+  <link rel="stylesheet" href="/lib/animate-css/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.shuoshuoyun.cn","root":"/","scheme":"Gemini","version":"8.0.0-rc.4","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="前言不同岗位的程序员也有千差万别，前端、算法、架构设计、测试……不同的岗位日常使用的工具截然不同。收集一些在开发中常用的软件&#x2F;网站&#x2F;插件&#x2F;命令行工具。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="开发者常用工具集">
+<meta property="og:url" content="https://www.shuoshuoyun.cn/63973/index.html">
+<meta property="og:site_name" content="木今心">
+<meta property="og:description" content="前言不同岗位的程序员也有千差万别，前端、算法、架构设计、测试……不同的岗位日常使用的工具截然不同。收集一些在开发中常用的软件&#x2F;网站&#x2F;插件&#x2F;命令行工具。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-04-10T14:05:41.000Z">
+<meta property="article:modified_time" content="2020-04-10T14:05:41.000Z">
+<meta property="article:author" content="十丿叶">
+<meta property="article:tag" content="工具">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://www.shuoshuoyun.cn/63973/">
+
+
+<script data-pjax class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>开发者常用工具集 | 木今心</title>
+  
+
+
+  <script data-pjax>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?07fdd26aa39a30ab9c8d553e566c50ee";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <main class="main">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+        <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line toggle-line-first"></span>
+        <span class="toggle-line toggle-line-middle"></span>
+        <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">木今心</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">站在巨人的肩上</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">16</span></a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">11</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">13</span></a>
+
+  </li>
+        
+            
+  <li class="menu-item menu-item-config">
+
+    <a href="/config/" rel="section"><i class="fa fa-user-cog fa-fw"></i>配置</a>
+
+  </li>
+
+
+      
+        
+            
+  <li class="menu-item menu-item-write_skills">
+
+    <a href="/write_skills/" rel="section"><i class="fa fa-rocket fa-fw"></i>编辑技巧</a>
+
+  </li>
+
+
+      
+        
+            
+  <li class="menu-item menu-item-knowledge-handbook">
+
+    <a href="/knowledge/" rel="section"><i class="fas fa-quran fa-fw"></i>知识手册</a>
+
+  </li>
+
+
+      
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于作者</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PC端工具"><span class="nav-text">PC端工具</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#VS-Code"><span class="nav-text">VS Code</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sublime"><span class="nav-text">Sublime</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Postman"><span class="nav-text">Postman</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Xshell"><span class="nav-text">Xshell</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git"><span class="nav-text">Git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Typora"><span class="nav-text">Typora</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Listary"><span class="nav-text">Listary</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CopyTranslator"><span class="nav-text">CopyTranslator</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#网页工具"><span class="nav-text">网页工具</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Bootschool"><span class="nav-text">Bootschool</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Jsoneditoronline"><span class="nav-text">Jsoneditoronline</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Explainshell"><span class="nav-text">Explainshell</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nicetool"><span class="nav-text">Nicetool</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Alltoall"><span class="nav-text">Alltoall</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#浏览器插件"><span class="nav-text">浏览器插件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#OneTab"><span class="nav-text">OneTab</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SwitchyOmega"><span class="nav-text">SwitchyOmega</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Octotree"><span class="nav-text">Octotree</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Click-amp-Clean"><span class="nav-text">Click&amp;Clean</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tampermonkey"><span class="nav-text">Tampermonkey</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#命令行工具"><span class="nav-text">命令行工具</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#oh-my-zsh"><span class="nav-text">oh-my-zsh</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tldr"><span class="nav-text">Tldr</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tig"><span class="nav-text">Tig</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Autojump"><span class="nav-text">Autojump</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Script"><span class="nav-text">Script</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tree"><span class="nav-text">Tree</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Httpie"><span class="nav-text">Httpie</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Glances"><span class="nav-text">Glances</span></a></li></ol></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="十丿叶"
+      src="/images/touxiang.jpg">
+  <p class="site-author-name" itemprop="name">十丿叶</p>
+  <div class="site-description" itemprop="description">-------<椿去湫来，海棠花开>--------------<椿还鲲命，谁还湫情>-------</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1NreWJsdWV2eA==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Skybluevx"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOjEzNzI3NTU0NzJAcXEuY29t" title="E-Mail → mailto:1372755472@qq.com"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></span>
+  </div>
+
+
+
+      </section>
+        <div class="back-to-top animated">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </header>
+
+      
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL1NreWJsdWV2eA==" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
+
+<noscript>
+  <div id="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+      <div class="main-inner">
+        
+
+        <div class="content post posts-expand">
+          
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.shuoshuoyun.cn/63973/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+      <meta itemprop="name" content="十丿叶">
+      <meta itemprop="description" content="-------<椿去湫来，海棠花开>--------------<椿还鲲命，谁还湫情>-------">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="木今心">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          开发者常用工具集
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-10 22:05:41" itemprop="dateCreated datePublished" datetime="2020-04-10T22:05:41+08:00">2020-04-10</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/63973/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/63973/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>5.3k</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>不同岗位的程序员也有千差万别，前端、算法、架构设计、测试……不同的岗位日常使用的工具截然不同。收集一些在开发中常用的<strong>软件/网站/插件/命令行工具</strong>。</p>
+<a id="more"></a>
+
+<p>下面主要从4个方面介绍：</p>
+<ul>
+<li>PC端软件</li>
+<li>网页工具</li>
+<li>浏览器插件</li>
+<li>命令行工具</li>
+</ul>
+<h1 id="PC端工具"><a href="#PC端工具" class="headerlink" title="PC端工具"></a>PC端工具</h1><h2 id="VS-Code"><a href="#VS-Code" class="headerlink" title="VS Code"></a>VS Code</h2><p>第一名当然归属于神器 vscode ，这些年的开发中，IDE是接触最多的工具，无论前端JS，做服务开发时用Java，还是做算法时用Python，都离不开IDE。</p>
+<p>以往，是每种编程语言选择在这种语言表现最优的IDE，例如，codeblocks、eclipse、Pycharm、webstorm 等等，但是有了 vscode，这些我统统卸载了。</p>
+<p><strong>远程开发、丰富的主题、简易的配置、轻量化</strong>等等，若干优点让我爱不释手，详情可以查看我的另一篇文章：<span class="exturl" data-url="aHR0cHM6Ly9tcC53ZWl4aW4ucXEuY29tL3M/X19iaXo9TXpJME5UTTFNekEyTXc9PSZtaWQ9MjI0NzQ4NDc1NSZpZHg9MSZzbj04NzJiNWRjMTQzMmIzYTA3MzBlN2YxOWNjZWIyYjlmMyZzY2VuZT0yMSN3ZWNoYXRfcmVkaXJlY3Q=">我最终还是选择了VS code！<i class="fa fa-external-link-alt"></i></span></p>
+<h2 id="Sublime"><a href="#Sublime" class="headerlink" title="Sublime"></a>Sublime</h2><p>sublime是我接触较早，使用时间也较长的一款工具，最初是用来开发Python，后来写代码转向了vs code，sublime也就纯粹的成为了一款编辑工具。</p>
+<p>支持编码格式丰富、运行流畅、界面美观等等，虽然，相对于UE、notepad++说不出它绝对的优势在哪，我还是依然习惯于使用这款工具。</p>
+<h2 id="Postman"><a href="#Postman" class="headerlink" title="Postman"></a>Postman</h2><p>不同模块之间调用有很多种方式，数据库、函数接口、restful。其中restful应该是使用最为频繁的，不同语言，在这个过程中就涉及到测试Web API &amp; HTTP，Postman就变的异常重要。</p>
+<p>它支持GET, HEAD, POST, PUT等任何方式的请求，多种格式的header、body体，比起另外写一个测试脚本或者curl实在节省很多时间。</p>
+<h2 id="Xshell"><a href="#Xshell" class="headerlink" title="Xshell"></a>Xshell</h2><p>开发过程中，服务器是无法绕开的，这时候终端模拟工具就显得异常重要，之前用过Putty、mobaxterm等，但是最后还是选择了xshell。</p>
+<p>支持丰富的主题，轻松管理远程主机，强大的快捷功能，灵活的定制化，流畅的使用体验等等，让我越使用，越喜欢这款工具。</p>
+<h2 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h2><p>这里需要多说一句废话，<strong>要区分git和GitHub</strong>，GitHub是一个开源项目托管平台，git一款版本控制工具。</p>
+<p>在团队开发过程中，版本控制是必不可少的，提交、检视、MR等等，一系列的版本控制流程，让代码规范和交付更叫可靠，这里就离不开git。另外，git也支持很多常用Linux命令，所以，git对于我来说使用频率也是非常高的一款工具。</p>
+<h2 id="Typora"><a href="#Typora" class="headerlink" title="Typora"></a>Typora</h2><p>文档，在开发过程中当然是必不可少的，而markdown在开发中更加是举足轻重。Markdown编辑工具数不胜数，在线的、PC端的，比比皆是，但是我还是选择 typora 。界面简洁，支持实时预览，支持多种公式类型，支持TOC等标签。</p>
+<h2 id="Listary"><a href="#Listary" class="headerlink" title="Listary"></a>Listary</h2><p>listary 在一定程度上和everything有一些重叠，都可以用于文件搜索，但是有了listary之后我就很少使用everything，因为非常方便，当然，它也有不足之处，比如不能像everything那样使用正则表达式匹配，但是这丝毫不妨害它对我的吸引，调出非常方便，<strong>双击ctrl</strong>即可，而，最吸引我的地方是快速定位功能，无论是在文件夹内部，还是在控制面板、或者是在桌面，只要敲击一下要找的东西名称中的一个字母即可，此外，listary还可以作为快速启动软件使用，能够结合不同软件进行定制化，使用简短的字符匹配某一款软件，快速打开使用。</p>
+<h2 id="CopyTranslator"><a href="#CopyTranslator" class="headerlink" title="CopyTranslator"></a>CopyTranslator</h2><p>作为学生、科研人员或者算法工程师等职位难免会接触英文文章，读英语文章有哪些痛点呢？英语水平差，这个当然排第一，如果英语水平好了，就不要再找什么翻译软件了。</p>
+<p>我在阅读文献翻译英文时主要受困于如下几点，</p>
+<ul>
+<li>来回切换屏幕、复制、粘贴比较麻烦。</li>
+<li>人工翻译不仅贵而且效果不好。</li>
+<li>翻译软件有限制，比如我们用谷歌或百度翻译的时候，复制一段文章，拷贝到翻译框里，到换行符的位置会中断，这样就会让翻译的混乱不堪，还需要一个一个的把换行符删掉。</li>
+</ul>
+<p>CopyTranslator让翻译过程中变得快捷方便，而且，这款软件还支持点按复制、专注模式，能同时解决上述3个痛点。</p>
+<h1 id="网页工具"><a href="#网页工具" class="headerlink" title="网页工具"></a>网页工具</h1><h2 id="Bootschool"><a href="#Bootschool" class="headerlink" title="Bootschool"></a>Bootschool</h2><p><strong>bootschool</strong>是一个JS插件和网站模板分享网站,提供各种JS插件、jQuery特效、插件指导、网站模板与插件在线预览,jQuery插件下载及教程。</p>
+<p>也许，读到这里很多对JS不感兴趣的会感觉到失望，其实日常工作中我做JS开发的时间也不多，我只所以使用这个网站是因为它有丰富有趣的小功能，例如，<strong>自定义banner</strong>。</p>
+<p>在我们做Python、Spring Boot开发时，为了显示更加个性化，会输出一些字符串形式的banner信息，bootschool可以根据输入内容快速生成<strong>ASCII文字</strong>，当然，我们也可以用在其他方面，让原本单调的日志信息变得多姿多彩。</p>
+<h2 id="Jsoneditoronline"><a href="#Jsoneditoronline" class="headerlink" title="Jsoneditoronline"></a>Jsoneditoronline</h2><p>json格式是开发中非常常见的，包括http请求，数据持久化等等。json阅读和格式化就是一项非常必要的工作，之前使用过一段时间json.cn，但是自从同事给我推荐<strong>jsoneditoronline</strong>这款在线工具之后就再也没有用过其他的。</p>
+<p>这是一款来自<strong>谷歌</strong>的在线工具，支持差异化对比、格式检查等等非常丰富而强大的 json 编辑和格式化功能。</p>
+<h2 id="Explainshell"><a href="#Explainshell" class="headerlink" title="Explainshell"></a>Explainshell</h2><p>作为IT/互联网相关的工作人员，哪怕不是开发者，也有可能会和Linux打交道，我们可以用Linux进行开发、运维等，因此，Linux就成为了一项非常重要的个人技能。</p>
+<p>使用Linux过程中主要打交道的对象就是繁多的Linux命令和选项(options)就成了令人头疼的事情，举一个最为简单的例子:</p>
+<p><code>ls -al</code></p>
+<p>这个Linux命令包含两个部分，command和options，ls是查看命令，-a和-l分别代表：显示所有文件(包括以.开头的隐藏文件)、以列表形式显示。</p>
+<p>这些常用的我们都知道，但是有很多使用频率较少的怎么办？我们可以借助<strong>explainshell</strong>。它是一款利用Python开发的Linux命令行工具，通过解析帮助文档，逐个匹配一行Linux命令中不同字符的含义，让你对Linux命令能够一目了然，是一款非常棒的Linux学习工具。</p>
+<h2 id="Nicetool"><a href="#Nicetool" class="headerlink" title="Nicetool"></a>Nicetool</h2><p><strong>Nicetool</strong>包含超过400个简单易用的工具收录其中，使用领域涵盖生活常用、办公辅助，教育学习，视频媒体，网络工具，程序开发，工具无需注册下载，即用即走。</p>
+<h2 id="Alltoall"><a href="#Alltoall" class="headerlink" title="Alltoall"></a>Alltoall</h2><p><strong>alltoall</strong>是一个在线转换工具网站，200+种文件格式，视频、音频、图片、文档、表格、电子书等等，再也不用为文件格式转换下载各种工具和软件了。</p>
+<h1 id="浏览器插件"><a href="#浏览器插件" class="headerlink" title="浏览器插件"></a>浏览器插件</h1><h2 id="OneTab"><a href="#OneTab" class="headerlink" title="OneTab"></a>OneTab</h2><p>同事说“<strong>自从你给我推荐了这款插件，我再也离不开它了。</strong>”</p>
+<p>浏览器标签页是一样令人头疼的东西，至少对于我来说是这样的，每当打开一些网页之后会发现标签页密密麻麻，非常混乱，关闭后又担心会用到，不关闭实在影响浏览器的使用，而且过多的打开网页会带来很多内存占用。很久以来，一直没有找到好的解决方法，直到遇到OneTab这款插件，能够一键关闭、恢复所有标签页，而且能够节省高达95%的内容占用。</p>
+<p>只需单击一下，就可以把所有标签页转化成一个列表，如果再次需要某个网页的时候，可以单个或者全部恢复标签页。</p>
+<h2 id="SwitchyOmega"><a href="#SwitchyOmega" class="headerlink" title="SwitchyOmega"></a>SwitchyOmega</h2><p>我觉得校园网也是让很多大学生头疼的一个问题，外网无法访问校园网资源，校园网访问外网速度缓慢。怎么样才能在这两种网络之间自如切换？手动设置IE代理？那样效率太低了，不仅步骤繁琐，而且不能自动切换。SwitchyOmega就可以轻松解决代理切换问题，让你在不同的网络环境下自如切换代理，选择最快的代理方法打开你要的网页。</p>
+<h2 id="Octotree"><a href="#Octotree" class="headerlink" title="Octotree"></a>Octotree</h2><p>Octotree是当之无愧的Github神器，强烈的推荐给大家。</p>
+<p>查看某个文件是我使用Github过程中最苦恼的一个点，需要逐层进入一个目录，然后再逐层退出目录，这样不仅费劲，而且，如果网速不太好的话，查看一个文件需要耗费很长时间，例如，</p>
+<p>Octotree的出现能够让Github体验提升到一个全新的水平，它能够以树形结构展示Github项目，更加易于阅读，能够快速查看某个文件，能够让Github像大多数IDE那样。</p>
+<p>除此之外，Octotree还有一项非常实用的功能–下载单个文件。</p>
+<h2 id="Click-amp-Clean"><a href="#Click-amp-Clean" class="headerlink" title="Click&amp;Clean"></a>Click&amp;Clean</h2><p>浏览器是我们使用最多的一款工具之一，甚至没有其中的之一。每天我们花费大量的时间在浏览器上面，访问各种网址，也留下了很多访问的足迹，这就涉及一个问题，除了缓存垃圾之外就是隐私和安全信息。不知不觉中我们把自己的信息展露无疑。我认为有着Click&amp;Clean这款超强的隐私保护工具就再也不用担心这个问题了。</p>
+<ul>
+<li>清除浏览历史记录, 清除下载历史记录</li>
+<li>清空缓存</li>
+<li>删除 Cookie</li>
+<li>清除已保存的密码</li>
+<li>浏览器关闭时运行外部应用程序</li>
+<li>关闭所有窗口/标签前清理</li>
+<li>…</li>
+</ul>
+<h2 id="Tampermonkey"><a href="#Tampermonkey" class="headerlink" title="Tampermonkey"></a>Tampermonkey</h2><p>可以毫不谦虚的说，Tampermonkey是目前最为流行的用户脚本管理器，它适用于 Chrome, Microsoft Edge, Safari, Opera Next, 和 Firefox。</p>
+<p>用户脚本是一个什么东西？简而言之，不同脚本可以实现不同的功能。</p>
+<p>Tampermonkey可以对这些功能进行管理，让你的浏览器如虎添翼,Tampermonkey有很多可选的脚本。</p>
+<h1 id="命令行工具"><a href="#命令行工具" class="headerlink" title="命令行工具"></a>命令行工具</h1><h2 id="oh-my-zsh"><a href="#oh-my-zsh" class="headerlink" title="oh-my-zsh"></a>oh-my-zsh</h2><p>提到命令行工具，首推的自然是这款大杀器，bash的替代工具。bash算得上一款中规中矩的shell工具，没有什么缺陷，但是也谈不上优秀，在很多方面考虑的还不够周到，例如，自动补全、语法、高亮显示、提示符等。</p>
+<p>提到oh-my-zsh，那就厉害了，102kStar、250+插件、125+主题、1450+贡献者……从这一系列的数字中就可以体现出这款shell工具的生态有多么完善，也足以体现它有多么强大。</p>
+<h2 id="Tldr"><a href="#Tldr" class="headerlink" title="Tldr"></a>Tldr</h2><p>用Linux的过程中难免会和各种参数打交道，距离比如<code>ps -aux</code>、<code>tar -jxvf</code>、<code>find -name</code>，每个”-“后面的就是各种命令参数，大家比较熟悉的查看命令解释的方法有”command ?” “man command”，就是命令后面加？或者man加命令。以man为例，解释很详细，但是带来的问题就是冗余，有很多信息是我们不想看到的，所以tldr就凸显出它的优点，简洁、实用。</p>
+<h2 id="Tig"><a href="#Tig" class="headerlink" title="Tig"></a>Tig</h2><p>Tig是一个基于ncurses的git文本模式接口。它的功能主要是作为一个Git存储库浏览器，但也可以帮助在块级别上分段提交更改，并充当各种Git命令输出的分页器。</p>
+<h2 id="Autojump"><a href="#Autojump" class="headerlink" title="Autojump"></a>Autojump</h2><p>我们在Linux下开发时会频繁的切换工作目录，要一步一步的cd，pwd实在太麻烦了，autojump通过记录命令行中使用最多的目录并给定相应权重的数据块来进行工作，不需要完全输入目录名，甚至输错目录名都没问题。</p>
+<p><strong>使用方法：</strong></p>
+<p>跳转到包含foo的路径只需下面这个命令即可，autojump会通过维护的数据库进行跳转， <code>j foo</code></p>
+<h2 id="Script"><a href="#Script" class="headerlink" title="Script"></a>Script</h2><p>很多时候，为了安全，需要对工作内容进行备份和保存。而script就是一个隐藏的记录器，它可以记录终端会话的所有内容，形成文件，对总是忘记工作内容的同学真是福音。</p>
+<p><strong>使用方法：</strong></p>
+<p>在终端输入script,</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; script</span><br></pre></td></tr></table></figure>
+
+<p>会显示:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Script started, file is typescript</span><br></pre></td></tr></table></figure>
+
+<p>接着可以开始自己的操作，想退出输入exit即可，当前目录下会生成一个名为trypescript的文件，里面记录了刚才的操作。</p>
+<h2 id="Tree"><a href="#Tree" class="headerlink" title="Tree"></a>Tree</h2><p>刚接触非桌面Linux的同学大多数会感觉Linux没有Windows或Mac那么直观，的确，我们面对的就是一行行命令，文件夹、应用图标什么的都没有，自然不直观。但是可以借助一些工具来增强目录的直观性，这里推荐的就是tree，可以以类似于图像的树状图排列目录和文件。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># tree                   #以树状图列出当前目录结构</span></span><br><span class="line">.                        <span class="comment">#当前目录结构</span></span><br><span class="line">|-- README  </span><br><span class="line">|-- examples.desktop  </span><br><span class="line">|-- file  </span><br><span class="line">|-- file.new  </span><br><span class="line">|-- index.htm  </span><br><span class="line">|-- test  </span><br><span class="line">| |-- README  </span><br><span class="line">| |-- file  </span><br><span class="line">| |-- testfile  </span><br><span class="line">| |-- testfile1</span><br></pre></td></tr></table></figure>
+
+<h2 id="Httpie"><a href="#Httpie" class="headerlink" title="Httpie"></a>Httpie</h2><p>不同组件之间相互访问可以通过很多方式，其中restful是比较常用的一种。这里就涉及http请求，我们需要测试数据能够正确的上传和下载。在处理http请求过程中使用较多的工具就是curl。curl有很多明显的弊端：对用户不够友好，命令冗长；可视化效果差，没有高亮。httpie就是curl的一个非常好的替代者，它的使用更加简洁明了，而且能够高亮显示请求结果。</p>
+<h2 id="Glances"><a href="#Glances" class="headerlink" title="Glances"></a>Glances</h2><p>glances就如同它的汉语意思那样，“一眼”、“一瞥”，能够通过一个简单的命令对系统信息一目了然，了如指掌。glances利用Python编写的一个跨平台的监视工具，旨在通过curses或基于Web的界面提供大量监视信息。</p>
+<p>你不仅可以通过终端命令行使用该工具，还可以web界面、API接口等对服务器进行远程监控，可以将统计信息导出到文件或数据库。</p>
+<hr>
+<p>文章转自：<span class="exturl" data-url="aHR0cHM6Ly9tcC53ZWl4aW4ucXEuY29tL3MvMXNjQWFOZi1uQXpqTmtXQy1OOFdYUQ==">原文链接<i class="fa fa-external-link-alt"></i></span></p>
+<p><strong>特别声明：如有侵权，告知笔者，立删此文！</strong></p>
+
+    </div>
+
+    
+    
+    
+      
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>十丿叶
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.shuoshuoyun.cn/63973/" title="开发者常用工具集">https://www.shuoshuoyun.cn/63973/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
+
+            <span class="label">WeChat</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag"><i class="fa fa-tag"></i> 工具</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/14790/" rel="prev" title="学爬虫，你需要学习的东西！">
+      <i class="fa fa-chevron-left"></i> 学爬虫，你需要学习的东西！
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/18013/" rel="next" title="python项目集">
+      python项目集 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+        </div>
+        
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><span class="exturl" data-url="aHR0cDovL3d3dy5iZWlhbi5taWl0Lmdvdi5jbg==">湘ICP备20008495号-1 </span>
+      <img src="/images/beian.png" style="display: inline-block;"><span class="exturl" data-url="aHR0cDovL3d3dy5iZWlhbi5nb3YuY24vcG9ydGFsL3JlZ2lzdGVyU3lzdGVtSW5mbz9yZWNvcmRjb2RlPTQzMDUyMzAyMDAwMTIz">湘公网安备 43052302000123号 </span>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 2019 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heartbeat"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">十丿叶</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">126k</span>
+</div>
+  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZw==">NexT.Gemini</span> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//unpkg.com/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/next-theme/pjax@0/pjax.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '.page-configurations',
+    '.main-inner',
+    '.post-toc-wrap',
+    '.languages',
+    '.pjax'
+  ],
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+document.addEventListener('pjax:success', () => {
+  pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  const hasTOC = document.querySelector('.post-toc');
+  document.querySelector('.sidebar-inner').classList.toggle('sidebar-nav-active', hasTOC);
+  document.querySelector(hasTOC ? '.sidebar-nav-toc' : '.sidebar-nav-overview').click();
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+<script data-pjax>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
+
+
+
+
+    <div class="pjax">
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
+    new Valine(Object.assign({
+      el  : '#valine-comments',
+      path: location.pathname,
+    }, {"enable":true,"appId":"SRvHJbrJB86zbizktl0F4Wz3-gzGzoHsz","appKey":"m3kGoyrm4o4V0uNWsxXkrUDF","placeholder":"说点什么吧~","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"language":"zh-cn","visitor":false,"comment_count":true,"recordIP":true,"serverURLs":null}
+    ));
+  }, window.Valine);
+});
+</script>
+
+    </div>
+</body>
+</html>

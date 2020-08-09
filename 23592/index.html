@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  
+  <link rel="stylesheet" href="/lib/animate-css/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.shuoshuoyun.cn","root":"/","scheme":"Gemini","version":"8.0.0-rc.4","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="第二部分 编程指南小部件小部件简介小部件是Kivy中GUI界面的基本构建块。 它提供了可用于在屏幕上绘制的画布。 它接收事件并对它们做出反应。 有关Widget类的详细说明，请参阅模块文档。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kivy参考文档（二）">
+<meta property="og:url" content="https://www.shuoshuoyun.cn/23592/index.html">
+<meta property="og:site_name" content="木今心">
+<meta property="og:description" content="第二部分 编程指南小部件小部件简介小部件是Kivy中GUI界面的基本构建块。 它提供了可用于在屏幕上绘制的画布。 它接收事件并对它们做出反应。 有关Widget类的详细说明，请参阅模块文档。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.ax1x.com/2020/02/21/3KiHR1.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/02/21/3KFAL8.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/02/21/3KFNFJ.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/02/21/3KF0Qx.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/02/21/3KkZX6.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/02/21/3KECW9.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/02/21/3KEZdO.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/02/21/3KEv6I.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/02/21/3KVu7T.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/02/21/3KVfUS.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/02/21/3Kmyv9.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/02/21/3K17Jx.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/02/21/3K3sne.png">
+<meta property="article:published_time" content="2020-03-03T00:55:05.000Z">
+<meta property="article:modified_time" content="2020-03-03T00:55:05.000Z">
+<meta property="article:author" content="十丿叶">
+<meta property="article:tag" content="kivy">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.ax1x.com/2020/02/21/3KiHR1.png">
+
+<link rel="canonical" href="https://www.shuoshuoyun.cn/23592/">
+
+
+<script data-pjax class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Kivy参考文档（二） | 木今心</title>
+  
+
+
+  <script data-pjax>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?07fdd26aa39a30ab9c8d553e566c50ee";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <main class="main">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+        <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line toggle-line-first"></span>
+        <span class="toggle-line toggle-line-middle"></span>
+        <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">木今心</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">站在巨人的肩上</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">16</span></a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">11</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">13</span></a>
+
+  </li>
+        
+            
+  <li class="menu-item menu-item-config">
+
+    <a href="/config/" rel="section"><i class="fa fa-user-cog fa-fw"></i>配置</a>
+
+  </li>
+
+
+      
+        
+            
+  <li class="menu-item menu-item-write_skills">
+
+    <a href="/write_skills/" rel="section"><i class="fa fa-rocket fa-fw"></i>编辑技巧</a>
+
+  </li>
+
+
+      
+        
+            
+  <li class="menu-item menu-item-knowledge-handbook">
+
+    <a href="/knowledge/" rel="section"><i class="fas fa-quran fa-fw"></i>知识手册</a>
+
+  </li>
+
+
+      
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于作者</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第二部分-编程指南"><span class="nav-text">第二部分 编程指南</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#小部件"><span class="nav-text">小部件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#小部件简介"><span class="nav-text">小部件简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操纵小部件树"><span class="nav-text">操纵小部件树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#遍历树"><span class="nav-text">遍历树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#小部件Z索引"><span class="nav-text">小部件Z索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用布局进行组织"><span class="nav-text">使用布局进行组织</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在布局中添加背景"><span class="nav-text">在布局中添加背景</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#向自定义布局规则-类的背景添加颜色"><span class="nav-text">向自定义布局规则&#x2F;类的背景添加颜色</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#嵌套布局"><span class="nav-text">嵌套布局</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#大小和位置指标"><span class="nav-text">大小和位置指标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用屏幕管理器进行屏幕分离"><span class="nav-text">使用屏幕管理器进行屏幕分离</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图形"><span class="nav-text">图形</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#画布介绍"><span class="nav-text">画布介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#上下文说明"><span class="nav-text">上下文说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图纸说明"><span class="nav-text">图纸说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作说明"><span class="nav-text">操作说明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Kv-语言"><span class="nav-text">Kv 语言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#语言背后的概念"><span class="nav-text">语言背后的概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何加载KV"><span class="nav-text">如何加载KV</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文本规则"><span class="nav-text">文本规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特殊语法"><span class="nav-text">特殊语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例化孩子"><span class="nav-text">实例化孩子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事件绑定"><span class="nav-text">事件绑定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#延伸画布"><span class="nav-text">延伸画布</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用小部件"><span class="nav-text">引用小部件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在您的Python代码中访问在Kv-lang内部定义的小部件"><span class="nav-text">在您的Python代码中访问在Kv lang内部定义的小部件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动态类"><span class="nav-text">动态类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在多个小部件中重复使用样式"><span class="nav-text">在多个小部件中重复使用样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用Kivy语言进行设计"><span class="nav-text">使用Kivy语言进行设计</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#代码放在py文件中"><span class="nav-text">代码放在py文件中</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#布局进入controller-kv"><span class="nav-text">布局进入controller.kv</span></a></li></ol></li></ol></li></ol></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="十丿叶"
+      src="/images/touxiang.jpg">
+  <p class="site-author-name" itemprop="name">十丿叶</p>
+  <div class="site-description" itemprop="description">-------<椿去湫来，海棠花开>--------------<椿还鲲命，谁还湫情>-------</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1NreWJsdWV2eA==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Skybluevx"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOjEzNzI3NTU0NzJAcXEuY29t" title="E-Mail → mailto:1372755472@qq.com"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></span>
+  </div>
+
+
+
+      </section>
+        <div class="back-to-top animated">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </header>
+
+      
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL1NreWJsdWV2eA==" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
+
+<noscript>
+  <div id="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+      <div class="main-inner">
+        
+
+        <div class="content post posts-expand">
+          
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.shuoshuoyun.cn/23592/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+      <meta itemprop="name" content="十丿叶">
+      <meta itemprop="description" content="-------<椿去湫来，海棠花开>--------------<椿还鲲命，谁还湫情>-------">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="木今心">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Kivy参考文档（二）
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-03 08:55:05" itemprop="dateCreated datePublished" datetime="2020-03-03T08:55:05+08:00">2020-03-03</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Kivy/" itemprop="url" rel="index"><span itemprop="name">Kivy</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/23592/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/23592/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>21k</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="第二部分-编程指南"><a href="#第二部分-编程指南" class="headerlink" title="第二部分 编程指南"></a>第二部分 编程指南</h1><h2 id="小部件"><a href="#小部件" class="headerlink" title="小部件"></a>小部件</h2><h3 id="小部件简介"><a href="#小部件简介" class="headerlink" title="小部件简介"></a>小部件简介</h3><p>小部件是Kivy中GUI界面的基本构建块。 它提供了可用于在屏幕上绘制的画布。 它接收事件并对它们做出反应。 有关Widget类的详细说明，请参阅模块文档。</p>
+<a id="more"></a>
+
+<h3 id="操纵小部件树"><a href="#操纵小部件树" class="headerlink" title="操纵小部件树"></a>操纵小部件树</h3><p>Kivy中的小部件组织在树中。 您的应用程序具有一个根窗口小部件，该窗口小部件通常具有可以具有自己的子代的子代。 小部件的子代表示为children属性，即Kivy ListProperty。</p>
+<p>窗口小部件树可以通过以下方法进行操作：</p>
+<ul>
+<li><code>add_widget()</code>：将小部件添加为子级</li>
+<li><code>remove_widget()</code>：从子级列表中删除小部件</li>
+<li><code>clear_widgets()</code>：从小部件中删除所有子项</li>
+</ul>
+<p>例如，如果要在BoxLayout中添加按钮，则可以执行以下操作：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">layout = BoxLayout(padding=<span class="number">10</span>)</span><br><span class="line">button = Button(text=<span class="string">'My first button'</span>)</span><br><span class="line">layout.add_widget(button)</span><br></pre></td></tr></table></figure>
+<p>按钮已添加到布局：按钮的父属性将设置为布局； 版式会将按钮添加到其子级列表中。 要从布局中删除按钮：</p>
+<p><code>layout.remove_widget(button)</code></p>
+<p>移除后，按钮的父级属性将设置为“无”，并且布局将从其子级列表中移除按钮。</p>
+<p>如果要清除窗口小部件内的所有子项，请使用<code>clear_widgets()</code>方法：</p>
+<p><code>layout.clear_widgets()</code></p>
+<hr>
+<p><strong>警告：切勿操纵孩子列出自己的名字，除非您真的知道自己在做什么。 小部件树与图形树相关联。 例如，如果您将一个小部件添加到子级列表中而未将其画布添加到图形树中，则该小部件将是子级，是的，但是不会在屏幕上绘制任何内容。 而且，您可能在进一步调用<code>add_widget</code>，<code>remove_widget</code>和<code>clear_widgets</code>时遇到问题。</strong></p>
+<hr>
+<h3 id="遍历树"><a href="#遍历树" class="headerlink" title="遍历树"></a>遍历树</h3><p>Widget类实例的子代列表属性包含所有子代。 您可以通过以下操作轻松遍历树：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">root = BoxLayout()</span><br><span class="line"><span class="comment"># ... add widgets to root ...</span></span><br><span class="line"><span class="keyword">for</span> child <span class="keyword">in</span> root.children:</span><br><span class="line">    print(child)</span><br></pre></td></tr></table></figure>
+<p>但是，必须谨慎使用。 如果要使用上一节中显示的方法之一修改子级列表，则必须使用该列表的副本，如下所示：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> child <span class="keyword">in</span> root.children[:]:</span><br><span class="line">    <span class="comment"># manipulate the tree. For example here, remove all widgets that have a</span></span><br><span class="line">    <span class="comment"># width &lt; 100</span></span><br><span class="line">    <span class="keyword">if</span> child.width &lt; <span class="number">100</span>:</span><br><span class="line">        root.remove_widget(child)</span><br></pre></td></tr></table></figure>
+<p>默认情况下，小部件不会影响其子级的大小/位置。 pos属性是屏幕坐标中的绝对位置（除非您使用relativelayout。稍后会详细介绍），尺寸是绝对尺寸。</p>
+<h3 id="小部件Z索引"><a href="#小部件Z索引" class="headerlink" title="小部件Z索引"></a>小部件Z索引</h3><p>窗口小部件绘制的顺序基于窗口小部件在窗口小部件树中的位置。 add_widget方法采用一个索引参数，该参数可用于指定其在小部件树中的位置：</p>
+<p><code>root.add_widget(widget, index)</code></p>
+<p>索引较低的窗口小部件将在索引较高的窗口小部件上方绘制。 请记住，索引的默认值为0，因此，除非另行指定，否则以后添加的小部件将在其他小部件之上绘制。</p>
+<h3 id="使用布局进行组织"><a href="#使用布局进行组织" class="headerlink" title="使用布局进行组织"></a>使用布局进行组织</h3><p>layout是一种特殊的小部件，可控制其子级的大小和位置。有不同种类的布局，可以对孩子进行不同的自动组织。 布局使用<em>size_hint</em>和<em>pos_hint</em>属性确定其子级的大小和pos。</p>
+<p><strong>BoxLayout</strong>: 以相邻方式（垂直或水平）方式排列小部件，以填充所有空间。 子级的size_hint属性可用于更改允许每个子级的比例，或为其中一些设置固定大小。</p>
+<p><img src="https://s2.ax1x.com/2020/02/21/3KiHR1.png" alt="3KiHR1.png"></p>
+<p><img src="https://s2.ax1x.com/2020/02/21/3KFAL8.png" alt="3KFAL8.png"></p>
+<p><img src="https://s2.ax1x.com/2020/02/21/3KFNFJ.png" alt="3KFNFJ.png"></p>
+<p><img src="https://s2.ax1x.com/2020/02/21/3KF0Qx.png" alt="3KF0Qx.png"></p>
+<p><img src="https://s2.ax1x.com/2020/02/21/3KkZX6.png" alt="3KkZX6.png"></p>
+<p><strong>GridLayout</strong>: 在网格中排列小部件。您必须至少指定网格的一维，以便kivy可以计算元素的大小以及如何排列它们。</p>
+<p><strong>StackLayout</strong>: 将小部件彼此相邻排列，但在其中一个尺寸中设置一个固定的大小，而不会试图使其适合整个空间。 这对于显示相同预定义大小的子代很有用。</p>
+<p><strong>AnchorLayout</strong>: 一个简单的布局只关心孩子的位置。 它允许将子级放置在相对于布局边框的位置。 size_hint不兑现。</p>
+<p><strong>FloatLayout</strong>: 允许放置具有任意位置和大小（绝对值或相对于布局大小）的子级。 默认的size_hint（1，1）将使每个子级与整个布局具有相同的大小，因此如果您有多个子级，则可能需要更改此值。 您可以将size_hint设置为（None，None）以将绝对大小与大小一起使用。 此小部件还接受pos_hint，这是相对于布局位置的dict设置位置。</p>
+<p><strong>RelativeLayout</strong>: 行为与FloatLayout一样，只是子位置相对于布局位置而不是屏幕相对。</p>
+<p>检查各个布局的文档以更深入地了解。</p>
+<p><em>size_hint</em> 和 <em>pos_hint</em>:</p>
+<ul>
+<li><em>floatlayout</em></li>
+<li><em>boxlayout</em></li>
+<li><em>gridlayout</em></li>
+<li><em>stacklayout</em></li>
+<li><em>relativelayout</em></li>
+<li><em>anchorlayout</em></li>
+</ul>
+<p><em>size_hint</em>是<em>size_hint_x</em>和<em>size_hint_y</em>的<em>ReferenceListProperty</em>。 它接受0到1或无的值，默认为（1，1）。 这表示如果窗口小部件位于布局中，则布局将在两个方向（相对于布局大小）上尽可能多地分配其位置。</p>
+<p>例如，将<em>size_hint</em>设置为（0.5，0.8），将使窗口小部件的宽度在布局内的宽度为50％，高度为高度的80％。</p>
+<p>考虑以下示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">BoxLayout:</span><br><span class="line">    Button:</span><br><span class="line">        text: <span class="string">'Button 1'</span></span><br><span class="line">        <span class="comment"># default size_hint is 1, 1, we don't need to specify it explicitly</span></span><br><span class="line">        <span class="comment"># however it's provided here to make things clear</span></span><br><span class="line">        size_hint: <span class="number">1</span>, <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>现在，通过键入以下内容来加载kivy目录，但是将$ KIVYDIR替换为您的安装目录（可通过<code>os.path.dirname（kivy .__ file__）</code>发现）：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd $KIVYDIR/examples/demo/kivycatalog</span><br><span class="line">python main.py</span><br></pre></td></tr></table></figure>
+<p>将会出现一个新窗口。点击左侧“欢迎”微调框下方的区域，然后用上方的kv代码替换其中的文字。</p>
+<p><img src="https://s2.ax1x.com/2020/02/21/3KECW9.png" alt="3KECW9.png"></p>
+<p>从上图可以看到，Button占据了布局大小的100％。</p>
+<p>将size_hint_x / size_hint_y更改为.5将使小部件占据布局宽度/高度的50％。</p>
+<p><img src="https://s2.ax1x.com/2020/02/21/3KEZdO.png" alt="3KEZdO.png"></p>
+<p>您可以在此处看到，尽管我们将<code>size_hint_x</code>和<code>size_hint_y</code>都指定为.5，但似乎只接受<code>size_hint_y</code>。这是因为在垂直方向上，<code>boxlayout</code>控制<code>size_hint_y</code>，在水平方向上则控制<code>size_hint_x</code>。受控尺寸的大小取决于总编号。在<code>boxlayout</code>中的孩子。在此示例中，一个孩子的<code>size_hint_y</code>受控制.5 /.5 = 1）。因此，小部件占据了父级布局高度的100％。</p>
+<p>让我们向布局添加另一个按钮，看看会发生什么。</p>
+<p><img src="https://s2.ax1x.com/2020/02/21/3KEv6I.png" alt="3KEv6I.png"></p>
+<p><code>boxlayout</code>本质上将其子级之间的可用空间平均分配。 在我们的示例中，该比例为50-50，因为我们有两个孩子。 让我们在其中一个孩子上使用<code>size_hint</code>并查看结果。</p>
+<p><img src="https://s2.ax1x.com/2020/02/21/3KVu7T.png" alt="3KVu7T.png"></p>
+<p>如果子级指定<code>size_hint</code>，则此值指定<code>Widget</code>将超出<code>BoxLayout</code>为其指定大小的空间。 在我们的示例中，第一个<code>Button</code>为<code>size_hint_x</code>指定.5。 小部件的空间的计算方式如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">first child<span class="string">'s size_hint divided by</span></span><br><span class="line"><span class="string">first child'</span>s size_hint + second child<span class="string">'s size_hint + ...n(no of children)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">.5/(.5+1) = .333...</span></span><br></pre></td></tr></table></figure>
+<p><code>BoxLayout</code>的其余宽度由其余的子项分配。 在我们的示例中，这意味着第二个<code>Button</code>占用布局宽度的66.66％。</p>
+<p>试用<code>size_hint</code>使其适应。</p>
+<p>如果要控制窗口小部件的绝对大小，可以将<code>size_hint_x / size_hint_y</code>或两者都设置为<code>None</code>，以便使用窗口小部件的<code>width</code>和<code>height</code>属性。</p>
+<p><code>pos_hint</code>是字典，默认为空。 至于<code>size_hint</code>，布局使用<code>pos_hint</code>的方式有所不同，但是通常您可以将值添加到任何pos属性<code>（x，y，right，top，center_x，center_y）</code>，以使Widget相对于其父项定位。</p>
+<p>让我们在<code>kivycatalog</code>中尝试以下代码，以直观地了解<code>pos_hint</code>：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">FloatLayout:</span><br><span class="line">    Button:</span><br><span class="line">        text: <span class="string">"We Will"</span></span><br><span class="line">        pos: <span class="number">100</span>, <span class="number">100</span></span><br><span class="line">        size_hint: <span class="number">.2</span>, <span class="number">.4</span></span><br><span class="line">    Button:</span><br><span class="line">        text: <span class="string">"Wee Wiill"</span></span><br><span class="line">        pos: <span class="number">200</span>, <span class="number">200</span></span><br><span class="line">        size_hint: <span class="number">.4</span>, <span class="number">.2</span></span><br><span class="line">    Button:</span><br><span class="line">        text: <span class="string">"ROCK YOU!!"</span></span><br><span class="line">        pos_hint: &#123;<span class="string">'x'</span>: <span class="number">.3</span>, <span class="string">'y'</span>: <span class="number">.6</span>&#125;</span><br><span class="line">        size_hint: <span class="number">.5</span>, <span class="number">.2</span></span><br></pre></td></tr></table></figure>
+<p>这给了我们：</p>
+<p><img src="https://s2.ax1x.com/2020/02/21/3KVfUS.png" alt="3KVfUS.png"></p>
+<p>与<code>size_hint</code>一样，您应该尝试<code>pos_hint</code>来了解其对小部件位置的影响。</p>
+<h3 id="在布局中添加背景"><a href="#在布局中添加背景" class="headerlink" title="在布局中添加背景"></a>在布局中添加背景</h3><p>有关布局的常见问题之一是：</p>
+<p><code>“如何将背景图像/颜色/视频/ ...添加到布局中”</code></p>
+<p>布局本质上没有视觉表现形式：默认情况下它们没有画布说明。 但是，您可以轻松地将画布指令添加到布局实例，就像添加彩色背景一样：</p>
+<p>在<strong>Python</strong>中:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> kivy.graphics <span class="keyword">import</span> Color, Rectangle</span><br><span class="line"></span><br><span class="line">    <span class="keyword">with</span> layout_instance.canvas.before:</span><br><span class="line">        Color(<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>) <span class="comment"># green; colors range from 0-1 instead of 0-255</span></span><br><span class="line">        self.rect = Rectangle(size=layout_instance.size, pos=layout_instance.pos)</span><br></pre></td></tr></table></figure>
+
+<p>不幸的是，这只会在布局的初始位置和大小处绘制一个矩形。 为了确保在布局内部绘制矩形，当布局大小/位置发生变化时，我们需要听取任何更改并更新矩形的大小和位置。 我们可以这样做，如下所示：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> layout_instance.canvas.before:</span><br><span class="line">    Color(<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>) <span class="comment"># green; colors range from 0-1 instead of 0-255</span></span><br><span class="line">    self.rect = Rectangle(size=layout_instance.size, pos=layout_instance.pos)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">update_rect</span><span class="params">(instance, value)</span>:</span></span><br><span class="line">    instance.rect.pos = instance.pos</span><br><span class="line">    instance.rect.size = instance.size</span><br><span class="line">    <span class="comment"># listen to size and position changes</span></span><br><span class="line">    layout_instance.bind(pos=update_rect, size=update_rect)</span><br></pre></td></tr></table></figure>
+
+<p>在kv文件中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">FloatLayout:</span><br><span class="line">    canvas.before:</span><br><span class="line">        Color:</span><br><span class="line">            rgba: 0, 1, 0, 1</span><br><span class="line">        Rectangle:</span><br><span class="line">            # self here refers to the widget i.e BoxLayout</span><br><span class="line">            pos: self.pos</span><br><span class="line">            size: self.size</span><br></pre></td></tr></table></figure>
+
+<p>kv声明设置了一个隐式绑定：最后两行kv行确保当<em>floatlayout</em>的<em>pos</em>更改时，矩形的<em>pos</em>和<em>size</em>值将更新。</p>
+<p>现在，将上面的代码片段放入Kivy App的外壳中。</p>
+<p>纯<strong>Python</strong>方式：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> kivy.app <span class="keyword">import</span> App</span><br><span class="line"><span class="keyword">from</span> kivy.graphics <span class="keyword">import</span> Color, Rectangle</span><br><span class="line"><span class="keyword">from</span> kivy.uix.floatlayout <span class="keyword">import</span> FloatLayout</span><br><span class="line"><span class="keyword">from</span> kivy.uix.button <span class="keyword">import</span> Button</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RootWidget</span><span class="params">(FloatLayout)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, **kwargs)</span>:</span></span><br><span class="line">        <span class="comment"># make sure we aren't overriding any important functionality</span></span><br><span class="line">        super(RootWidget, self).__init__(**kwargs)</span><br><span class="line">        <span class="comment"># let's add a Widget to this layout</span></span><br><span class="line">        self.add_widget(</span><br><span class="line">            Button(</span><br><span class="line">                text=<span class="string">"Hello World"</span>,</span><br><span class="line">                size_hint=(<span class="number">.5</span>, <span class="number">.5</span>),</span><br><span class="line">                pos_hint=&#123;<span class="string">'center_x'</span>: <span class="number">.5</span>, <span class="string">'center_y'</span>: <span class="number">.5</span>&#125;))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MainApp</span><span class="params">(App)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">build</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.root = root = RootWidget()</span><br><span class="line">        root.bind(size=self._update_rect, pos=self._update_rect)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">with</span> root.canvas.before:</span><br><span class="line">            Color(<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>) <span class="comment"># green; colors range from 0-1 not 0-255</span></span><br><span class="line">            self.rect = Rectangle(size=root.size, pos=root.pos)</span><br><span class="line">        <span class="keyword">return</span> root</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_update_rect</span><span class="params">(self, instance, value)</span>:</span></span><br><span class="line">        self.rect.pos = instance.pos</span><br><span class="line">        self.rect.size = instance.size</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    MainApp().run()</span><br></pre></td></tr></table></figure>
+
+<p>使用<strong>kv</strong>语言：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> kivy.app <span class="keyword">import</span> App</span><br><span class="line"><span class="keyword">from</span> kivy.lang <span class="keyword">import</span> Builder</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">root = Builder.load_string(<span class="string">'''</span></span><br><span class="line"><span class="string">FloatLayout:</span></span><br><span class="line"><span class="string">    canvas.before:</span></span><br><span class="line"><span class="string">        Color:</span></span><br><span class="line"><span class="string">            rgba: 0, 1, 0, 1</span></span><br><span class="line"><span class="string">        Rectangle:</span></span><br><span class="line"><span class="string">            # self here refers to the widget i.e FloatLayout</span></span><br><span class="line"><span class="string">            pos: self.pos</span></span><br><span class="line"><span class="string">            size: self.size</span></span><br><span class="line"><span class="string">    Button:</span></span><br><span class="line"><span class="string">        text: 'Hello World!!'</span></span><br><span class="line"><span class="string">        size_hint: .5, .5</span></span><br><span class="line"><span class="string">        pos_hint: &#123;'center_x':.5, 'center_y': .5&#125;</span></span><br><span class="line"><span class="string">'''</span>)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MainApp</span><span class="params">(App)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">build</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> root</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    MainApp().run()</span><br></pre></td></tr></table></figure>
+<p>这两个应用程序应如下所示：</p>
+<p><img src="https://s2.ax1x.com/2020/02/21/3Kmyv9.png" alt="3Kmyv9.png"></p>
+<h4 id="向自定义布局规则-类的背景添加颜色"><a href="#向自定义布局规则-类的背景添加颜色" class="headerlink" title="向自定义布局规则/类的背景添加颜色"></a>向自定义布局规则/类的背景添加颜色</h4><p>如果我们需要使用多个布局，那么将背景添加到布局实例的方法很快就会变得很麻烦。 为了解决这个问题，您可以将Layout子类化，并创建自己的添加背景的布局。</p>
+<p>使用<strong>Python</strong>：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> kivy.app <span class="keyword">import</span> App</span><br><span class="line"><span class="keyword">from</span> kivy.graphics <span class="keyword">import</span> Color, Rectangle</span><br><span class="line"><span class="keyword">from</span> kivy.uix.boxlayout <span class="keyword">import</span> BoxLayout</span><br><span class="line"><span class="keyword">from</span> kivy.uix.floatlayout <span class="keyword">import</span> FloatLayout</span><br><span class="line"><span class="keyword">from</span> kivy.uix.image <span class="keyword">import</span> AsyncImage</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RootWidget</span><span class="params">(BoxLayout)</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CustomLayout</span><span class="params">(FloatLayout)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, **kwargs)</span>:</span></span><br><span class="line">        <span class="comment"># make sure we aren't overriding any important functionality</span></span><br><span class="line">        super(CustomLayout, self).__init__(**kwargs)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">with</span> self.canvas.before:</span><br><span class="line">            Color(<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>) <span class="comment"># green; colors range from 0-1 instead of 0-255</span></span><br><span class="line">            self.rect = Rectangle(size=self.size, pos=self.pos)</span><br><span class="line"></span><br><span class="line">        self.bind(size=self._update_rect, pos=self._update_rect)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_update_rect</span><span class="params">(self, instance, value)</span>:</span></span><br><span class="line">        self.rect.pos = instance.pos</span><br><span class="line">        self.rect.size = instance.size</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MainApp</span><span class="params">(App)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">build</span><span class="params">(self)</span>:</span></span><br><span class="line">        root = RootWidget()</span><br><span class="line">        c = CustomLayout()</span><br><span class="line">        root.add_widget(c)</span><br><span class="line">        c.add_widget(</span><br><span class="line">            AsyncImage(</span><br><span class="line">                source=<span class="string">"http://www.everythingzoomer.com/wp-content/uploads/2013/01/Monday-joke-289x277.jpg"</span>,</span><br><span class="line">                size_hint= (<span class="number">1</span>, <span class="number">.5</span>),</span><br><span class="line">                pos_hint=&#123;<span class="string">'center_x'</span>:<span class="number">.5</span>, <span class="string">'center_y'</span>:<span class="number">.5</span>&#125;))</span><br><span class="line">        root.add_widget(AsyncImage(source=<span class="string">'http://www.stuffistumbledupon.com/wpcontent/uploads/2012/05/Have-you-seen-this-dog-because-its-awesome-meme-puppy-doggy.jpg'</span>))</span><br><span class="line">        c = CustomLayout()</span><br><span class="line">        c.add_widget(</span><br><span class="line">            AsyncImage(</span><br><span class="line">                source=<span class="string">"http://www.stuffistumbledupon.com/wp-content/uploads/2012/04/Get-a-Girlfriend-Meme-empty-wallet.jpg"</span>,</span><br><span class="line">                size_hint= (<span class="number">1</span>, <span class="number">.5</span>),</span><br><span class="line">                pos_hint=&#123;<span class="string">'center_x'</span>:<span class="number">.5</span>, <span class="string">'center_y'</span>:<span class="number">.5</span>&#125;))</span><br><span class="line">        root.add_widget(c)</span><br><span class="line">        <span class="keyword">return</span> root</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    MainApp().run()</span><br></pre></td></tr></table></figure>
+
+<p>使用<strong>kv</strong>语言：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> kivy.app <span class="keyword">import</span> App</span><br><span class="line"><span class="keyword">from</span> kivy.uix.floatlayout <span class="keyword">import</span> FloatLayout</span><br><span class="line"><span class="keyword">from</span> kivy.uix.boxlayout <span class="keyword">import</span> BoxLayout</span><br><span class="line"><span class="keyword">from</span> kivy.lang <span class="keyword">import</span> Builder</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Builder.load_string(<span class="string">'''</span></span><br><span class="line"><span class="string">&lt;CustomLayout&gt;</span></span><br><span class="line"><span class="string">    canvas.before:</span></span><br><span class="line"><span class="string">        Color:</span></span><br><span class="line"><span class="string">            rgba: 0, 1, 0, 1</span></span><br><span class="line"><span class="string">        Rectangle:</span></span><br><span class="line"><span class="string">            pos: self.pos</span></span><br><span class="line"><span class="string">            size: self.size</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&lt;RootWidget&gt;</span></span><br><span class="line"><span class="string">    CustomLayout:</span></span><br><span class="line"><span class="string">        AsyncImage:</span></span><br><span class="line"><span class="string">            source: 'http://www.everythingzoomer.com/wp-content/uploads/2013/01/Monday-joke-289x277.jpg'</span></span><br><span class="line"><span class="string">            size_hint: 1, .5</span></span><br><span class="line"><span class="string">            pos_hint: &#123;'center_x':.5, 'center_y': .5&#125;</span></span><br><span class="line"><span class="string">AsyncImage:</span></span><br><span class="line"><span class="string">    source: 'http://www.stuffistumbledupon.com/wp-content/uploads/2012/05/Have-you-seen-this-dog-because-its-awesome-meme-puppy-doggy.jpg'</span></span><br><span class="line"><span class="string">CustomLayout</span></span><br><span class="line"><span class="string">    AsyncImage:</span></span><br><span class="line"><span class="string">        source: 'http://www.stuffistumbledupon.com/wp-content/uploads/2012/04/Get-a-Girlfriend-Meme-empty-wallet.jpg'</span></span><br><span class="line"><span class="string">        size_hint: 1, .5</span></span><br><span class="line"><span class="string">        pos_hint: &#123;'center_x':.5, 'center_y': .5&#125;</span></span><br><span class="line"><span class="string">'''</span>)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RootWidget</span><span class="params">(BoxLayout)</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CustomLayout</span><span class="params">(FloatLayout)</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MainApp</span><span class="params">(App)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">build</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> RootWidget()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    MainApp().run()</span><br></pre></td></tr></table></figure>
+
+<p>这两个应用程序应如下所示：</p>
+<p><img src="https://s2.ax1x.com/2020/02/21/3K17Jx.png" alt="3K17Jx.png"></p>
+<p>在自定义布局类中定义背景，以确保将在每个CustomLayout实例中使用它。</p>
+<p>现在，要将图像或颜色全局添加到内置Kivy布局的背景中，我们需要覆盖相关布局的kv规则。 考虑GridLayout：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;GridLayout&gt;</span><br><span class="line">    canvas.before:</span><br><span class="line">        Color:</span><br><span class="line">            rgba: <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span></span><br><span class="line">        BorderImage:</span><br><span class="line">            source: <span class="string">'../examples/widgets/sequenced_images/data/images/button_white.png'</span></span><br><span class="line">            pos: self.pos</span><br><span class="line">            size: self.size</span><br></pre></td></tr></table></figure>
+
+<p>然后，当我们将此代码段放入Kivy应用程序中时：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> kivy.app <span class="keyword">import</span> App</span><br><span class="line"><span class="keyword">from</span> kivy.uix.floatlayout <span class="keyword">import</span> FloatLayout</span><br><span class="line"><span class="keyword">from</span> kivy.lang <span class="keyword">import</span> Builder</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Builder.load_string(<span class="string">'''</span></span><br><span class="line"><span class="string">&lt;GridLayout&gt;</span></span><br><span class="line"><span class="string">    canvas.before:</span></span><br><span class="line"><span class="string">        BorderImage:</span></span><br><span class="line"><span class="string">            # BorderImage behaves like the CSS BorderImage</span></span><br><span class="line"><span class="string">            border: 10, 10, 10, 10</span></span><br><span class="line"><span class="string">            source: '../examples/widgets/sequenced_images/data/images/button_white.png'</span></span><br><span class="line"><span class="string">            pos: self.pos</span></span><br><span class="line"><span class="string">            size: self.size</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&lt;RootWidget&gt;</span></span><br><span class="line"><span class="string">    GridLayout:</span></span><br><span class="line"><span class="string">        size_hint: .9, .9</span></span><br><span class="line"><span class="string">        pos_hint: &#123;'center_x': .5, 'center_y': .5&#125;</span></span><br><span class="line"><span class="string">        rows:1</span></span><br><span class="line"><span class="string">        Label:</span></span><br><span class="line"><span class="string">            text: "I don't suffer from insanity, I enjoy every minute of it"</span></span><br><span class="line"><span class="string">            text_size: self.width-20, self.height-20</span></span><br><span class="line"><span class="string">            valign: 'top'</span></span><br><span class="line"><span class="string">        Label:</span></span><br><span class="line"><span class="string">            text: "When I was born I was so surprised; I didn't speak for a year and a half."</span></span><br><span class="line"><span class="string">            text_size: self.width-20, self.height-20</span></span><br><span class="line"><span class="string">            valign: 'middle'</span></span><br><span class="line"><span class="string">            halign: 'center'</span></span><br><span class="line"><span class="string">        Label:</span></span><br><span class="line"><span class="string">            text: "A consultant is someone who takes a subject you understand and makes it sound confusing"</span></span><br><span class="line"><span class="string">            text_size: self.width-20, self.height-20</span></span><br><span class="line"><span class="string">            valign: 'bottom'</span></span><br><span class="line"><span class="string">            halign: 'justify'</span></span><br><span class="line"><span class="string">'''</span>)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RootWidget</span><span class="params">(FloatLayout)</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MainApp</span><span class="params">(App)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">build</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> RootWidget()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    MainApp().run()</span><br></pre></td></tr></table></figure>
+
+<p>结果应如下所示：</p>
+<p><img src="https://s2.ax1x.com/2020/02/21/3K3sne.png" alt="3K3sne.png"></p>
+<p>当我们覆盖GridLayout类的规则时，在我们的应用程序中对此类的任何使用都会显示该图像。</p>
+<p><strong>动画背景怎么样？</strong></p>
+<p>您可以设置诸如Rectangle / BorderImage / Ellipse /之类的绘图指令。 。 。 使用特定的纹理：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Rectangle:</span><br><span class="line">    texture: reference to a texture</span><br></pre></td></tr></table></figure>
+<p>我们使用它来显示动画背景：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> kivy.app <span class="keyword">import</span> App</span><br><span class="line"><span class="keyword">from</span> kivy.uix.floatlayout <span class="keyword">import</span> FloatLayout</span><br><span class="line"><span class="keyword">from</span> kivy.uix.gridlayout <span class="keyword">import</span> GridLayout</span><br><span class="line"><span class="keyword">from</span> kivy.uix.image <span class="keyword">import</span> Image</span><br><span class="line"><span class="keyword">from</span> kivy.properties <span class="keyword">import</span> ObjectProperty</span><br><span class="line"><span class="keyword">from</span> kivy.lang <span class="keyword">import</span> Builder</span><br><span class="line"></span><br><span class="line">Builder.load_string(<span class="string">'''</span></span><br><span class="line"><span class="string">    &lt;CustomLayout&gt;</span></span><br><span class="line"><span class="string">        canvas.before:</span></span><br><span class="line"><span class="string">            BorderImage:</span></span><br><span class="line"><span class="string">                # BorderImage behaves like the CSS BorderImage</span></span><br><span class="line"><span class="string">                border: 10, 10, 10, 10</span></span><br><span class="line"><span class="string">                texture: self.background_image.texture</span></span><br><span class="line"><span class="string">                pos: self.pos</span></span><br><span class="line"><span class="string">                size: self.size</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&lt;RootWidget&gt;</span></span><br><span class="line"><span class="string">    CustomLayout:</span></span><br><span class="line"><span class="string">        size_hint: .9, .9</span></span><br><span class="line"><span class="string">        pos_hint: &#123;'center_x': .5, 'center_y': .5&#125;</span></span><br><span class="line"><span class="string">        rows:1</span></span><br><span class="line"><span class="string">        Label:</span></span><br><span class="line"><span class="string">            text: "I don't suffer from insanity, I enjoy every minute of it"</span></span><br><span class="line"><span class="string">            text_size: self.width-20, self.height-20</span></span><br><span class="line"><span class="string">            valign: 'top'</span></span><br><span class="line"><span class="string">        Label:</span></span><br><span class="line"><span class="string">            text: "When I was born I was so surprised; I didn't speak for a year and a half."</span></span><br><span class="line"><span class="string">            text_size: self.width-20, self.height-20</span></span><br><span class="line"><span class="string">            valign: 'middle'</span></span><br><span class="line"><span class="string">            halign: 'center'</span></span><br><span class="line"><span class="string">        Label:</span></span><br><span class="line"><span class="string">            text: "A consultant is someone who takes a subject you understand and makes it sound confusing"</span></span><br><span class="line"><span class="string">text_size: self.width-20, self.height-20</span></span><br><span class="line"><span class="string">            valign: 'bottom'</span></span><br><span class="line"><span class="string">            halign: 'justify'</span></span><br><span class="line"><span class="string">'''</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CustomLayout</span><span class="params">(GridLayout)</span>:</span></span><br><span class="line"></span><br><span class="line">    background_image = ObjectProperty(</span><br><span class="line">        Image(</span><br><span class="line">            source=<span class="string">'../examples/widgets/sequenced_images/data/images/button_white_animated.zip'</span>,</span><br><span class="line">            anim_delay=<span class="number">.1</span>))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RootWidget</span><span class="params">(FloatLayout)</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MainApp</span><span class="params">(App)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">build</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> RootWidget()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    MainApp().run()</span><br></pre></td></tr></table></figure>
+<p>要尝试了解此处发生的情况，请从第13行开始：</p>
+<p><code>texture: self.background_image.texture</code></p>
+<p>这指定每当<em>background_image</em>的<em>texture</em>属性更新时，<em>BorderImage</em>的<em>texture</em>属性将被更新。 我们在第40行定义<em>background_image</em>属性：</p>
+<p><code>background_image = ObjectProperty(...</code></p>
+<p>这会将background_image设置为ObjectProperty，在其中添加Image小部件。 图像小部件具有纹理属性； 在其中看到<code>self.background_image.texture</code>的位置，它为此属性设置了一个引用（纹理）。 “图像”小部件支持动画：动画更改后，图像的纹理就会更新，而BorderImage指令的纹理会在此过程中更新。</p>
+<p>您也可以将自定义数据混入纹理中。 有关详细信息，请参见Texture的文档。</p>
+<h3 id="嵌套布局"><a href="#嵌套布局" class="headerlink" title="嵌套布局"></a>嵌套布局</h3><p>是! 看到这个过程可以扩展是很有趣的。</p>
+<h3 id="大小和位置指标"><a href="#大小和位置指标" class="headerlink" title="大小和位置指标"></a>大小和位置指标</h3><p>Kivy的默认长度单位是像素，默认情况下所有尺寸和位置均以像素为单位。 您可以用其他单位表示它们，这对于在设备之间实现更好的一致性很有用（它们会自动转换为以像素为单位的大小）。</p>
+<p>可用的单位是pt，mm，cm，inch，dp和sp。 您可以在指标文档中了解它们的用法。</p>
+<p>您还可以尝试使用屏幕，以模拟应用程序的各种设备屏幕。</p>
+<h3 id="使用屏幕管理器进行屏幕分离"><a href="#使用屏幕管理器进行屏幕分离" class="headerlink" title="使用屏幕管理器进行屏幕分离"></a>使用屏幕管理器进行屏幕分离</h3><p>如果您的应用程序由各种屏幕组成，则可能需要一种简单的方法来从一个屏幕导航到另一个屏幕。 幸运的是，这里有ScreenManager类，它允许您分别定义屏幕，以及将TransitionBase从一个设置为另一个。</p>
+<h2 id="图形"><a href="#图形" class="headerlink" title="图形"></a>图形</h2><h3 id="画布介绍"><a href="#画布介绍" class="headerlink" title="画布介绍"></a>画布介绍</h3><p>AWidgets图形表示形式是使用画布呈现的，您可以将其视为无限的绘图板或一组绘图指令。 您可以将许多说明应用（添加）到画布上，但是有两个主要变化：</p>
+<ul>
+<li>上下文说明</li>
+<li>顶点指令</li>
+</ul>
+<p>上下文指令不会绘制任何内容，但是会更改顶点指令的结果。</p>
+<p>画布可以包含指令的两个子集。 它们是canvas.before和canvas。 在指导小组之后。 这些组中的指令将分别在canvas组之前和之后执行。 这意味着它们将出现在它们的下方（之前执行）和上方（之后执行）。 在用户访问它们之前，不会创建这些组。</p>
+<p>要将画布指令添加到小部件，请使用画布上下文：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyWidget</span><span class="params">(Widget)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, **kwargs)</span>:</span></span><br><span class="line">        super(MyWidget, self).__init__(**kwargs)</span><br><span class="line">        <span class="keyword">with</span> self.canvas:</span><br><span class="line">            <span class="comment"># add your instruction for main canvas here</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">with</span> self.canvas.before:</span><br><span class="line">            <span class="comment"># you can use this to add instructions rendered before</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">with</span> self.canvas.after:</span><br><span class="line">            <span class="comment"># you can use this to add instructions rendered after</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="上下文说明"><a href="#上下文说明" class="headerlink" title="上下文说明"></a>上下文说明</h3><p>上下文指令可操纵opengl上下文。 您可以旋转，平移和缩放画布。 您还可以附加纹理或更改图形颜色。 这是最常用的一种，但其他一些也确实有用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">with self.canvas.before:</span><br><span class="line">    Color(1, 0, .4, mode&#x3D;&#39;rgb&#39;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="图纸说明"><a href="#图纸说明" class="headerlink" title="图纸说明"></a>图纸说明</h3><p>绘制指令的范围从非常简单的指令（例如绘制直线或多边形）到更复杂的指令（例如网格或贝塞尔曲线）：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> self.canvas:</span><br><span class="line">    <span class="comment"># draw a line using the default color</span></span><br><span class="line">    Line(points=(x1, y1, x2, y2, x3, y3))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># lets draw a semi-transparent red square</span></span><br><span class="line">    Color(<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">.5</span>, mode=<span class="string">'rgba'</span>)</span><br><span class="line">    Rectangle(pos=self.pos, size=self.size)</span><br></pre></td></tr></table></figure>
+
+<h3 id="操作说明"><a href="#操作说明" class="headerlink" title="操作说明"></a>操作说明</h3><p>有时您想更新或删除添加到画布的说明。 可以根据您的需要以各种方式完成此操作：</p>
+<p>您可以保留您的说明的参考并进行更新：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyWidget</span><span class="params">(Widget)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, **kwargs)</span>:</span></span><br><span class="line">        super(MyWidget, self).__init__(**kwargs)</span><br><span class="line">        <span class="keyword">with</span> self.canvas:</span><br><span class="line">            self.rect = Rectangle(pos=self.pos, size=self.size)</span><br><span class="line"></span><br><span class="line">        self.bind(pos=self.update_rect)</span><br><span class="line">        self.bind(size=self.update_rect)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">update_rect</span><span class="params">(self, *args)</span>:</span></span><br><span class="line">        self.rect.pos = self.pos</span><br><span class="line">        self.rect.size = self.size</span><br></pre></td></tr></table></figure>
+<p>或者，您可以清洁画布并重新开始：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyWidget</span><span class="params">(Widget)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, **kwargs)</span>:</span></span><br><span class="line">        super(MyWidget, self).__init__(**kwargs)</span><br><span class="line">        self.draw_my_stuff()</span><br><span class="line"></span><br><span class="line">        self.bind(pos=self.draw_my_stuff)</span><br><span class="line">        self.bind(size=self.draw_my_stuff)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">draw_my_stuff</span><span class="params">(self, *args)</span>:</span></span><br><span class="line">        self.canvas.clear()</span><br><span class="line"></span><br><span class="line">        <span class="keyword">with</span> self.canvas:</span><br><span class="line">            self.rect = Rectangle(pos=self.pos, size=self.size)</span><br></pre></td></tr></table></figure>
+<p>注意，更新指令被认为是最佳实践，因为它涉及较少的开销并且避免创建新指令。</p>
+<h2 id="Kv-语言"><a href="#Kv-语言" class="headerlink" title="Kv 语言"></a>Kv 语言</h2><h3 id="语言背后的概念"><a href="#语言背后的概念" class="headerlink" title="语言背后的概念"></a>语言背后的概念</h3><p>随着您的应用程序变得越来越复杂，小部件树的构造和绑定的显式声明通常变得冗长且难以维护。 KV语言是一种克服这些缺点的尝试。</p>
+<p>KV语言有时也称为kvlang或kivy语言，它允许您以声明性方式创建小部件树，并以自然方式将小部件属性彼此绑定或回调。 它允许非常快速的原型和对UI的灵活更改。 它还有助于分离应用程序逻辑及其用户界面。</p>
+<h3 id="如何加载KV"><a href="#如何加载KV" class="headerlink" title="如何加载KV"></a>如何加载KV</h3><p>有两种方法可以将Kv代码加载到您的应用程序中：</p>
+<ul>
+<li><p>按照名称约定：</p>
+<ul>
+<li><p>Kivy会以小写形式查找与您的App类同名的Kv文件，如果以“ App”结尾则减去“ App”，例如：</p>
+</li>
+<li><p><code>MyApp -&gt; my.kv</code></p>
+</li>
+<li><p>如果此文件定义了Root Widget，它将附加到应用程序的root属性，并用作应用程序Widget树的基础。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Builder</strong>：您可以告诉Kivy直接加载字符串或文件。 如果此字符串或文件定义了根窗口小部件，则该方法将返回它：</p>
+<ul>
+<li><code>Builder.load_file(&#39;path/to/file.kv&#39;)</code></li>
+<li>或：</li>
+<li><code>Builder.load_string(kv_string)</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="文本规则"><a href="#文本规则" class="headerlink" title="文本规则"></a>文本规则</h3><p>Kv源构成规则，用于描述Widget的内容。 您可以有一个根规则，也可以有任何数量的类或模板规则。</p>
+<p>通过声明根窗口小部件的类（不带任何缩进）来声明根规则，后跟：，并将其设置为App实例的根属性：</p>
+<p><code>Widget:</code></p>
+<p>一个类规则，由&lt;&gt;之间的小部件类的名称声明，后跟定义该类任何实例的外观和行为：</p>
+<p><code>&lt;MyWidget&gt;:</code></p>
+<p>规则使用缩进来进行分隔，例如Python。 缩进每个级别应为四个空格，如Python样式指南所建议。</p>
+<p>以下是Kv语言专用的三个关键字：</p>
+<ul>
+<li><em>app</em>：始终引用您的应用程序的实例。</li>
+<li><em>root</em>：指当前规则中的基本窗口小部件/模板</li>
+<li><em>self</em>：始终引用当前小部件</li>
+</ul>
+<h3 id="特殊语法"><a href="#特殊语法" class="headerlink" title="特殊语法"></a>特殊语法</h3><p>有一种特殊的语法可以定义整个Kv上下文的值。</p>
+<p>要从kv访问Python模块和类，请使用＃：import</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#:import name x.y.z</span></span><br><span class="line"><span class="comment">#:import isdir os.path.isdir</span></span><br><span class="line"><span class="comment">#:import np numpy</span></span><br></pre></td></tr></table></figure>
+<p>等效于：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> x.y <span class="keyword">import</span> z <span class="keyword">as</span> name</span><br><span class="line"><span class="keyword">from</span> os.path <span class="keyword">import</span> isdir</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
+<p>在Python中。</p>
+<p>要设置全局值，请使用＃：set</p>
+<p><code>#:set name value</code></p>
+<p>等效于：</p>
+<p><code>name = value</code></p>
+<p>在 Python 里面</p>
+<h3 id="实例化孩子"><a href="#实例化孩子" class="headerlink" title="实例化孩子"></a>实例化孩子</h3><p>要将某个类的窗口小部件实例声明为子窗口小部件，只需在规则内声明该孩子：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">MyRootWidget:</span><br><span class="line">    BoxLayout:</span><br><span class="line">        Button:</span><br><span class="line">        Button:</span><br></pre></td></tr></table></figure>
+<p>上面的示例定义了我们的根窗口小部件，即MyRootWidget的实例，具有一个作为BoxLayout实例的子级，并且BoxLayout进一步具有了两个子级，即Button类的实例。</p>
+<p>此代码的Python等效项可能是：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">root = MyRootWidget()</span><br><span class="line">box = BoxLayout()</span><br><span class="line">box.add_widget(Button())</span><br><span class="line">box.add_widget(Button())</span><br><span class="line">root.add_widget(box)</span><br></pre></td></tr></table></figure>
+<p>您可能会发现阅读和书写都不太好。</p>
+<p>当然，在Python中，您可以在创建小部件时将关键字参数传递给小部件以指定其行为。 例如，要设置网格布局的列数，我们将执行以下操作：</p>
+<p><code>grid = GridLayout(cols=3)</code></p>
+<p>要在kv中执行相同的操作，可以直接在规则中设置子窗口小部件的属性：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">GridLayout:</span><br><span class="line">    cols: <span class="number">3</span></span><br></pre></td></tr></table></figure>
+<p>该值作为Python表达式求值，并且表达式中使用的所有属性都将被观察，这意味着，如果您在Python中有类似的东西（假定self是具有数据ListProperty的小部件）：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">grid = GridLayout(cols=len(self.data))</span><br><span class="line">self.bind(data=grid.setter(<span class="string">'cols'</span>))</span><br></pre></td></tr></table></figure>
+<p>要在数据更改时更新显示，现在可以执行以下操作：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">GridLayout:</span><br><span class="line">    cols: len(root.data)</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><strong>注意：窗口小部件名称应以大写字母开头，而属性名称应以小写字母开头。 鼓励遵循PEP8命名约定。</strong></p>
+<hr>
+<h3 id="事件绑定"><a href="#事件绑定" class="headerlink" title="事件绑定"></a>事件绑定</h3><p>您可以使用“：”语法绑定到Kv中的事件，即将回调与事件相关联：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Widget:</span><br><span class="line">    on_size: my_callback()</span><br></pre></td></tr></table></figure>
+<p>您可以使用args关键字传递信号分配的值：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">TextInput:</span><br><span class="line">    on_text: app.search(args[<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
+<p>可以使用更复杂的表达式，例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pos: self.center_x - self.texture_size[<span class="number">0</span>] / <span class="number">2.</span>, self.center_y - self.texture_size[<span class="number">1</span>] / <span class="number">2.</span></span><br></pre></td></tr></table></figure>
+<p>此表达式侦听center_x，center_y和texture_size的更改。 如果其中之一发生更改，则将重新计算表达式以更新pos字段。</p>
+<p>您还可以在kv语言中处理on_事件。 例如，TextInput类具有focus属性，可以在kv语言内部访问自动生成的on_focus事件，如下所示：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">TextInput:</span><br><span class="line">    on_focus: print(args)</span><br></pre></td></tr></table></figure>
+
+<h3 id="延伸画布"><a href="#延伸画布" class="headerlink" title="延伸画布"></a>延伸画布</h3><p>Kv lang可以用来定义小部件的画布指令，如下所示：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">MyWidget:</span><br><span class="line">    canvas:</span><br><span class="line">        Color:</span><br><span class="line">            rgba: <span class="number">1</span>, <span class="number">.3</span>, <span class="number">.8</span>, <span class="number">.5</span></span><br><span class="line">        Line:</span><br><span class="line">            points: zip(self.data.x, self.data.y)</span><br></pre></td></tr></table></figure>
+<p>当属性值更改时，它们也会更新。</p>
+<p>当然，您可以使用canvas.before和canvas.after。</p>
+<h3 id="引用小部件"><a href="#引用小部件" class="headerlink" title="引用小部件"></a>引用小部件</h3><p>在小部件树中，通常需要访问/引用其他小部件。 Kv语言提供了一种使用ID的方法。 将它们视为只能在Kv语言中使用的类级别变量。 考虑以下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;MyFirstWidget&gt;:</span><br><span class="line">    Button:</span><br><span class="line">        id: f_but</span><br><span class="line">    TextInput:</span><br><span class="line">        text: f_but.state</span><br><span class="line">&lt;MySecondWidget&gt;:</span><br><span class="line">    Button:</span><br><span class="line">        id: s_but</span><br><span class="line">    TextInput:</span><br><span class="line">        text: s_but.state</span><br></pre></td></tr></table></figure>
+<p>id的范围仅限于声明它的规则，因此在s_上面的代码中，但不能在<MySecondWidget>规则之外进行访问。</MySecondWidget></p>
+<hr>
+<p>警告：为ID分配值时，请记住该值不是字符串。 没有引号：好-&gt; id：值，差-&gt; id：“值”</p>
+<hr>
+<p>id是对窗口小部件的弱引用，而不是窗口小部件本身。 结果，存储id不足以防止小部件被垃圾回收。 展示：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;MyWidget&gt;:</span><br><span class="line">    label_widget: label_widget</span><br><span class="line">    Button:</span><br><span class="line">        text: <span class="string">'Add Button'</span></span><br><span class="line">        on_press: root.add_widget(label_widget)</span><br><span class="line">    Button:</span><br><span class="line">        text: <span class="string">'Remove Button'</span></span><br><span class="line">        on_press: root.remove_widget(label_widget)</span><br><span class="line">    Label:</span><br><span class="line">        id: label_widget</span><br><span class="line">        text: <span class="string">'widget'</span></span><br></pre></td></tr></table></figure>
+<p>尽管对Label_widget的引用存储在MyWidget中，但是一旦其他引用被删除，仅使对象保持活动状态是不够的，因为它只是一个weakref。 因此，单击删除按钮（删除对窗口小部件的任何直接引用）并调整窗口大小（调用垃圾收集器，导致删除label_widget）后，单击添加按钮将窗口小部件重新添加后， ReferenceError：不再存在弱引用对象。</p>
+<p>为了使小部件保持活动状态，必须保留对label_widget小部件的直接引用。 在这种情况下，使用<code>id .__ self__</code>或<code>label_widget .__ self__</code>实现。 正确的方法是：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;MyWidget&gt;:</span><br><span class="line">    label_widget: label_widget.__self__</span><br></pre></td></tr></table></figure>
+
+<h3 id="在您的Python代码中访问在Kv-lang内部定义的小部件"><a href="#在您的Python代码中访问在Kv-lang内部定义的小部件" class="headerlink" title="在您的Python代码中访问在Kv lang内部定义的小部件"></a>在您的Python代码中访问在Kv lang内部定义的小部件</h3><p>请考虑以下my.kv中的代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;MyFirstWidget&gt;:</span><br><span class="line">    <span class="comment"># both these variables can be the same name and this doesn't lead to</span></span><br><span class="line">    <span class="comment"># an issue with uniqueness as the id is only accessible in kv.</span></span><br><span class="line">    txt_inpt: txt_inpt</span><br><span class="line">    Button:</span><br><span class="line">        id: f_but</span><br><span class="line">    TextInput:</span><br><span class="line">        id: txt_inpt</span><br><span class="line">        text: f_but.state</span><br><span class="line">        on_text: root.check_status(f_but)</span><br></pre></td></tr></table></figure>
+<p>在myapp.py中：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyFirstWidget</span><span class="params">(BoxLayout)</span>:</span></span><br><span class="line"></span><br><span class="line">    txt_inpt = ObjectProperty(<span class="literal">None</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">check_status</span><span class="params">(self, btn)</span>:</span></span><br><span class="line">        print(<span class="string">'button state is: &#123;state&#125;'</span>.format(state=btn.state))</span><br><span class="line">        print(<span class="string">'text input text is: &#123;txt&#125;'</span>.format(txt=self.txt_inpt))</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p><code>txt_inpt</code>定义为在类内部初始化为None的ObjectProperty。</p>
+<p><code>txt_inpt = ObjectProperty(None)</code></p>
+<p>此时self.txt_inpt为None。 在Kv lang中，此属性已更新，以保存ID txt_inpt引用的TextInput实例：</p>
+<p><code>txt_inpt: txt_inpt</code></p>
+<p>从那时起，self.txt_inpt包含对由ID txt_input标识的窗口小部件的引用，并且可以在类中的任何位置使用，例如在函数check_status中。 与这种方法相比，您也可以将id传递给需要使用它的函数，例如在f_but的情况下，在上面的代码中。</p>
+<p>有一种使用id查找对象访问Kv中带有id标签的对象的简单方法。 您可以按照以下步骤进行操作：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;Marvel&gt;</span><br><span class="line">    Label:</span><br><span class="line">        id: loki</span><br><span class="line">        text: <span class="string">'loki: I AM YOUR GOD!'</span></span><br><span class="line">    Button:</span><br><span class="line">        id: hulk</span><br><span class="line">        text: <span class="string">"press to smash loki"</span></span><br><span class="line">        on_release: root.hulk_smash()</span><br></pre></td></tr></table></figure>
+<p>在您的Python代码中：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Marvel</span><span class="params">(BoxLayout)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">hulk_smash</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.ids.hulk.text = <span class="string">"hulk: puny god!"</span></span><br><span class="line">        self.ids[<span class="string">"loki"</span>].text = <span class="string">"loki: &gt;_&lt;!!!"</span> <span class="comment"># alternative syntax</span></span><br></pre></td></tr></table></figure>
+<p>解析您的kv文件后，kivy会收集所有标有id的小部件，并将它们放在此self.ids字典类型属性中。 这意味着您还可以遍历这些小部件并访问它们的字典样式：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> key, val <span class="keyword">in</span> self.ids.items():</span><br><span class="line">    print(<span class="string">"key=&#123;0&#125;, val=&#123;1&#125;"</span>.format(key, val))</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><strong>注意：尽管self.ids方法非常简洁，但是使用ObjectProperty通常被视为“最佳实践”。 这将创建直接引用，提供更快的访问权限，并且更加明确。</strong></p>
+<hr>
+<h3 id="动态类"><a href="#动态类" class="headerlink" title="动态类"></a>动态类</h3><p>考虑下面的代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;MyWidget&gt;:</span><br><span class="line">    Button:</span><br><span class="line">        text: <span class="string">"Hello world, watch this text wrap inside the button"</span></span><br><span class="line">        text_size: self.size</span><br><span class="line">        font_size: <span class="string">'25sp'</span></span><br><span class="line">        markup: <span class="literal">True</span></span><br><span class="line">    Button:</span><br><span class="line">        text: <span class="string">"Even absolute is relative to itself"</span></span><br><span class="line">        text_size: self.size</span><br><span class="line">        font_size: <span class="string">'25sp'</span></span><br><span class="line">        markup: <span class="literal">True</span></span><br><span class="line">    Button:</span><br><span class="line">        text: <span class="string">"Repeating the same thing over and over in a comp = fail"</span></span><br><span class="line">        text_size: self.size</span><br><span class="line">        font_size: <span class="string">'25sp'</span></span><br><span class="line">        markup: <span class="literal">True</span></span><br><span class="line">    Button:</span><br></pre></td></tr></table></figure>
+<p>不必为每个按钮重复相同的值，我们只需使用模板即可，如下所示：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;MyBigButt@Button&gt;:</span><br><span class="line">    text_size: self.size</span><br><span class="line">    font_size: <span class="string">'25sp'</span></span><br><span class="line">    markup: <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">&lt;MyWidget&gt;:</span><br><span class="line">    MyBigButt:</span><br><span class="line">    text: <span class="string">"Hello world, watch this text wrap inside the button"</span></span><br><span class="line">MyBigButt:</span><br><span class="line">    text: <span class="string">"Even absolute is relative to itself"</span></span><br><span class="line">MyBigButt:</span><br><span class="line">    text: <span class="string">"repeating the same thing over and over in a comp = fail"</span></span><br><span class="line">MyBigButt:</span><br></pre></td></tr></table></figure>
+<p>仅通过声明该规则而创建的此类继承自Button类，并允许我们更改其所有实例的默认值并创建绑定，而无需在Python端添加任何新代码。</p>
+<h3 id="在多个小部件中重复使用样式"><a href="#在多个小部件中重复使用样式" class="headerlink" title="在多个小部件中重复使用样式"></a>在多个小部件中重复使用样式</h3><p>请考虑以下my.kv中的代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;MyFirstWidget&gt;:</span><br><span class="line">    Button:</span><br><span class="line">        on_press: root.text(txt_inpt.text)</span><br><span class="line">    TextInput:</span><br><span class="line">        id: txt_inpt</span><br><span class="line"></span><br><span class="line">&lt;MySecondWidget&gt;:</span><br><span class="line">    Button:</span><br><span class="line">        on_press: root.text(txt_inpt.text)</span><br><span class="line">    TextInput:</span><br><span class="line">        id: txt_inpt</span><br></pre></td></tr></table></figure>
+<p>在myapp.py中：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyFirstWidget</span><span class="params">(BoxLayout)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">text</span><span class="params">(self, val)</span>:</span></span><br><span class="line">        print(<span class="string">'text input text is: &#123;txt&#125;'</span>.format(txt=val))</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MySecondWidget</span><span class="params">(BoxLayout)</span>:</span></span><br><span class="line"></span><br><span class="line">    writing = StringProperty(<span class="string">''</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">text</span><span class="params">(self, val)</span>:</span></span><br><span class="line">        self.writing = val</span><br></pre></td></tr></table></figure>
+<p>因为两个类共享相同的.kv样式，所以如果我们对两个小部件都使用该样式，则可以简化此设计。 您可以在.kv中执行以下操作。 在my.kv中：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;MyFirstWidget,MySecondWidget&gt;:</span><br><span class="line">    Button:</span><br><span class="line">        on_press: root.text(txt_inpt.text)</span><br><span class="line">    TextInput:</span><br><span class="line">        id: txt_inpt</span><br></pre></td></tr></table></figure>
+<p>通过用逗号分隔类名，声明中列出的所有类将具有相同的kv属性。</p>
+<h3 id="使用Kivy语言进行设计"><a href="#使用Kivy语言进行设计" class="headerlink" title="使用Kivy语言进行设计"></a>使用Kivy语言进行设计</h3><p>Kivy语言的目的之一是将表示和逻辑的关注点分开。 表示（布局）端由您的kv文件解决，逻辑由您的.py文件解决。</p>
+<h4 id="代码放在py文件中"><a href="#代码放在py文件中" class="headerlink" title="代码放在py文件中"></a>代码放在py文件中</h4><p>让我们从一个小例子开始：一个名为main.py的Python文件：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> kivy</span><br><span class="line">kivy.require(<span class="string">'1.0.5'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> kivy.uix.floatlayout <span class="keyword">import</span> FloatLayout</span><br><span class="line"><span class="keyword">from</span> kivy.app <span class="keyword">import</span> App</span><br><span class="line"><span class="keyword">from</span> kivy.properties <span class="keyword">import</span> ObjectProperty, StringProperty</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Controller</span><span class="params">(FloatLayout)</span>:</span></span><br><span class="line">    <span class="string">'''Create a controller that receives a custom widget from the kv lang file.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Add an action to be called from the kv lang file.</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    label_wid = ObjectProperty()</span><br><span class="line">    info = StringProperty()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">do_action</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.label_wid.text = <span class="string">'My label after button press'</span></span><br><span class="line">        self.info = <span class="string">'New info text'</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ControllerApp</span><span class="params">(App)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">build</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> Controller(info=<span class="string">'Hello world'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    ControllerApp().run()</span><br></pre></td></tr></table></figure>
+<p>在此示例中，我们将创建具有2个属性的Controller类：</p>
+<ul>
+<li>有关接收一些文本的信息</li>
+<li>label_wid用于接收标签小部件</li>
+</ul>
+<p>另外，我们正在创建将使用这两个属性的do_action（）方法。 它将更改信息文本并更改label_wid小部件中的文本。</p>
+<h4 id="布局进入controller-kv"><a href="#布局进入controller-kv" class="headerlink" title="布局进入controller.kv"></a>布局进入controller.kv</h4><p>在没有相应的.kv文件的情况下执行该应用程序将可以工作，但是屏幕上将不会显示任何内容。 这是预料之中的，因为Controller类中没有小部件，所以它只是一个FloatLayout。 我们可以围绕Controller类在名为controller.kv的文件中创建UI，该文件将在我们运行ControllerApp时加载。 kivy.app.App.load_kv（）方法中描述了如何完成此操作以及加载了哪些文件。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#:kivy 1.0</span></span><br><span class="line"></span><br><span class="line">&lt;Controller&gt;:</span><br><span class="line">    label_wid: my_custom_label</span><br><span class="line"></span><br><span class="line">    BoxLayout:</span><br><span class="line">        orientation: <span class="string">'vertical'</span></span><br><span class="line">        padding: <span class="number">20</span></span><br><span class="line"></span><br><span class="line">    Button:</span><br><span class="line">        text: <span class="string">'My controller info is: '</span> + root.info</span><br><span class="line">        on_press: root.do_action()</span><br><span class="line"></span><br><span class="line">    Label:</span><br><span class="line">        id: my_custom_label</span><br><span class="line">        text: <span class="string">'My label before button press'</span></span><br></pre></td></tr></table></figure>
+<p>垂直BoxLayout中的一个标签和一个按钮。 似乎很简单。 这里发生三件事：</p>
+<p>1.使用控制器中的数据。 在控制器中更改info属性后，表达式文本：“我的控制器信息为：” + root.info将自动重新评估，从而更改Button中的文本。</p>
+<p>2.将数据提供给控制器。 表达式ID：my_custom_label分配了创建的Label my_custom_label的ID。 然后，在表达式label_wid中使用my_custom_label：my_custom_label将Label小部件的实例提供给Controller。</p>
+<p>3.使用Controller的on_press方法在Button中创建自定义回调。</p>
+<ul>
+<li>root和self是保留关键字，可在任何地方使用。 root表示规则中的顶部小部件，self表示当前小部件。</li>
+<li>您可以使用规则中声明的任何ID，与root和self相同。 例如，您可以在on_press（）中执行此操作：<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Button:</span><br><span class="line">    on_press: root.do_action(); my_custom_label.font_size = <span class="number">18</span></span><br></pre></td></tr></table></figure>
+就是这样。 现在，当我们运行main.py时，将加载controller.kv，以便出现Button和Label并响应我们的触摸事件。</li>
+</ul>
+<hr>
+<p><strong>下一篇<a href="http://www.shuoshuoyun.cn/archives/48385.html">《Kivy参考文档（三）》</a></strong></p>
+<hr>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\20561\" rel="bookmark">Kivy参考文档（三）</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\48385\" rel="bookmark">Kivy参考文档（一）</a></div>
+    </li>
+  </ul>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>十丿叶
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.shuoshuoyun.cn/23592/" title="Kivy参考文档（二）">https://www.shuoshuoyun.cn/23592/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
+
+            <span class="label">WeChat</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/kivy/" rel="tag"><i class="fa fa-tag"></i> kivy</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/48385/" rel="prev" title="Kivy参考文档（一）">
+      <i class="fa fa-chevron-left"></i> Kivy参考文档（一）
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/20561/" rel="next" title="Kivy参考文档（三）">
+      Kivy参考文档（三） <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+        </div>
+        
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><span class="exturl" data-url="aHR0cDovL3d3dy5iZWlhbi5taWl0Lmdvdi5jbg==">湘ICP备20008495号-1 </span>
+      <img src="/images/beian.png" style="display: inline-block;"><span class="exturl" data-url="aHR0cDovL3d3dy5iZWlhbi5nb3YuY24vcG9ydGFsL3JlZ2lzdGVyU3lzdGVtSW5mbz9yZWNvcmRjb2RlPTQzMDUyMzAyMDAwMTIz">湘公网安备 43052302000123号 </span>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 2019 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heartbeat"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">十丿叶</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">126k</span>
+</div>
+  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZw==">NexT.Gemini</span> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//unpkg.com/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/next-theme/pjax@0/pjax.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '.page-configurations',
+    '.main-inner',
+    '.post-toc-wrap',
+    '.languages',
+    '.pjax'
+  ],
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+document.addEventListener('pjax:success', () => {
+  pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  const hasTOC = document.querySelector('.post-toc');
+  document.querySelector('.sidebar-inner').classList.toggle('sidebar-nav-active', hasTOC);
+  document.querySelector(hasTOC ? '.sidebar-nav-toc' : '.sidebar-nav-overview').click();
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+<script data-pjax>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
+
+
+
+
+    <div class="pjax">
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
+    new Valine(Object.assign({
+      el  : '#valine-comments',
+      path: location.pathname,
+    }, {"enable":true,"appId":"SRvHJbrJB86zbizktl0F4Wz3-gzGzoHsz","appKey":"m3kGoyrm4o4V0uNWsxXkrUDF","placeholder":"说点什么吧~","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"language":"zh-cn","visitor":false,"comment_count":true,"recordIP":true,"serverURLs":null}
+    ));
+  }, window.Valine);
+});
+</script>
+
+    </div>
+</body>
+</html>
