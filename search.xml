@@ -3,7 +3,126 @@
   <entry>
     <title>可视化系列（二）：Plotly散点图（上）</title>
     <url>/2020/08/09/24453/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<blockquote class="blockquote-center">
+<p>导语</p>
+
+</blockquote>
+
+<center>久等啦</center>
+
+<center>可视化系列可能会迟到但永远不会缺席</center>
+
+<center>快拿出小本本记重点</center>
+
+<center>前一期没掌握好的同学记得复习一下嗷</center>
+
+<a id="more"></a>
+
+<h1 id="代码及相关资源获取"><a href="#代码及相关资源获取" class="headerlink" title="代码及相关资源获取"></a>代码及相关资源获取</h1><ol>
+<li><p>关注<strong>python趣味爱好者</strong>公众号，回复<strong>plotly散点图1</strong></p>
+</li>
+<li><p>加入群聊：<strong>729683466</strong>，在<strong>群文件</strong>中下载源代码及相关资料。</p>
+</li>
+</ol>
+<h1 id="开发工具"><a href="#开发工具" class="headerlink" title="开发工具"></a>开发工具</h1><ul>
+<li><strong>jupyter notebook</strong></li>
+<li><strong>plotly模块</strong></li>
+</ul>
+<h1 id="往期精选"><a href="#往期精选" class="headerlink" title="往期精选"></a>往期精选</h1><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuc2h1b3NodW95dW4uY24vMjAyMC8wNy8yNi8zODcwNC8=">可视化系列（一）：Plotly简介及示例<i class="fa fa-external-link-alt"></i></span></p>
+<h1 id="讲解部分"><a href="#讲解部分" class="headerlink" title="讲解部分"></a>讲解部分</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>上一期我们已经将plotly进行了简单的介绍，并举了一些例子；那么，从这一期开始，我们将正式进行plotly绘图的介绍。</p>
+<p>本期我们介绍的是较为简单的散点图，它的样子相信大家应该都见过，大概就是下面这个样子：</p>
+<p><img src="https://gitee.com/shuoshuoyun/picbed/raw/master/img//20200809101440.png" alt="可视化系列（二）：Plotly散点图（上）-1"></p>
+<p>但实际上，plotly绘制的散点图可不只是这个样子哦，它的花样可多了，保证能让你大开眼界~</p>
+<p>在Plotly中，大部分的图都是可以通过两种方式绘制出来的，由于内容较多，所以本小节将只介绍第一种，第二种方式将在下一节介绍；</p>
+<h2 id="plotly-express-scatter"><a href="#plotly-express-scatter" class="headerlink" title="plotly.express.scatter()"></a><strong>plotly.express.scatter()</strong></h2><p>官方大大称之为数据可视化的高级界面，也是比较常用的一种方法，现在我们就来看看它是怎么画图的，上代码：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> plotly.express <span class="keyword">as</span> px</span><br><span class="line"></span><br><span class="line">names = [<span class="string">"国家"</span>, <span class="string">"儿童死亡人数（每千人）"</span>, <span class="string">"商品和服务的人均出口"</span>, <span class="string">"人均卫生支出总额"</span>, <span class="string">"商品和服务的人均进口"</span>, <span class="string">"人均纯收入"</span>,</span><br><span class="line">         <span class="string">"通货膨胀"</span>, <span class="string">"平均寿命"</span>, <span class="string">"新生儿数量（每个母亲）"</span>, <span class="string">"人均国内生产总值"</span>]</span><br><span class="line">df = pd.read_csv(<span class="string">"../data/Unsupervised Learning on Country Data/Country-data.csv"</span>,</span><br><span class="line">                 header=<span class="number">0</span>,</span><br><span class="line">                 names=names)</span><br><span class="line"></span><br><span class="line">fig = px.scatter(data_frame=df,</span><br><span class="line">                 title=<span class="string">"国家数据的无监督学习"</span>, <span class="comment"># 图的标题</span></span><br><span class="line">                 x=<span class="string">"人均国内生产总值"</span>, <span class="comment"># x轴</span></span><br><span class="line">                 y=<span class="string">"人均纯收入"</span>, <span class="comment"># y轴</span></span><br><span class="line">                 color=<span class="string">"人均卫生支出总额"</span>, <span class="comment"># 散点图的颜色</span></span><br><span class="line">                 size=<span class="string">"平均寿命"</span>, <span class="comment"># 散点图的大小</span></span><br><span class="line">                 hover_name=<span class="string">"国家"</span>, <span class="comment"># 悬停文本的标题</span></span><br><span class="line">                 hover_data=[<span class="string">"儿童死亡人数（每千人）"</span>,</span><br><span class="line">                             <span class="string">"商品和服务的人均出口"</span>, <span class="string">"通货膨胀"</span>, <span class="string">"新生儿数量（每个母亲）"</span>] <span class="comment"># 悬停数据</span></span><br><span class="line">                 )</span><br><span class="line"></span><br><span class="line">fig.show()</span><br></pre></td></tr></table></figure>
+
+<p>这个段代码执行后所产生的图长这个样子：</p>
+<p><img src="https://gitee.com/shuoshuoyun/picbed/raw/master/img//20200809101621.png" alt></p>
+<p>是不是觉得这个散点图比上面那个好看多了，当然因为小编的水平也不高，所以这个图画的也不是很理想~但是这并不影响它的美观以及它所能表达的信息。</p>
+<p>好了，那我们开始来介绍一下刚才写的这些代码：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br></pre></td></tr></table></figure>
+
+<p>这个是导入pandas库，用于数据处理的一个强大的第三方库，这里用来读取我们的数据。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> plotly.express <span class="keyword">as</span> px</span><br></pre></td></tr></table></figure>
+
+<p>这个应该不用多解释了，导入我们需要画图的模块</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">names = [<span class="string">"国家"</span>, <span class="string">"儿童死亡人数（每千人）"</span>, <span class="string">"商品和服务的人均出口"</span>, <span class="string">"人均卫生支出总额"</span>, <span class="string">"商品和服务的人均进口"</span>, <span class="string">"人均纯收入"</span>,</span><br><span class="line">         <span class="string">"通货膨胀"</span>, <span class="string">"平均寿命"</span>, <span class="string">"新生儿数量（每个母亲）"</span>, <span class="string">"人均国内生产总值"</span>]</span><br><span class="line">df = pd.read_csv(<span class="string">"../data/Unsupervised Learning on Country Data/Country-data.csv"</span>,</span><br><span class="line">                 header=<span class="number">0</span>,</span><br><span class="line">                 names=names)</span><br></pre></td></tr></table></figure>
+
+<p>这几行代码是用于读取数据的，读取的数据原来长这个样子：</p>
+<p><img src="https://gitee.com/shuoshuoyun/picbed/raw/master/img//20200809101855.png" alt></p>
+<p>这是从kaggle官网所获取到的公开数据，因为原本他们的第一行标签都是英文，所以小编通过官方对这些标签的解释，对其进行的翻译（谷歌翻译，我啥也不懂~），将翻译的标签替换原来的标签，因此就产生了上面的 names 变量；替换完以后的数据长这样：</p>
+<p><img src="https://gitee.com/shuoshuoyun/picbed/raw/master/img//20200809101914.png" alt></p>
+<div class="note info"><h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>使用 pandas 读取数据时若要对标签进行替换，首先自己要准备好要替换的内容，一般以列表形式即可，然后使用 names 参数，于此同时，还要标明 header=0！如果不加这个，则会产生以下情况。</p>
+</div>
+
+<p><img src="https://gitee.com/shuoshuoyun/picbed/raw/master/img//20200809102225.png" alt></p>
+<p>其他相关 pandas 的用法，同学们可以去它的官网自己看看：<strong><span class="exturl" data-url="aHR0cHM6Ly9wYW5kYXMucHlkYXRhLm9yZy8=">https://pandas.pydata.org/<i class="fa fa-external-link-alt"></i></span></strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">fig = px.scatter(data_frame=df,</span><br><span class="line">                 title=<span class="string">"国家数据的无监督学习"</span>, <span class="comment"># 图的标题</span></span><br><span class="line">                 x=<span class="string">"人均国内生产总值"</span>, <span class="comment"># x轴</span></span><br><span class="line">                 y=<span class="string">"人均纯收入"</span>, <span class="comment"># y轴</span></span><br><span class="line">                 color=<span class="string">"人均卫生支出总额"</span>, <span class="comment"># 散点图的颜色</span></span><br><span class="line">                 size=<span class="string">"平均寿命"</span>, <span class="comment"># 散点图的大小</span></span><br><span class="line">                 hover_name=<span class="string">"国家"</span>, <span class="comment"># 悬停文本的标题</span></span><br><span class="line">                 hover_data=[<span class="string">"儿童死亡人数（每千人）"</span>,</span><br><span class="line">                             <span class="string">"商品和服务的人均出口"</span>, <span class="string">"通货膨胀"</span>, <span class="string">"新生儿数量（每个母亲）"</span>] <span class="comment"># 悬停数据</span></span><br><span class="line">                 )</span><br></pre></td></tr></table></figure>
+
+<p>这里就是我们正式画图的代码了，可以看到小编已经把每个参数的用法在它们的后面已经进行简单的解释了，大家可以自行尝试一下每一个参数的具体表现，然后根据自己的需求进行舍弃。下面我们对每个参数进行详细的介绍：</p>
+<h2 id="参数一："><a href="#参数一：" class="headerlink" title="参数一："></a><strong>参数一：</strong></h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">data_frame&#x3D;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>这个无需多说，就是绘图的数据源。</p>
+<h2 id="参数二："><a href="#参数二：" class="headerlink" title="参数二："></a><strong>参数二：</strong></h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">tltle&#x3D;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>绘制出来的图的标题，可以自己随意命名。</p>
+<h2 id="参数三、四："><a href="#参数三、四：" class="headerlink" title="参数三、四："></a><strong>参数三、四：</strong></h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">x&#x3D;</span><br><span class="line">y&#x3D;</span><br></pre></td></tr></table></figure>
+
+<p>这个是绘图不可缺少的两个参数，x 轴和 y 轴所放入的数据，不同的数据都会让整个图绘制的大不一样。</p>
+<h2 id="参数五："><a href="#参数五：" class="headerlink" title="参数五："></a><strong>参数五：</strong></h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">color&#x3D;</span><br></pre></td></tr></table></figure>
+
+<p>这个参数用于改变散点图的颜色，plotly的颜色设置和其他的模块有点不一样，它的颜色可以直接用自己的数据来设置颜色，就如上面一样，我们这里用的是“人均卫生支出总额”数据，plotly 模块自动给我们自动找了一种色系来用于表示整个散点图的颜色。</p>
+<h2 id="参数六："><a href="#参数六：" class="headerlink" title="参数六："></a><strong>参数六：</strong></h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">size&#x3D;</span><br></pre></td></tr></table></figure>
+
+<p>这个参数是用于设置每个点的大小，也可以用我们自带的数据来加以设置，可以看到我们这次使用的是“平均寿命”来设置点的大小，由于各个国家的平均寿命相差不是很大，所以上图的演示没有体现出各个点的大小关系，同学们可以自己尝试使用其他差别较大的数据来设置点的大小，这样会比较明显一点。</p>
+<h2 id="参数七、八："><a href="#参数七、八：" class="headerlink" title="参数七、八："></a><strong>参数七、八：</strong></h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hover_name&#x3D;</span><br><span class="line">hover_data&#x3D;</span><br></pre></td></tr></table></figure>
+
+<p>这两个参数是关于图形的悬停信息的设置，第一个是设置悬停信息的标题名称，第二个是设置悬停信息要显示的内容，可以使用列表的方式将其他标签加入其中，从而让悬停信息中显示更加多的内容。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fig.show()</span><br></pre></td></tr></table></figure>
+
+<p>这最后一行的作用就是让整个图绘制出来，咱也不知道为啥，反正就是要加~</p>
+<p>至此，我们这个简单而又好看的散点图就大致完成了。同学们有木有很有成就感~</p>
+<p>上面我们介绍了 <code>scatter()</code> 的常用参数，接下来我们继续介绍一下小编认为不是很常用的，但是感觉还是挺有用的一些参数。</p>
+<h2 id="参数九："><a href="#参数九：" class="headerlink" title="参数九："></a><strong>参数九：</strong></h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">symbol&#x3D;</span><br></pre></td></tr></table></figure>
+
+<p>这个参数是将散点图的点用其他的小图标表示，不过那个小图标一共好像只有五个，具体例子如下：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">fig = px.scatter(data_frame=df,</span><br><span class="line">                 title=<span class="string">"国家数据的无监督学习"</span>,</span><br><span class="line">                 x=<span class="string">"人均国内生产总值"</span>,</span><br><span class="line">                 y=<span class="string">"人均纯收入"</span>,</span><br><span class="line">                 hover_name=<span class="string">"国家"</span>,</span><br><span class="line">                 </span><br><span class="line">                 symbol=<span class="string">"国家"</span></span><br><span class="line">                 )</span><br><span class="line"></span><br><span class="line">fig.show()</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/shuoshuoyun/picbed/raw/master/img//20200809104828.png" alt></p>
+<h2 id="参数十："><a href="#参数十：" class="headerlink" title="参数十："></a><strong>参数十：</strong></h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">text&#x3D;</span><br></pre></td></tr></table></figure>
+
+<p>这个参数的作用是在散点图中显示指定的标签文本，具体例子如下：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">fig = px.scatter(data_frame=df,</span><br><span class="line">                 title=<span class="string">"国家数据的无监督学习"</span>,</span><br><span class="line">                 x=<span class="string">"人均国内生产总值"</span>,</span><br><span class="line">                 y=<span class="string">"人均纯收入"</span>,</span><br><span class="line">                 hover_name=<span class="string">"国家"</span>,</span><br><span class="line">                 </span><br><span class="line">                 text=<span class="string">"国家"</span></span><br><span class="line">                 )</span><br><span class="line"></span><br><span class="line">fig.show()</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/shuoshuoyun/picbed/raw/master/img//20200809104925.png" alt></p>
+<p>额，这个显示不是很好，左下角的都糊成一坨了，，，不过我们可以清楚的看到右上角一些稀疏的散点上面有着每个国家的名字，这个参数小编觉得有时候应该挺有用的。</p>
+<h2 id="参数十一、十二："><a href="#参数十一、十二：" class="headerlink" title="参数十一、十二："></a><strong>参数十一、十二：</strong></h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">width&#x3D;</span><br><span class="line">heigth&#x3D;</span><br></pre></td></tr></table></figure>
+
+<p>这两个参数相信大家一眼就能看出来，用于控制图形的宽和高的，具体例子如下：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">fig = px.scatter(data_frame=df,</span><br><span class="line">                 title=<span class="string">"国家数据的无监督学习"</span>,</span><br><span class="line">                 x=<span class="string">"人均国内生产总值"</span>,</span><br><span class="line">                 y=<span class="string">"人均纯收入"</span>,</span><br><span class="line">                 hover_name=<span class="string">"国家"</span>,</span><br><span class="line">                 </span><br><span class="line">                 width=<span class="number">1000</span>,</span><br><span class="line">                 height=<span class="number">1000</span></span><br><span class="line">                 )</span><br><span class="line"></span><br><span class="line">fig.show()</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/shuoshuoyun/picbed/raw/master/img//20200809105041.png" alt></p>
+<h2 id="参数十三、十四："><a href="#参数十三、十四：" class="headerlink" title="参数十三、十四："></a><strong>参数十三、十四：</strong></h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">log_x&#x3D;</span><br><span class="line">log_y&#x3D;</span><br></pre></td></tr></table></figure>
+
+<p>这两个参数的作用为如果它们都为 True ，那么将把 x，y 轴以对数缩放。这个可能比较难理解，通俗的来讲，就是将 x，y 轴的数据进行求对数，然后再进行绘图，具体例子如下：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">fig = px.scatter(data_frame=df,</span><br><span class="line">                 title=<span class="string">"国家数据的无监督学习"</span>,</span><br><span class="line">                 x=<span class="string">"人均国内生产总值"</span>,</span><br><span class="line">                 y=<span class="string">"人均纯收入"</span>,</span><br><span class="line">                 hover_name=<span class="string">"国家"</span>,</span><br><span class="line">                 </span><br><span class="line">                 log_x=<span class="literal">True</span>,</span><br><span class="line">                 log_y=<span class="literal">True</span></span><br><span class="line">                 )</span><br><span class="line"></span><br><span class="line">fig.show()</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/shuoshuoyun/picbed/raw/master/img//20200809105316.png" alt></p>
+<p>这里我们可以很明显的看到，通过对 x，y 轴的数据进行求对数后，原来集中分布在左下角的数据已经变成大致呈线性分布了，所以说，这两个参数在某些情况下会产生意想不到的结果。</p>
+<p>至此，<strong>scatter()</strong>的简单介绍就差不多结束了，我们上面介绍的也只是它的部分参数，有兴趣的同学可以去探索一下它一些其他的参数，这里给出传送门：</p>
+<p><strong><span class="exturl" data-url="aHR0cHM6Ly9wbG90bHkuY29tL3B5dGhvbi1hcGktcmVmZXJlbmNlL2dlbmVyYXRlZC9wbG90bHkuZXhwcmVzcy5zY2F0dGVyLmh0bWw=">https://plotly.com/python-api-reference/generated/plotly.express.scatter.html<i class="fa fa-external-link-alt"></i></span></strong></p>
+<h1 id="原文链接"><a href="#原文链接" class="headerlink" title="原文链接"></a>原文链接</h1><div class="link-grid"><div class="link-grid-container">
+<div class="link-grid-image" style="background-image: url(/images/gongzhonghaologo.png);"></div>
+<p>python趣味爱好者</p><p>python批发好看壁纸</p>
+<a href="https://mp.weixin.qq.com/s?__biz=MzI3NjU3NDg1NQ==&tempkey=MTA3MV9yNVZWdnkvMkVWMEtvWXRMN3R0X3FWRFU0QnppNFFVT01HQkYwZ19nRGFlRXRvelVZNWo2OEJNNWhRc1dkSThDbDVuUEpoSl9ham9NOTZIMWNkQWxSWXZNMkN2VTJRYmVXTlBIR3ZWTUhfUzRjZjlsTGFRdUNnWGMyc051R2hBeFhBTUVxeDZNZmlzdkJ0U0x1YVMxdnRJdlVIMmYyZzd0b1hXS2Znfn4%3D&chksm=6b7222775c05ab6163afcbffb097c74b990cfa16db25c4bb0163a26cbb585fc62862e39afb46&__mpa_temp_link_flag=1&token=1190741611#rd" target="_blank" rel="noopener"></a>
+</div></div>
+
+]]></content>
       <categories>
         <category>公众号</category>
       </categories>
